@@ -58,7 +58,7 @@ function FAQ() {
     <PageShell eyebrow="FAQ" title="Dental implant questions, answered" lead="Reviewed by our clinical team. If your question isn't here, contact us.">
       <FadeIn>
         <Accordion type="single" collapsible className="w-full">
-          {FAQS.map((f, i) => (
+          {FAQS_DATA.map((f, i) => (
             <AccordionItem key={i} value={`f-${i}`}>
               <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
