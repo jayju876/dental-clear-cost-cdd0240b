@@ -1,0 +1,114 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { FadeIn, PageShell } from "@/components/site/Section";
+import { toast } from "sonner";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact ImplantCost — Talk to Our Team" },
+      { name: "description", content: "Get in touch with the ImplantCost team. We respond within one business day to cost questions, clinic suggestions and feedback." },
+      { property: "og:title", content: "Contact ImplantCost" },
+      { property: "og:description", content: "We respond within one business day to all queries." },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+  }),
+  component: Contact,
+});
+
+function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [loading, setLoading] = useState(false);
+
+  function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      toast.error("Please fill name, email and message.");
+      return;
+    }
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      toast.success("Message sent! We'll be in touch within one business day.");
+      setForm({ name: "", email: "", subject: "", message: "" });
+    }, 700);
+  }
+
+  return (
+    <PageShell
+      eyebrow="Contact us"
+      title="We're here to help you plan with confidence"
+      lead="Questions about your estimate, clinic recommendations, or partnerships — drop us a line."
+    >
+      <div className="grid lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <FadeIn>
+            <Card className="p-6 md:p-8 border-border/70">
+              <form onSubmit={submit} className="space-y-5">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="name">Full name</Label>
+                    <Input id="name" className="mt-2" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} />
+                  </div>
+                  <div>
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" className="mt-2" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input id="subject" className="mt-2" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} maxLength={150} />
+                </div>
+                <div>
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea id="message" className="mt-2 min-h-[140px]" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={2000} />
+                </div>
+                <Button type="submit" disabled={loading} className="bg-gradient-primary text-primary-foreground">
+                  <Send className="mr-2 h-4 w-4" /> {loading ? "Sending..." : "Send message"}
+                </Button>
+              </form>
+            </Card>
+          </FadeIn>
+        </div>
+
+        <div className="space-y-4">
+          <Card className="p-5 border-border/70">
+            <Info icon={Mail} title="Email" value="hello@implantcost.health" />
+            <Info icon={Phone} title="Phone" value="+91 80 4000 4000" />
+            <Info icon={MapPin} title="Office" value="WeWork Galaxy, Residency Rd, Bengaluru 560025" />
+            <Info icon={Clock} title="Hours" value="Mon–Sat · 9 AM – 7 PM IST" />
+          </Card>
+          <Card className="overflow-hidden border-border/70">
+            <div className="aspect-[4/3] bg-gradient-soft relative">
+              <div className="absolute inset-0 grid place-items-center text-muted-foreground text-sm">
+                <div className="text-center">
+                  <MapPin className="h-8 w-8 mx-auto text-secondary" />
+                  <p className="mt-2 font-medium text-foreground">Google Map</p>
+                  <p className="text-xs">Bengaluru, Karnataka, India</p>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </PageShell>
+  );
+}
+
+function Info({ icon: Icon, title, value }: { icon: typeof Mail; title: string; value: string }) {
+  return (
+    <div className="flex items-start gap-3 py-3 border-b border-border last:border-0">
+      <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary"><Icon className="h-4 w-4" /></div>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{title}</p>
+        <p className="text-sm font-medium mt-0.5">{value}</p>
+      </div>
+    </div>
+  );
+}
