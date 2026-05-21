@@ -36,7 +36,6 @@ const STEPS = [
   { id: "implant", label: "Implant", icon: Layers },
   { id: "crown", label: "Materials", icon: Gem },
   { id: "addons", label: "Add-ons", icon: Stethoscope },
-  { id: "lead", label: "Your details", icon: User },
   { id: "result", label: "Results", icon: Award },
 ] as const;
 
@@ -53,26 +52,13 @@ function CalculatorPage() {
     sinusLift: false,
     extraction: false,
   });
-  const [lead, setLead] = useState({ name: "", email: "", phone: "" });
 
   const country = COUNTRIES.find((c) => c.code === input.country)!;
   const progress = ((step + 1) / STEPS.length) * 100;
 
   const result = useMemo(() => estimate(input), [input]);
 
-  function next() {
-    if (step === 5) {
-      if (!lead.name || !lead.email || !lead.phone) {
-        toast.error("Please fill all your details to view your personalized estimate.");
-        return;
-      }
-      if (!/^\S+@\S+\.\S+$/.test(lead.email)) {
-        toast.error("Please enter a valid email address.");
-        return;
-      }
-    }
-    setStep((s) => Math.min(STEPS.length - 1, s + 1));
-  }
+  function next() { setStep((s) => Math.min(STEPS.length - 1, s + 1)); }
   function back() { setStep((s) => Math.max(0, s - 1)); }
 
   return (
