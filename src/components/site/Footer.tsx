@@ -12,12 +12,14 @@ const legal = [
 ] as const;
 
 const explore = [
-  { to: "/calculator", label: "Calculator" },
-  { to: "/about", label: "About Us" },
+  { to: "/calculator", label: "Implant Cost Calculator" },
+  { to: "/loan-calculator", label: "Loan EMI Calculator" },
+  { to: "/ratio-calculator", label: "Implant Ratio Calculator" },
+  { to: "/all-on-4-calculator", label: "All-on-4 Calculator" },
   { to: "/blog", label: "Blog" },
+  { to: "/about", label: "About Us" },
   { to: "/contact", label: "Contact" },
   { to: "/faq", label: "FAQ" },
-  { to: "/sitemap", label: "Sitemap" },
 ] as const;
 
 export function Footer() {
