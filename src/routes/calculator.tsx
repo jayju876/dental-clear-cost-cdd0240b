@@ -107,8 +107,7 @@ function CalculatorPage() {
                 {step === 2 && <StepImplant input={input} setInput={setInput} />}
                 {step === 3 && <StepCrown input={input} setInput={setInput} />}
                 {step === 4 && <StepAddons input={input} setInput={setInput} />}
-                {step === 5 && <StepLead lead={lead} setLead={setLead} />}
-                {step === 6 && <StepResult result={result} lead={lead} />}
+                {step === 5 && <StepResult result={result} />}
               </Card>
             </motion.div>
           </AnimatePresence>
@@ -119,7 +118,7 @@ function CalculatorPage() {
             </Button>
             {step < STEPS.length - 1 ? (
               <Button onClick={next} className="bg-gradient-primary text-primary-foreground">
-                {step === 5 ? "Show my estimate" : "Continue"} <ChevronRight className="ml-1 h-4 w-4" />
+                {step === STEPS.length - 2 ? "View my estimate" : "Continue"} <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             ) : (
               <Button onClick={() => { setStep(0); }} variant="outline">
@@ -130,7 +129,7 @@ function CalculatorPage() {
         </div>
 
         {/* Sticky preview */}
-        {step > 0 && step < 6 && (
+        {step > 0 && step < STEPS.length - 1 && (
           <div className="mt-10 max-w-3xl mx-auto text-center text-xs text-muted-foreground">
             Current selection: <span className="font-medium text-foreground">{country.name}</span> · {input.teeth} tooth/teeth · {IMPLANT_TYPES.find((t) => t.id === input.implantType)?.label}
           </div>
