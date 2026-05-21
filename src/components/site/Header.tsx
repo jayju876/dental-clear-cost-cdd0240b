@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/calculator", label: "Calculator" },
-  { to: "/about", label: "About Us" },
+  { to: "/calculator", label: "Implant Cost" },
+  { to: "/loan-calculator", label: "Loan EMI" },
+  { to: "/ratio-calculator", label: "Implant Ratio" },
   { to: "/blog", label: "Blog" },
-  { to: "/contact", label: "Contact Us" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
@@ -22,30 +24,30 @@ export function Header() {
           </span>
           <span className="text-base font-semibold tracking-tight">ImplantCost<span className="text-secondary">.</span></span>
         </Link>
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-1">
           {nav.map((n) => (
             <Link
               key={n.to}
               to={n.to}
-              className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "px-3 py-2 text-sm font-semibold text-foreground" }}
+              className="px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{ className: "px-2.5 py-2 text-sm font-semibold text-foreground" }}
               activeOptions={{ exact: n.to === "/" }}
             >
               {n.label}
             </Link>
           ))}
         </nav>
-        <div className="hidden md:block">
-          <Button asChild className="bg-gradient-primary text-primary-foreground hover:opacity-90">
-            <Link to="/calculator">Start Calculator</Link>
+        <div className="hidden lg:block">
+          <Button asChild size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
+            <Link to="/calculator">Get Estimate</Link>
           </Button>
         </div>
-        <button className="md:hidden p-2" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden p-2" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div className="lg:hidden border-t border-border bg-background">
           <div className="container mx-auto flex flex-col px-4 py-3 gap-1">
             {nav.map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="px-2 py-2 text-sm font-medium">
@@ -53,7 +55,7 @@ export function Header() {
               </Link>
             ))}
             <Button asChild className="mt-2 bg-gradient-primary text-primary-foreground">
-              <Link to="/calculator" onClick={() => setOpen(false)}>Start Calculator</Link>
+              <Link to="/calculator" onClick={() => setOpen(false)}>Get Estimate</Link>
             </Button>
           </div>
         </div>

@@ -12,17 +12,19 @@ const legal = [
 ] as const;
 
 const explore = [
-  { to: "/calculator", label: "Calculator" },
-  { to: "/about", label: "About Us" },
+  { to: "/calculator", label: "Implant Cost Calculator" },
+  { to: "/loan-calculator", label: "Loan EMI Calculator" },
+  { to: "/ratio-calculator", label: "Implant Ratio Calculator" },
+  { to: "/all-on-4-calculator", label: "All-on-4 Calculator" },
   { to: "/blog", label: "Blog" },
+  { to: "/about", label: "About Us" },
   { to: "/contact", label: "Contact" },
   { to: "/faq", label: "FAQ" },
-  { to: "/sitemap", label: "Sitemap" },
 ] as const;
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-border bg-primary text-primary-foreground">
+    <footer className="mt-16 border-t border-border bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-14 grid gap-10 md:grid-cols-4">
         <div className="space-y-4">
           <div className="flex items-center gap-2">
