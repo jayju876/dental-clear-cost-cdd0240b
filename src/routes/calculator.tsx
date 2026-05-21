@@ -3,17 +3,15 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft, ChevronRight, Globe2, MapPin, Smile, Layers, Gem, Award,
-  Stethoscope, CheckCircle2, ArrowRight, Sparkles, TrendingDown, Wallet, User,
+  Stethoscope, CheckCircle2, Sparkles, TrendingDown, Wallet, Phone, CalendarCheck, MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Slider } from "@/components/ui/slider";
-import { toast } from "sonner";
 import {
   COUNTRIES, IMPLANT_TYPES, CROWN_MATERIALS, BRANDS, estimate, formatCurrency, emi,
   type CalcInput, type CountryCode,
@@ -38,7 +36,6 @@ const STEPS = [
   { id: "implant", label: "Implant", icon: Layers },
   { id: "crown", label: "Materials", icon: Gem },
   { id: "addons", label: "Add-ons", icon: Stethoscope },
-  { id: "lead", label: "Your details", icon: User },
   { id: "result", label: "Results", icon: Award },
 ] as const;
 
@@ -55,26 +52,13 @@ function CalculatorPage() {
     sinusLift: false,
     extraction: false,
   });
-  const [lead, setLead] = useState({ name: "", email: "", phone: "" });
 
   const country = COUNTRIES.find((c) => c.code === input.country)!;
   const progress = ((step + 1) / STEPS.length) * 100;
 
   const result = useMemo(() => estimate(input), [input]);
 
-  function next() {
-    if (step === 5) {
-      if (!lead.name || !lead.email || !lead.phone) {
-        toast.error("Please fill all your details to view your personalized estimate.");
-        return;
-      }
-      if (!/^\S+@\S+\.\S+$/.test(lead.email)) {
-        toast.error("Please enter a valid email address.");
-        return;
-      }
-    }
-    setStep((s) => Math.min(STEPS.length - 1, s + 1));
-  }
+  function next() { setStep((s) => Math.min(STEPS.length - 1, s + 1)); }
   function back() { setStep((s) => Math.max(0, s - 1)); }
 
   return (
@@ -123,8 +107,7 @@ function CalculatorPage() {
                 {step === 2 && <StepImplant input={input} setInput={setInput} />}
                 {step === 3 && <StepCrown input={input} setInput={setInput} />}
                 {step === 4 && <StepAddons input={input} setInput={setInput} />}
-                {step === 5 && <StepLead lead={lead} setLead={setLead} />}
-                {step === 6 && <StepResult result={result} lead={lead} />}
+                {step === 5 && <StepResult result={result} />}
               </Card>
             </motion.div>
           </AnimatePresence>
@@ -135,7 +118,7 @@ function CalculatorPage() {
             </Button>
             {step < STEPS.length - 1 ? (
               <Button onClick={next} className="bg-gradient-primary text-primary-foreground">
-                {step === 5 ? "Show my estimate" : "Continue"} <ChevronRight className="ml-1 h-4 w-4" />
+                {step === STEPS.length - 2 ? "View my estimate" : "Continue"} <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             ) : (
               <Button onClick={() => { setStep(0); }} variant="outline">
@@ -146,7 +129,7 @@ function CalculatorPage() {
         </div>
 
         {/* Sticky preview */}
-        {step > 0 && step < 6 && (
+        {step > 0 && step < STEPS.length - 1 && (
           <div className="mt-10 max-w-3xl mx-auto text-center text-xs text-muted-foreground">
             Current selection: <span className="font-medium text-foreground">{country.name}</span> · {input.teeth} tooth/teeth · {IMPLANT_TYPES.find((t) => t.id === input.implantType)?.label}
           </div>
@@ -253,28 +236,7 @@ function StepAddons({ input, setInput }: { input: CalcInput; setInput: (v: CalcI
   );
 }
 
-function StepLead({ lead, setLead }: { lead: { name: string; email: string; phone: string }; setLead: (v: typeof lead) => void }) {
-  return (
-    <div className="space-y-5">
-      <Heading icon={User} title="Where should we send your estimate?" sub="We'll email a detailed breakdown. No spam — see our Privacy Policy." />
-      <div>
-        <Label htmlFor="name">Full name</Label>
-        <Input id="name" className="mt-2" value={lead.name} onChange={(e) => setLead({ ...lead, name: e.target.value })} placeholder="Jane Doe" />
-      </div>
-      <div>
-        <Label htmlFor="email">Email</Label>
-        <Input id="email" type="email" className="mt-2" value={lead.email} onChange={(e) => setLead({ ...lead, email: e.target.value })} placeholder="jane@example.com" />
-      </div>
-      <div>
-        <Label htmlFor="phone">Phone number</Label>
-        <Input id="phone" type="tel" className="mt-2" value={lead.phone} onChange={(e) => setLead({ ...lead, phone: e.target.value })} placeholder="+1 555 123 4567" />
-      </div>
-      <p className="text-xs text-muted-foreground flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-secondary" /> Your data is encrypted, never sold, and used only to deliver your estimate.</p>
-    </div>
-  );
-}
-
-function StepResult({ result, lead }: { result: ReturnType<typeof estimate>; lead: { name: string; email: string; phone: string } }) {
+function StepResult({ result }: { result: ReturnType<typeof estimate> }) {
   const c = result.country;
   const india = COUNTRIES.find((x) => x.code === "IN")!;
   const months = 24;
@@ -284,7 +246,7 @@ function StepResult({ result, lead }: { result: ReturnType<typeof estimate>; lea
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Your personalized estimate</span>
-        <h2 className="mt-2 text-2xl md:text-3xl font-bold">{lead.name ? `${lead.name.split(" ")[0]}, here's your treatment range` : "Your treatment range"}</h2>
+        <h2 className="mt-2 text-2xl md:text-3xl font-bold">Your treatment range</h2>
       </div>
 
       <div className="rounded-2xl bg-gradient-primary p-6 md:p-8 text-primary-foreground shadow-elegant">
@@ -334,23 +296,37 @@ function StepResult({ result, lead }: { result: ReturnType<typeof estimate>; lea
         <p className="mt-1 text-sm text-muted-foreground">A {result.brand.label} system offers a balance of reliability and value for your case profile. Final recommendation requires an in-person consultation and CBCT scan.</p>
       </Card>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        <Card className="p-5 border-border/70">
-          <p className="text-xs font-semibold uppercase tracking-wider text-secondary">Financing options</p>
-          <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
-            <li>• 0% interest EMI (select clinics, 6–12 months)</li>
-            <li>• 12–24 month dental loans via partner lenders</li>
-            <li>• HSA / FSA where applicable (US)</li>
-            <li>• Insurance partial coverage (varies by plan)</li>
-          </ul>
-        </Card>
-        <Card className="p-5 border-border/70">
-          <p className="text-xs font-semibold uppercase tracking-wider text-secondary">Next steps</p>
-          <div className="mt-3 flex flex-col gap-2">
-            <Button className="bg-gradient-primary text-primary-foreground">Email me this estimate <ArrowRight className="ml-2 h-4 w-4" /></Button>
-            <Button variant="outline">Find verified clinics</Button>
-          </div>
-        </Card>
+      <Card className="p-5 border-border/70">
+        <p className="text-xs font-semibold uppercase tracking-wider text-secondary">Financing options</p>
+        <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
+          <li>• 0% interest EMI (select clinics, 6–12 months)</li>
+          <li>• 12–24 month dental loans via partner lenders</li>
+          <li>• HSA / FSA where applicable (US)</li>
+          <li>• Insurance partial coverage (varies by plan)</li>
+        </ul>
+      </Card>
+
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-secondary text-center">Take the next step</p>
+        <div className="mt-4 grid sm:grid-cols-3 gap-3">
+          <Button asChild className="bg-gradient-primary text-primary-foreground">
+            <a href="/contact"><Phone className="mr-2 h-4 w-4" /> Contact Clinic</a>
+          </Button>
+          <Button asChild variant="outline" className="border-secondary/40 hover:bg-secondary/5">
+            <a href="/contact?intent=consultation"><CalendarCheck className="mr-2 h-4 w-4" /> Book Consultation</a>
+          </Button>
+          <Button asChild variant="outline" className="border-success/40 text-success hover:bg-success/5 hover:text-success">
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent(
+                `Hi, I'd like a dental implant quote. Estimate: ${formatCurrency(result.lowUSD, c)}–${formatCurrency(result.highUSD, c)} in ${c.name} for ${result.teeth} tooth/teeth (${result.type.label}, ${result.brand.label}).`,
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp Inquiry
+            </a>
+          </Button>
+        </div>
       </div>
 
       <p className="text-xs text-muted-foreground text-center">
