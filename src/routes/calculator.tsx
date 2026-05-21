@@ -8,12 +8,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Slider } from "@/components/ui/slider";
-import { toast } from "sonner";
 import {
   COUNTRIES, IMPLANT_TYPES, CROWN_MATERIALS, BRANDS, estimate, formatCurrency, emi,
   type CalcInput, type CountryCode,
