@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft, ChevronRight, Globe2, MapPin, Smile, Layers, Gem, Award,
-  Stethoscope, CheckCircle2, ArrowRight, Sparkles, TrendingDown, Wallet, User,
+  Stethoscope, CheckCircle2, Sparkles, TrendingDown, Wallet, Phone, CalendarCheck, MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
