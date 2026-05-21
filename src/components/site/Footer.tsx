@@ -24,7 +24,7 @@ const explore = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-border bg-primary text-primary-foreground">
+    <footer className="mt-16 border-t border-border bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-14 grid gap-10 md:grid-cols-4">
         <div className="space-y-4">
           <div className="flex items-center gap-2">
