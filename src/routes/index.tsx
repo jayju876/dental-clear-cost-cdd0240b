@@ -18,60 +18,73 @@ import jawImg from "@/assets/jaw-diagram.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dental Implant Cost Calculator — Worldwide Estimates" },
-      { name: "description", content: "Get instant dental implant cost estimates worldwide. Compare prices across India, USA, UK, UAE and more. Free loan EMI and ratio calculators included." },
-      { property: "og:title", content: "Dental Implant Cost Calculator — Worldwide Estimates" },
-      { property: "og:description", content: "Compare dental implant prices worldwide with personalized estimates." },
+      { title: "Dental Implant Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
+      { name: "description", content: "Use our free dental implant cost calculator to estimate single tooth, All-on-4, and full mouth dental implant costs in the USA. Instant personalized estimates." },
+      { property: "og:title", content: "Dental Implant Cost Calculator (2026) – Free US Estimate" },
+      { property: "og:description", content: "Estimate single tooth, All-on-4 and full mouth dental implant costs across the United States in seconds." },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        name: "Dental Implant Cost Calculator",
+        applicationCategory: "HealthApplication",
+        operatingSystem: "Web",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        areaServed: "US",
+        description: "Free dental implant cost calculator for single tooth, All-on-4 and full mouth implants in the United States.",
+      }),
+    }],
   }),
   component: Home,
 });
 
 const stats = [
   { label: "Estimates generated", value: "240K+", icon: CalcIcon },
-  { label: "Countries supported", value: "32", icon: Globe2 },
-  { label: "Verified clinics", value: "1,800+", icon: ShieldCheck },
-  { label: "Avg. savings (India)", value: "70%", icon: TrendingDown },
+  { label: "US metro areas", value: "50+", icon: Globe2 },
+  { label: "Verified US clinics", value: "1,800+", icon: ShieldCheck },
+  { label: "Avg. insurance savings", value: "35%", icon: TrendingDown },
 ];
 
-const trustBadges = ["ISO 27001 Data Security", "HIPAA Aligned", "GDPR Compliant", "Medically Reviewed"];
+const trustBadges = ["HIPAA Compliant", "ADA-Aligned Data", "Financing Friendly", "Medically Reviewed"];
 
 const calculators = [
   {
-    to: "/calculator", icon: CalcIcon, img: implant3d,
-    title: "Implant Cost Calculator",
-    body: "Country-specific pricing for single, multiple and full-arch implants. Includes brand, crown and add-ons.",
+    to: "/cost", icon: CalcIcon, img: implant3d,
+    title: "Dental Implant Cost Calculator",
+    body: "US pricing for single tooth, All-on-4 and full mouth implants. Includes brand, crown material and add-ons.",
   },
   {
-    to: "/loan-calculator", icon: Wallet, img: loanImg,
-    title: "Loan EMI Calculator",
-    body: "Plan monthly payments. Adjust cost, down payment, APR and term to see EMI and total interest.",
+    to: "/loan", icon: Wallet, img: loanImg,
+    title: "Dental Implant Loan Calculator",
+    body: "Plan monthly payments. Adjust treatment cost, down payment, APR and term to see your dental implant financing.",
   },
   {
-    to: "/ratio-calculator", icon: Layers, img: jawImg,
+    to: "/ratio", icon: Layers, img: jawImg,
     title: "Implant Ratio Calculator",
     body: "How many implants do you need? Match teeth, jaw and bone to the right treatment.",
   },
 ];
 
 const testimonials = [
-  { name: "Priya S.", country: "UK → India", quote: "Saved over £6,400 on full-arch implants. The estimate was within 5% of my final invoice." },
-  { name: "Mark D.", country: "USA", quote: "Finally a calculator that breaks down crown material, brand and bone graft costs clearly." },
-  { name: "Ahmed R.", country: "UAE", quote: "Compared three countries in under a minute. The financing estimate sealed it for me." },
+  { name: "Sarah J.", country: "New York, NY", quote: "The dental implant cost calculator nailed my All-on-4 estimate within $400 of what my clinic quoted." },
+  { name: "Mark D.", country: "Dallas, TX", quote: "Finally a calculator that breaks down crown material, brand and bone graft costs clearly." },
+  { name: "Linda P.", country: "Miami, FL", quote: "The financing estimator made my full-mouth implants actually feel affordable." },
 ];
 
 const educational = [
-  { title: "Single Tooth Implant", body: "Replacement of one missing tooth with a titanium post, abutment and crown." },
-  { title: "All-on-4 / All-on-6", body: "Full-arch restoration anchored on 4 or 6 implants — ideal for full-mouth rehabilitation." },
-  { title: "Bone Grafting", body: "Augments insufficient jawbone to securely host an implant; cost varies by complexity." },
-  { title: "Crown Materials", body: "Zirconia, PFM and E.max — each balances aesthetics, durability and price differently." },
+  { title: "Single Tooth Implant", body: "Replacement of one missing tooth with a titanium post, abutment and crown. Typical US cost $3,500–$6,000." },
+  { title: "All-on-4 Dental Implants", body: "Full-arch restoration anchored on 4 implants. Average US cost $20,000–$30,000 per arch." },
+  { title: "Full Mouth Dental Implants", body: "Both arches restored with implants. Total US cost typically ranges $40,000–$60,000." },
+  { title: "Bone Grafting & Sinus Lift", body: "Add-on procedures when jawbone is insufficient. Add $300–$3,000 to total cost." },
 ];
 
 const blogTeasers = [
-  { title: "India vs USA: Dental Implant Cost in 2026", excerpt: "A side-by-side breakdown of total treatment cost, travel, and quality of care.", tag: "Cost Guide", img: smilingPatient },
-  { title: "How to Choose an Implant Brand", excerpt: "Straumann, Nobel Biocare, Osstem and more — what actually matters.", tag: "Education", img: implant3d },
-  { title: "Financing Your Implants", excerpt: "EMI, dental loans and insurance: the realistic options in 2026.", tag: "Finance", img: loanImg },
+  { title: "Full Mouth Dental Implant Cost in the USA (2026)", excerpt: "What All-on-4, All-on-6 and full mouth implants really cost across US cities.", tag: "Cost Guide", img: smilingPatient },
+  { title: "Does Insurance Cover Dental Implants?", excerpt: "Medical vs dental coverage, FSA/HSA options and what to expect in 2026.", tag: "Insurance", img: implant3d },
+  { title: "Dental Implant Financing in the USA", excerpt: "CareCredit, Lending Club, in-house plans and how to choose the right loan.", tag: "Finance", img: loanImg },
 ];
 
 const faqs = [
