@@ -111,7 +111,7 @@ function Home() {
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
                 <Sparkles className="h-3.5 w-3.5 text-secondary" />
-                Updated for 2026 pricing across 32 countries
+                America's Dental Implant Cost Estimation Platform · 2026
               </span>
               <h1 className="mt-5 text-4xl md:text-6xl font-bold tracking-tight">
                 Get Instant Dental Implant <span className="text-gradient">Cost Estimates</span> Worldwide
