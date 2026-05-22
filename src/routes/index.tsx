@@ -357,10 +357,10 @@ function Home() {
               <p className="mt-3 text-primary-foreground/80">Join 240,000+ patients who used ImplantCost to compare prices, plan EMI and find the right treatment.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90">
-                  <Link to="/calculator">Start free estimate <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                  <Link to="/ratio-calculator">How many implants?</Link>
+                  <Link to="/ratio">How many implants?</Link>
                 </Button>
               </div>
             </div>
