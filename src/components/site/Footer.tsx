@@ -12,9 +12,9 @@ const legal = [
 ] as const;
 
 const explore = [
-  { to: "/calculator", label: "Implant Cost Calculator" },
-  { to: "/loan-calculator", label: "Loan EMI Calculator" },
-  { to: "/ratio-calculator", label: "Implant Ratio Calculator" },
+  { to: "/cost", label: "Cost Calculator" },
+  { to: "/loan", label: "Loan Calculator" },
+  { to: "/ratio", label: "Ratio Calculator" },
   { to: "/all-on-4-calculator", label: "All-on-4 Calculator" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About Us" },
