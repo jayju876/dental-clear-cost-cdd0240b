@@ -4,8 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/site/Section";
-import { getAuthor, AUTHORS } from "@/lib/authors";
-import { postsByAuthor } from "@/lib/blog-posts";
+import { getAuthor, AUTHORS, type Author } from "@/lib/authors";
+import { postsByAuthor, type BlogPost } from "@/lib/blog-posts";
 
 export const Route = createFileRoute("/author/$slug")({
   loader: ({ params }) => {
