@@ -13,6 +13,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as RatioCalculatorRouteImport } from './routes/ratio-calculator'
+import { Route as RatioRouteImport } from './routes/ratio'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as LoanCalculatorRouteImport } from './routes/loan-calculator'
 import { Route as LoanRouteImport } from './routes/loan'
@@ -53,6 +54,11 @@ const SitemapRoute = SitemapRouteImport.update({
 const RatioCalculatorRoute = RatioCalculatorRouteImport.update({
   id: '/ratio-calculator',
   path: '/ratio-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatioRoute = RatioRouteImport.update({
+  id: '/ratio',
+  path: '/ratio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -188,6 +194,7 @@ export interface FileRoutesByFullPath {
   '/loan': typeof LoanRoute
   '/loan-calculator': typeof LoanCalculatorRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -215,6 +222,7 @@ export interface FileRoutesByTo {
   '/loan': typeof LoanRoute
   '/loan-calculator': typeof LoanCalculatorRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -243,6 +251,7 @@ export interface FileRoutesById {
   '/loan': typeof LoanRoute
   '/loan-calculator': typeof LoanCalculatorRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -272,6 +281,7 @@ export interface FileRouteTypes {
     | '/loan'
     | '/loan-calculator'
     | '/privacy-policy'
+    | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
     | '/sitemap.xml'
@@ -299,6 +309,7 @@ export interface FileRouteTypes {
     | '/loan'
     | '/loan-calculator'
     | '/privacy-policy'
+    | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
     | '/sitemap.xml'
@@ -326,6 +337,7 @@ export interface FileRouteTypes {
     | '/loan'
     | '/loan-calculator'
     | '/privacy-policy'
+    | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
     | '/sitemap.xml'
@@ -354,6 +366,7 @@ export interface RootRouteChildren {
   LoanRoute: typeof LoanRoute
   LoanCalculatorRoute: typeof LoanCalculatorRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RatioRoute: typeof RatioRoute
   RatioCalculatorRoute: typeof RatioCalculatorRoute
   SitemapRoute: typeof SitemapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -388,6 +401,13 @@ declare module '@tanstack/react-router' {
       path: '/ratio-calculator'
       fullPath: '/ratio-calculator'
       preLoaderRoute: typeof RatioCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratio': {
+      id: '/ratio'
+      path: '/ratio'
+      fullPath: '/ratio'
+      preLoaderRoute: typeof RatioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -562,6 +582,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoanRoute: LoanRoute,
   LoanCalculatorRoute: LoanCalculatorRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RatioRoute: RatioRoute,
   RatioCalculatorRoute: RatioCalculatorRoute,
   SitemapRoute: SitemapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
