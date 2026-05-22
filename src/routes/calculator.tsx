@@ -42,12 +42,12 @@ const STEPS = [
 export function CalculatorPage() {
   const [step, setStep] = useState(0);
   const [input, setInput] = useState<CalcInput>({
-    country: "IN",
-    city: "Mumbai",
+    country: "US",
+    city: "New York",
     teeth: 1,
     implantType: "single",
     crown: "zirconia",
-    brand: "osstem",
+    brand: "nobel",
     boneGraft: false,
     sinusLift: false,
     extraction: false,
