@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { POSTS } from "@/lib/blog-posts";
+import { AUTHORS } from "@/lib/authors";
 
 const BASE_URL = "";
 
-const PATHS = [
+const STATIC_PATHS = [
   { path: "/", priority: "1.0", changefreq: "weekly" as const },
   { path: "/cost", priority: "0.9", changefreq: "weekly" as const },
   { path: "/loan", priority: "0.9", changefreq: "weekly" as const },
@@ -26,6 +28,12 @@ const PATHS = [
   { path: "/hipaa", priority: "0.3", changefreq: "yearly" as const },
   { path: "/accessibility", priority: "0.3", changefreq: "yearly" as const },
   { path: "/editorial-policy", priority: "0.3", changefreq: "yearly" as const },
+];
+
+const PATHS = [
+  ...STATIC_PATHS,
+  ...POSTS.map((p) => ({ path: `/blog/${p.slug}`, priority: "0.7", changefreq: "monthly" as const })),
+  ...AUTHORS.map((a) => ({ path: `/author/${a.slug}`, priority: "0.6", changefreq: "monthly" as const })),
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
