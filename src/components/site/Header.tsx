@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/calculator", label: "Implant Cost" },
-  { to: "/loan-calculator", label: "Loan EMI" },
-  { to: "/ratio-calculator", label: "Implant Ratio" },
+  { to: "/cost", label: "Cost Calculator" },
+  { to: "/loan", label: "Loan Calculator" },
+  { to: "/ratio", label: "Ratio Calculator" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
@@ -39,7 +39,7 @@ export function Header() {
         </nav>
         <div className="hidden lg:block">
           <Button asChild size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
-            <Link to="/calculator">Get Estimate</Link>
+            <Link to="/cost">Calculate My Cost</Link>
           </Button>
         </div>
         <button className="lg:hidden p-2" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
@@ -55,7 +55,7 @@ export function Header() {
               </Link>
             ))}
             <Button asChild className="mt-2 bg-gradient-primary text-primary-foreground">
-              <Link to="/calculator" onClick={() => setOpen(false)}>Get Estimate</Link>
+              <Link to="/cost" onClick={() => setOpen(false)}>Calculate My Cost</Link>
             </Button>
           </div>
         </div>
