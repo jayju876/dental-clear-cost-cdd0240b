@@ -265,7 +265,7 @@ function Home() {
             </FadeIn>
             <div>
               <FadeIn>
-                <h2 className="text-3xl md:text-4xl font-bold">Trusted by patients in 32 countries</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">Trusted by patients across the United States</h2>
                 <p className="mt-3 text-muted-foreground max-w-xl">Real stories from people who used ImplantCost to plan their treatment.</p>
               </FadeIn>
               <div className="mt-8 grid sm:grid-cols-2 gap-4">
