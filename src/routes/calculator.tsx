@@ -39,7 +39,7 @@ const STEPS = [
   { id: "result", label: "Results", icon: Award },
 ] as const;
 
-function CalculatorPage() {
+export function CalculatorPage() {
   const [step, setStep] = useState(0);
   const [input, setInput] = useState<CalcInput>({
     country: "IN",
