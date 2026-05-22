@@ -88,10 +88,10 @@ const blogTeasers = [
 ];
 
 const faqs = [
-  { q: "How accurate is the cost estimate?", a: "Our estimates are based on aggregated 2025-2026 clinic pricing across 32 countries and are typically within 10–15% of final invoices." },
-  { q: "Is the calculator free to use?", a: "Yes. All three calculators — cost, loan and ratio — are 100% free, with no signup required." },
-  { q: "Do you share my information?", a: "We don't collect personal details unless you choose to contact a clinic. See our Privacy Policy." },
-  { q: "Why is India so much cheaper?", a: "Lower clinic overhead, favourable exchange rates and a large pool of internationally-trained dentists." },
+  { q: "How accurate is the dental implant cost calculator?", a: "Our US estimates are based on aggregated 2025–2026 clinic pricing across 50+ metro areas and are typically within 10–15% of final invoices." },
+  { q: "Is the dental implant cost calculator free?", a: "Yes. All three calculators — cost, loan and ratio — are 100% free, with no signup required." },
+  { q: "Does insurance cover dental implants?", a: "Most US dental insurance plans cover 10–50% of implant costs. Medical insurance may cover implants after accidents or oral cancer. Our calculator shows estimated out-of-pocket ranges." },
+  { q: "How much do full mouth dental implants cost in the USA?", a: "Full mouth dental implants in the United States typically cost $40,000–$60,000 for both arches, depending on city, implant brand and crown material." },
 ];
 
 function Home() {
