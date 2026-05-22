@@ -99,10 +99,10 @@ function PostPage() {
       <div className="mt-8 aspect-[16/9] rounded-2xl bg-gradient-accent" />
 
       <div className="prose prose-slate dark:prose-invert max-w-none mt-10">
-        {post.content.map((section) => (
+        {post.content.map((section: { heading: string; paragraphs: string[] }) => (
           <section key={section.heading} className="mb-8">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{section.heading}</h2>
-            {section.paragraphs.map((p, i) => (
+            {section.paragraphs.map((p: string, i: number) => (
               <p key={i} className="mt-4 text-foreground/90 leading-relaxed">{p}</p>
             ))}
           </section>

@@ -83,7 +83,7 @@ function AuthorPage() {
           </FadeIn>
 
           <div className="mt-10 grid grid-cols-3 gap-3 md:gap-4 max-w-2xl">
-            {author.stats.map((s) => (
+            {author.stats.map((s: Author["stats"][number]) => (
               <Card key={s.label} className="p-4 text-center border-border/70">
                 <p className="text-2xl md:text-3xl font-bold tracking-tight">{s.value}</p>
                 <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
@@ -97,7 +97,7 @@ function AuthorPage() {
         <FadeIn>
           <h2 className="text-xl font-semibold inline-flex items-center gap-2"><Award className="h-5 w-5 text-secondary" /> Credentials</h2>
           <ul className="mt-4 space-y-2 text-sm text-foreground/90">
-            {author.credentials.map((c) => (
+            {author.credentials.map((c: string) => (
               <li key={c} className="flex gap-2"><span className="text-secondary">•</span>{c}</li>
             ))}
           </ul>
@@ -105,7 +105,7 @@ function AuthorPage() {
         <FadeIn delay={0.05}>
           <h2 className="text-xl font-semibold inline-flex items-center gap-2"><BookOpen className="h-5 w-5 text-secondary" /> Areas of expertise</h2>
           <div className="mt-4 flex flex-wrap gap-2">
-            {author.expertise.map((e) => (
+            {author.expertise.map((e: string) => (
               <Badge key={e} variant="secondary" className="bg-secondary/10 text-secondary border-0">{e}</Badge>
             ))}
           </div>
