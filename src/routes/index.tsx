@@ -114,17 +114,17 @@ function Home() {
                 America's Dental Implant Cost Estimation Platform · 2026
               </span>
               <h1 className="mt-5 text-4xl md:text-6xl font-bold tracking-tight">
-                Get Instant Dental Implant <span className="text-gradient">Cost Estimates</span> Worldwide
+                Dental Implant <span className="text-gradient">Cost Calculator</span>
               </h1>
               <p className="mt-4 text-lg text-muted-foreground">
-                Compare implant prices across India, USA, UK, UAE and more. Plan EMI payments and discover how many implants your case actually needs.
+                Estimate your dental implant costs instantly based on implant type, materials, procedures, and financing options across the United States.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
-                  <Link to="/calculator">Start Cost Calculator <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link to="/loan-calculator">EMI Calculator</Link>
+                  <Link to="/loan">Compare Implant Prices</Link>
                 </Button>
               </div>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
