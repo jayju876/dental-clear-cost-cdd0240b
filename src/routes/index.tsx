@@ -272,8 +272,8 @@ function Home() {
             </FadeIn>
             <div>
               <FadeIn>
-                <h2 className="text-3xl md:text-4xl font-bold">Trusted by patients in 32 countries</h2>
-                <p className="mt-3 text-muted-foreground max-w-xl">Real stories from people who used ImplantCost to plan their treatment.</p>
+                <h2 className="text-3xl md:text-4xl font-bold">Trusted by patients across the United States</h2>
+                <p className="mt-3 text-muted-foreground max-w-xl">Real stories from US patients who used ImplantCost to plan their treatment.</p>
               </FadeIn>
               <div className="mt-8 grid sm:grid-cols-2 gap-4">
                 {testimonials.map((t, i) => (
@@ -361,13 +361,13 @@ function Home() {
             <div className="relative z-10 max-w-2xl">
               <Users className="h-8 w-8 text-accent" />
               <h2 className="mt-3 text-3xl md:text-4xl font-bold">Plan your implant treatment with confidence</h2>
-              <p className="mt-3 text-primary-foreground/80">Join 240,000+ patients who used ImplantCost to compare prices, plan EMI and find the right treatment.</p>
+              <p className="mt-3 text-primary-foreground/80">Join 240,000+ US patients who used the Dental Implant Cost Calculator to plan their treatment with confidence.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90">
-                  <Link to="/calculator">Start free estimate <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                  <Link to="/ratio-calculator">How many implants?</Link>
+                  <Link to="/ratio">How many implants?</Link>
                 </Button>
               </div>
             </div>
