@@ -180,6 +180,26 @@ function Home() {
         </div>
       </section>
 
+      {/* US average cost ranges */}
+      <section className="container mx-auto px-4 py-12 md:py-14">
+        <FadeIn className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Average US implant costs · 2026</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Realistic dental implant cost ranges in the USA</h2>
+          <p className="mt-3 text-muted-foreground">Aggregated from verified clinic pricing across New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix.</p>
+        </FadeIn>
+        <div className="mt-8 grid md:grid-cols-3 gap-5">
+          {costRanges.map((r, i) => (
+            <FadeIn key={r.label} delay={i * 0.05}>
+              <Card className="p-6 h-full border-border/70 hover:shadow-elegant transition-shadow">
+                <p className="text-xs font-semibold uppercase tracking-wider text-secondary">{r.label}</p>
+                <p className="mt-3 text-3xl font-bold tracking-tight">{r.range}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
+              </Card>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
       {/* Calculator suite */}
       <section className="container mx-auto px-4 py-14 md:py-16">
         <FadeIn className="max-w-2xl">
