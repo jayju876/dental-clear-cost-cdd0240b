@@ -1,21 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { POSTS } from "@/lib/blog-posts";
-import { AUTHORS } from "@/lib/authors";
 
 const BASE_URL = "";
 
-const STATIC_PATHS = [
+const PATHS = [
   { path: "/", priority: "1.0", changefreq: "weekly" as const },
-  { path: "/cost", priority: "0.9", changefreq: "weekly" as const },
-  { path: "/loan", priority: "0.9", changefreq: "weekly" as const },
-  { path: "/ratio", priority: "0.9", changefreq: "weekly" as const },
-  { path: "/dental-implant-loan-calculator", priority: "0.7", changefreq: "monthly" as const },
-  { path: "/dental-implant-finance-calculator", priority: "0.7", changefreq: "monthly" as const },
-  { path: "/dental-implant-payment-calculator", priority: "0.7", changefreq: "monthly" as const },
-  { path: "/dental-implant-ratio-calculator", priority: "0.7", changefreq: "monthly" as const },
-  { path: "/all-on-4-calculator", priority: "0.7", changefreq: "monthly" as const },
-  { path: "/implant-support-calculator", priority: "0.7", changefreq: "monthly" as const },
+  { path: "/calculator", priority: "0.9", changefreq: "weekly" as const },
+  { path: "/loan-calculator", priority: "0.9", changefreq: "weekly" as const },
+  { path: "/ratio-calculator", priority: "0.9", changefreq: "weekly" as const },
+  { path: "/dental-implant-loan-calculator", priority: "0.8", changefreq: "monthly" as const },
+  { path: "/dental-implant-finance-calculator", priority: "0.8", changefreq: "monthly" as const },
+  { path: "/dental-implant-payment-calculator", priority: "0.8", changefreq: "monthly" as const },
+  { path: "/dental-implant-ratio-calculator", priority: "0.8", changefreq: "monthly" as const },
+  { path: "/all-on-4-calculator", priority: "0.8", changefreq: "monthly" as const },
+  { path: "/implant-support-calculator", priority: "0.8", changefreq: "monthly" as const },
   { path: "/about", priority: "0.7", changefreq: "monthly" as const },
   { path: "/blog", priority: "0.8", changefreq: "weekly" as const },
   { path: "/contact", priority: "0.6", changefreq: "monthly" as const },
@@ -28,12 +26,6 @@ const STATIC_PATHS = [
   { path: "/hipaa", priority: "0.3", changefreq: "yearly" as const },
   { path: "/accessibility", priority: "0.3", changefreq: "yearly" as const },
   { path: "/editorial-policy", priority: "0.3", changefreq: "yearly" as const },
-];
-
-const PATHS = [
-  ...STATIC_PATHS,
-  ...POSTS.map((p) => ({ path: `/blog/${p.slug}`, priority: "0.7", changefreq: "monthly" as const })),
-  ...AUTHORS.map((a) => ({ path: `/author/${a.slug}`, priority: "0.6", changefreq: "monthly" as const })),
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({

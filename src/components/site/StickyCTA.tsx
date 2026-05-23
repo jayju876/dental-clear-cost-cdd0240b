@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function StickyCTA() {
   const { pathname } = useLocation();
-  if (pathname === "/cost" || pathname === "/calculator") return null;
+  if (pathname === "/calculator") return null;
   return (
     <AnimatePresence>
       <motion.div
@@ -14,11 +14,11 @@ export function StickyCTA() {
         className="fixed bottom-5 right-5 z-30"
       >
         <Link
-          to="/cost"
+          to="/calculator"
           className="flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-elegant hover:opacity-95"
         >
           <Calculator className="h-4 w-4" />
-          Calculate My Cost
+          Start Calculator
         </Link>
       </motion.div>
     </AnimatePresence>

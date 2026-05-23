@@ -13,10 +13,8 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as RatioCalculatorRouteImport } from './routes/ratio-calculator'
-import { Route as RatioRouteImport } from './routes/ratio'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as LoanCalculatorRouteImport } from './routes/loan-calculator'
-import { Route as LoanRouteImport } from './routes/loan'
 import { Route as ImplantSupportCalculatorRouteImport } from './routes/implant-support-calculator'
 import { Route as HipaaRouteImport } from './routes/hipaa'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -26,7 +24,6 @@ import { Route as DentalImplantRatioCalculatorRouteImport } from './routes/denta
 import { Route as DentalImplantPaymentCalculatorRouteImport } from './routes/dental-implant-payment-calculator'
 import { Route as DentalImplantLoanCalculatorRouteImport } from './routes/dental-implant-loan-calculator'
 import { Route as DentalImplantFinanceCalculatorRouteImport } from './routes/dental-implant-finance-calculator'
-import { Route as CostRouteImport } from './routes/cost'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CalculatorRouteImport } from './routes/calculator'
@@ -35,8 +32,6 @@ import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculat
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -58,11 +53,6 @@ const RatioCalculatorRoute = RatioCalculatorRouteImport.update({
   path: '/ratio-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RatioRoute = RatioRouteImport.update({
-  id: '/ratio',
-  path: '/ratio',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
@@ -71,11 +61,6 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
 const LoanCalculatorRoute = LoanCalculatorRouteImport.update({
   id: '/loan-calculator',
   path: '/loan-calculator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoanRoute = LoanRouteImport.update({
-  id: '/loan',
-  path: '/loan',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImplantSupportCalculatorRoute =
@@ -128,11 +113,6 @@ const DentalImplantFinanceCalculatorRoute =
     path: '/dental-implant-finance-calculator',
     getParentRoute: () => rootRouteImport,
   } as any)
-const CostRoute = CostRouteImport.update({
-  id: '/cost',
-  path: '/cost',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CookiePolicyRoute = CookiePolicyRouteImport.update({
   id: '/cookie-policy',
   path: '/cookie-policy',
@@ -173,27 +153,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
-} as any)
-const AuthorSlugRoute = AuthorSlugRouteImport.update({
-  id: '/author/$slug',
-  path: '/author/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
+  '/blog': typeof BlogRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/cost': typeof CostRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -203,27 +172,22 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/hipaa': typeof HipaaRoute
   '/implant-support-calculator': typeof ImplantSupportCalculatorRoute
-  '/loan': typeof LoanRoute
   '/loan-calculator': typeof LoanCalculatorRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
-  '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
+  '/blog': typeof BlogRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/cost': typeof CostRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -233,16 +197,12 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/hipaa': typeof HipaaRoute
   '/implant-support-calculator': typeof ImplantSupportCalculatorRoute
-  '/loan': typeof LoanRoute
   '/loan-calculator': typeof LoanCalculatorRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
-  '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -250,11 +210,10 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
+  '/blog': typeof BlogRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/cost': typeof CostRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -264,16 +223,12 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/hipaa': typeof HipaaRoute
   '/implant-support-calculator': typeof ImplantSupportCalculatorRoute
-  '/loan': typeof LoanRoute
   '/loan-calculator': typeof LoanCalculatorRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
-  '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -286,7 +241,6 @@ export interface FileRouteTypes {
     | '/calculator'
     | '/contact'
     | '/cookie-policy'
-    | '/cost'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -296,16 +250,12 @@ export interface FileRouteTypes {
     | '/faq'
     | '/hipaa'
     | '/implant-support-calculator'
-    | '/loan'
     | '/loan-calculator'
     | '/privacy-policy'
-    | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
-    | '/author/$slug'
-    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -316,7 +266,6 @@ export interface FileRouteTypes {
     | '/calculator'
     | '/contact'
     | '/cookie-policy'
-    | '/cost'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -326,16 +275,12 @@ export interface FileRouteTypes {
     | '/faq'
     | '/hipaa'
     | '/implant-support-calculator'
-    | '/loan'
     | '/loan-calculator'
     | '/privacy-policy'
-    | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
-    | '/author/$slug'
-    | '/blog/$slug'
   id:
     | '__root__'
     | '/'
@@ -346,7 +291,6 @@ export interface FileRouteTypes {
     | '/calculator'
     | '/contact'
     | '/cookie-policy'
-    | '/cost'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -356,16 +300,12 @@ export interface FileRouteTypes {
     | '/faq'
     | '/hipaa'
     | '/implant-support-calculator'
-    | '/loan'
     | '/loan-calculator'
     | '/privacy-policy'
-    | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
-    | '/author/$slug'
-    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -373,11 +313,10 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AllOn4CalculatorRoute: typeof AllOn4CalculatorRoute
-  BlogRoute: typeof BlogRouteWithChildren
+  BlogRoute: typeof BlogRoute
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
-  CostRoute: typeof CostRoute
   DentalImplantFinanceCalculatorRoute: typeof DentalImplantFinanceCalculatorRoute
   DentalImplantLoanCalculatorRoute: typeof DentalImplantLoanCalculatorRoute
   DentalImplantPaymentCalculatorRoute: typeof DentalImplantPaymentCalculatorRoute
@@ -387,15 +326,12 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   HipaaRoute: typeof HipaaRoute
   ImplantSupportCalculatorRoute: typeof ImplantSupportCalculatorRoute
-  LoanRoute: typeof LoanRoute
   LoanCalculatorRoute: typeof LoanCalculatorRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
-  RatioRoute: typeof RatioRoute
   RatioCalculatorRoute: typeof RatioCalculatorRoute
   SitemapRoute: typeof SitemapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
-  AuthorSlugRoute: typeof AuthorSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -428,13 +364,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RatioCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ratio': {
-      id: '/ratio'
-      path: '/ratio'
-      fullPath: '/ratio'
-      preLoaderRoute: typeof RatioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/privacy-policy': {
       id: '/privacy-policy'
       path: '/privacy-policy'
@@ -447,13 +376,6 @@ declare module '@tanstack/react-router' {
       path: '/loan-calculator'
       fullPath: '/loan-calculator'
       preLoaderRoute: typeof LoanCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/loan': {
-      id: '/loan'
-      path: '/loan'
-      fullPath: '/loan'
-      preLoaderRoute: typeof LoanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/implant-support-calculator': {
@@ -519,13 +441,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DentalImplantFinanceCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cost': {
-      id: '/cost'
-      path: '/cost'
-      fullPath: '/cost'
-      preLoaderRoute: typeof CostRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/cookie-policy': {
       id: '/cookie-policy'
       path: '/cookie-policy'
@@ -582,43 +497,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
-    }
-    '/author/$slug': {
-      id: '/author/$slug'
-      path: '/author/$slug'
-      fullPath: '/author/$slug'
-      preLoaderRoute: typeof AuthorSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
-
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
   AllOn4CalculatorRoute: AllOn4CalculatorRoute,
-  BlogRoute: BlogRouteWithChildren,
+  BlogRoute: BlogRoute,
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
   CookiePolicyRoute: CookiePolicyRoute,
-  CostRoute: CostRoute,
   DentalImplantFinanceCalculatorRoute: DentalImplantFinanceCalculatorRoute,
   DentalImplantLoanCalculatorRoute: DentalImplantLoanCalculatorRoute,
   DentalImplantPaymentCalculatorRoute: DentalImplantPaymentCalculatorRoute,
@@ -628,15 +518,12 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   HipaaRoute: HipaaRoute,
   ImplantSupportCalculatorRoute: ImplantSupportCalculatorRoute,
-  LoanRoute: LoanRoute,
   LoanCalculatorRoute: LoanCalculatorRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
-  RatioRoute: RatioRoute,
   RatioCalculatorRoute: RatioCalculatorRoute,
   SitemapRoute: SitemapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
-  AuthorSlugRoute: AuthorSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

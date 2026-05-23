@@ -178,9 +178,9 @@ export function RatioCalculator({ title, lead }: { title?: string; lead?: string
 
             <div className="grid sm:grid-cols-3 gap-3">
               <Button asChild className="bg-gradient-primary text-primary-foreground">
-                <a href="/cost">Estimate cost <ArrowRight className="ml-2 h-4 w-4" /></a>
+                <a href="/calculator">Estimate cost <ArrowRight className="ml-2 h-4 w-4" /></a>
               </Button>
-              <Button asChild variant="outline"><a href="/loan">Loan EMI calculator</a></Button>
+              <Button asChild variant="outline"><a href="/loan-calculator">Loan EMI calculator</a></Button>
               <Button asChild variant="outline"><a href="/contact">Talk to a clinic</a></Button>
             </div>
           </div>

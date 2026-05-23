@@ -3,16 +3,16 @@
 export type CountryCode = "IN" | "US" | "UK" | "AE" | "TR" | "MX" | "TH" | "DE" | "AU" | "CA";
 
 export const COUNTRIES: { code: CountryCode; name: string; currency: string; symbol: string; rate: number; cities: string[]; perImplantUSD: [number, number] }[] = [
-  { code: "US", name: "United States", currency: "USD", symbol: "$", rate: 1, cities: ["New York", "Los Angeles", "Chicago", "Houston", "Miami", "Dallas", "San Diego", "Atlanta", "Seattle", "Phoenix"], perImplantUSD: [3500, 6000] },
-  { code: "CA", name: "Canada", currency: "CAD", symbol: "C$", rate: 1.36, cities: ["Toronto", "Vancouver", "Montreal"], perImplantUSD: [2800, 4800] },
-  { code: "UK", name: "United Kingdom", currency: "GBP", symbol: "£", rate: 0.79, cities: ["London", "Manchester", "Birmingham", "Edinburgh"], perImplantUSD: [2500, 4500] },
-  { code: "AU", name: "Australia", currency: "AUD", symbol: "A$", rate: 1.52, cities: ["Sydney", "Melbourne", "Brisbane"], perImplantUSD: [3000, 5500] },
-  { code: "DE", name: "Germany", currency: "EUR", symbol: "€", rate: 0.92, cities: ["Berlin", "Munich", "Frankfurt"], perImplantUSD: [2200, 3800] },
-  { code: "AE", name: "United Arab Emirates", currency: "AED", symbol: "د.إ", rate: 3.67, cities: ["Dubai", "Abu Dhabi", "Sharjah"], perImplantUSD: [1800, 3500] },
-  { code: "MX", name: "Mexico", currency: "USD", symbol: "$", rate: 1, cities: ["Cancun", "Tijuana", "Mexico City"], perImplantUSD: [900, 1700] },
-  { code: "TR", name: "Turkey", currency: "USD", symbol: "$", rate: 1, cities: ["Istanbul", "Antalya", "Izmir"], perImplantUSD: [700, 1400] },
-  { code: "TH", name: "Thailand", currency: "USD", symbol: "$", rate: 1, cities: ["Bangkok", "Phuket", "Chiang Mai"], perImplantUSD: [1200, 2200] },
   { code: "IN", name: "India", currency: "INR", symbol: "₹", rate: 83, cities: ["Mumbai", "Bengaluru", "Delhi", "Chennai", "Hyderabad", "Pune"], perImplantUSD: [600, 1200] },
+  { code: "US", name: "United States", currency: "USD", symbol: "$", rate: 1, cities: ["New York", "Los Angeles", "Chicago", "Houston", "Miami"], perImplantUSD: [3500, 6000] },
+  { code: "UK", name: "United Kingdom", currency: "GBP", symbol: "£", rate: 0.79, cities: ["London", "Manchester", "Birmingham", "Edinburgh"], perImplantUSD: [2500, 4500] },
+  { code: "AE", name: "United Arab Emirates", currency: "AED", symbol: "د.إ", rate: 3.67, cities: ["Dubai", "Abu Dhabi", "Sharjah"], perImplantUSD: [1800, 3500] },
+  { code: "TR", name: "Turkey", currency: "USD", symbol: "$", rate: 1, cities: ["Istanbul", "Antalya", "Izmir"], perImplantUSD: [700, 1400] },
+  { code: "MX", name: "Mexico", currency: "USD", symbol: "$", rate: 1, cities: ["Cancun", "Tijuana", "Mexico City"], perImplantUSD: [900, 1700] },
+  { code: "TH", name: "Thailand", currency: "USD", symbol: "$", rate: 1, cities: ["Bangkok", "Phuket", "Chiang Mai"], perImplantUSD: [1200, 2200] },
+  { code: "DE", name: "Germany", currency: "EUR", symbol: "€", rate: 0.92, cities: ["Berlin", "Munich", "Frankfurt"], perImplantUSD: [2200, 3800] },
+  { code: "AU", name: "Australia", currency: "AUD", symbol: "A$", rate: 1.52, cities: ["Sydney", "Melbourne", "Brisbane"], perImplantUSD: [3000, 5500] },
+  { code: "CA", name: "Canada", currency: "CAD", symbol: "C$", rate: 1.36, cities: ["Toronto", "Vancouver", "Montreal"], perImplantUSD: [2800, 4800] },
 ];
 
 export const IMPLANT_TYPES = [

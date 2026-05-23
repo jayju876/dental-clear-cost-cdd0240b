@@ -39,15 +39,15 @@ const STEPS = [
   { id: "result", label: "Results", icon: Award },
 ] as const;
 
-export function CalculatorPage() {
+function CalculatorPage() {
   const [step, setStep] = useState(0);
   const [input, setInput] = useState<CalcInput>({
-    country: "US",
-    city: "New York",
+    country: "IN",
+    city: "Mumbai",
     teeth: 1,
     implantType: "single",
     crown: "zirconia",
-    brand: "nobel",
+    brand: "osstem",
     boneGraft: false,
     sinusLift: false,
     extraction: false,

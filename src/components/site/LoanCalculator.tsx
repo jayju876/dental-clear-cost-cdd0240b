@@ -163,10 +163,10 @@ export function LoanCalculator({ title, lead }: { title?: string; lead?: string 
                 <a href="/contact">Contact Clinic <ArrowRight className="ml-2 h-4 w-4" /></a>
               </Button>
               <Button asChild variant="outline">
-                <a href="/cost">Estimate treatment cost</a>
+                <a href="/calculator">Estimate treatment cost</a>
               </Button>
               <Button asChild variant="outline">
-                <a href="/ratio">Implant ratio tool</a>
+                <a href="/ratio-calculator">Implant ratio tool</a>
               </Button>
             </div>
           </div>
