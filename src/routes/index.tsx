@@ -18,67 +18,87 @@ import jawImg from "@/assets/jaw-diagram.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dental Implant Cost Calculator — Worldwide Estimates" },
-      { name: "description", content: "Get instant dental implant cost estimates worldwide. Compare prices across India, USA, UK, UAE and more. Free loan EMI and ratio calculators included." },
-      { property: "og:title", content: "Dental Implant Cost Calculator — Worldwide Estimates" },
-      { property: "og:description", content: "Compare dental implant prices worldwide with personalized estimates." },
+      { title: "Dental Implant Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
+      { name: "description", content: "Use our free dental implant cost calculator to estimate single tooth, All-on-4, and full mouth dental implant costs in the USA. Instant personalized estimates." },
+      { property: "og:title", content: "Dental Implant Cost Calculator (2026) – Instant US Estimate" },
+      { property: "og:description", content: "America's dental implant cost estimation platform — single tooth, All-on-4 and full mouth estimates across the United States." },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Dental Implant Cost Calculator",
+          applicationCategory: "HealthApplication",
+          operatingSystem: "Web",
+          description: "Free dental implant cost calculator for the United States. Estimate single tooth, All-on-4 and full mouth implant costs instantly.",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }),
+      },
+    ],
   }),
   component: Home,
 });
 
 const stats = [
   { label: "Estimates generated", value: "240K+", icon: CalcIcon },
-  { label: "Countries supported", value: "32", icon: Globe2 },
+  { label: "US cities covered", value: "50+", icon: Globe2 },
   { label: "Verified clinics", value: "1,800+", icon: ShieldCheck },
-  { label: "Avg. savings (India)", value: "70%", icon: TrendingDown },
+  { label: "Avg. insurance savings", value: "30%", icon: TrendingDown },
 ];
 
-const trustBadges = ["ISO 27001 Data Security", "HIPAA Aligned", "GDPR Compliant", "Medically Reviewed"];
+const trustBadges = ["HIPAA Aligned", "Insurance Friendly", "Financing Available", "Medically Reviewed"];
+
+const costRanges = [
+  { label: "Single Tooth Implant", range: "$3,500 – $6,000", body: "Implant + abutment + crown, per tooth." },
+  { label: "All-on-4 (Full Arch)", range: "$20,000 – $30,000", body: "Four implants supporting a full-arch prosthesis." },
+  { label: "Full Mouth Implants", range: "$40,000 – $90,000", body: "Both arches, premium materials and brands." },
+];
 
 const calculators = [
   {
-    to: "/calculator", icon: CalcIcon, img: implant3d,
-    title: "Implant Cost Calculator",
-    body: "Country-specific pricing for single, multiple and full-arch implants. Includes brand, crown and add-ons.",
+    to: "/cost", icon: CalcIcon, img: implant3d,
+    title: "Dental Implant Cost Calculator",
+    body: "US pricing for single, multiple and full-arch implants. Includes brand, crown material and add-ons.",
   },
   {
-    to: "/loan-calculator", icon: Wallet, img: loanImg,
-    title: "Loan EMI Calculator",
-    body: "Plan monthly payments. Adjust cost, down payment, APR and term to see EMI and total interest.",
+    to: "/loan", icon: Wallet, img: loanImg,
+    title: "Dental Implant Loan Calculator",
+    body: "Plan monthly payments. Adjust cost, down payment, APR and term to see your monthly payment and total interest.",
   },
   {
-    to: "/ratio-calculator", icon: Layers, img: jawImg,
-    title: "Implant Ratio Calculator",
-    body: "How many implants do you need? Match teeth, jaw and bone to the right treatment.",
+    to: "/ratio", icon: Layers, img: jawImg,
+    title: "Dental Implant Ratio Calculator",
+    body: "How many implants do you need? Match teeth, jaw and bone density to the right treatment.",
   },
 ];
 
 const testimonials = [
-  { name: "Priya S.", country: "UK → India", quote: "Saved over £6,400 on full-arch implants. The estimate was within 5% of my final invoice." },
-  { name: "Mark D.", country: "USA", quote: "Finally a calculator that breaks down crown material, brand and bone graft costs clearly." },
-  { name: "Ahmed R.", country: "UAE", quote: "Compared three countries in under a minute. The financing estimate sealed it for me." },
+  { name: "Mark D.", country: "Dallas, TX", quote: "Finally a calculator that breaks down crown material, brand and bone graft costs clearly for US pricing." },
+  { name: "Sarah K.", country: "Miami, FL", quote: "The financing estimator helped me budget my All-on-4 treatment without surprises." },
+  { name: "James R.", country: "Seattle, WA", quote: "Estimate was within $400 of my final invoice. Insurance estimator was a bonus." },
 ];
 
 const educational = [
-  { title: "Single Tooth Implant", body: "Replacement of one missing tooth with a titanium post, abutment and crown." },
-  { title: "All-on-4 / All-on-6", body: "Full-arch restoration anchored on 4 or 6 implants — ideal for full-mouth rehabilitation." },
-  { title: "Bone Grafting", body: "Augments insufficient jawbone to securely host an implant; cost varies by complexity." },
+  { title: "Single Tooth Implant", body: "Replacement of one missing tooth with a titanium post, abutment and crown — typically $3,500–$6,000 in the US." },
+  { title: "All-on-4 / All-on-6", body: "Full-arch restoration anchored on 4 or 6 implants — ideal for full-mouth rehabilitation in a single visit." },
+  { title: "Bone Grafting", body: "Augments insufficient jawbone to securely host an implant; US cost typically $400–$1,200 per site." },
   { title: "Crown Materials", body: "Zirconia, PFM and E.max — each balances aesthetics, durability and price differently." },
 ];
 
 const blogTeasers = [
-  { title: "India vs USA: Dental Implant Cost in 2026", excerpt: "A side-by-side breakdown of total treatment cost, travel, and quality of care.", tag: "Cost Guide", img: smilingPatient },
-  { title: "How to Choose an Implant Brand", excerpt: "Straumann, Nobel Biocare, Osstem and more — what actually matters.", tag: "Education", img: implant3d },
-  { title: "Financing Your Implants", excerpt: "EMI, dental loans and insurance: the realistic options in 2026.", tag: "Finance", img: loanImg },
+  { title: "Dental Implant Cost in New York", excerpt: "Average prices across NYC clinics and what drives the wide cost range.", tag: "Cost Guide", img: smilingPatient },
+  { title: "Does Insurance Cover Dental Implants?", excerpt: "Medical vs. dental insurance, HSA/FSA, and what's typically covered in 2026.", tag: "Insurance", img: implant3d },
+  { title: "Financing Your Implants in the USA", excerpt: "CareCredit, dental loans and 0% APR options — realistic financing for 2026.", tag: "Finance", img: loanImg },
 ];
 
 const faqs = [
-  { q: "How accurate is the cost estimate?", a: "Our estimates are based on aggregated 2025-2026 clinic pricing across 32 countries and are typically within 10–15% of final invoices." },
+  { q: "How accurate is the dental implant cost calculator?", a: "Our estimates are based on aggregated 2025–2026 US clinic pricing and are typically within 10–15% of final invoices." },
+  { q: "How much does a dental implant cost in the US?", a: "A single tooth dental implant typically costs $3,500–$6,000 in the United States. All-on-4 ranges $20,000–$30,000 per arch and full mouth implants $40,000–$90,000." },
   { q: "Is the calculator free to use?", a: "Yes. All three calculators — cost, loan and ratio — are 100% free, with no signup required." },
-  { q: "Do you share my information?", a: "We don't collect personal details unless you choose to contact a clinic. See our Privacy Policy." },
-  { q: "Why is India so much cheaper?", a: "Lower clinic overhead, favourable exchange rates and a large pool of internationally-trained dentists." },
+  { q: "Does insurance cover dental implants?", a: "Most dental insurance plans cover a portion (10–50%) of implant treatment. Medical insurance may cover bone grafts after trauma. Check your specific plan." },
 ];
 
 function Home() {
@@ -98,20 +118,20 @@ function Home() {
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
                 <Sparkles className="h-3.5 w-3.5 text-secondary" />
-                Updated for 2026 pricing across 32 countries
+                America's dental implant cost estimation platform · 2026
               </span>
               <h1 className="mt-5 text-4xl md:text-6xl font-bold tracking-tight">
-                Get Instant Dental Implant <span className="text-gradient">Cost Estimates</span> Worldwide
+                Dental Implant <span className="text-gradient">Cost Calculator</span>
               </h1>
               <p className="mt-4 text-lg text-muted-foreground">
-                Compare implant prices across India, USA, UK, UAE and more. Plan EMI payments and discover how many implants your case actually needs.
+                Estimate your dental implant costs instantly based on implant type, materials, procedures, and financing options across the United States.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
-                  <Link to="/calculator">Start Cost Calculator <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link to="/loan-calculator">EMI Calculator</Link>
+                  <Link to="/loan">Compare Implant Prices</Link>
                 </Button>
               </div>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
@@ -157,6 +177,26 @@ function Home() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* US average cost ranges */}
+      <section className="container mx-auto px-4 py-12 md:py-14">
+        <FadeIn className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Average US implant costs · 2026</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Realistic dental implant cost ranges in the USA</h2>
+          <p className="mt-3 text-muted-foreground">Aggregated from verified clinic pricing across New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix.</p>
+        </FadeIn>
+        <div className="mt-8 grid md:grid-cols-3 gap-5">
+          {costRanges.map((r, i) => (
+            <FadeIn key={r.label} delay={i * 0.05}>
+              <Card className="p-6 h-full border-border/70 hover:shadow-elegant transition-shadow">
+                <p className="text-xs font-semibold uppercase tracking-wider text-secondary">{r.label}</p>
+                <p className="mt-3 text-3xl font-bold tracking-tight">{r.range}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
+              </Card>
+            </FadeIn>
+          ))}
         </div>
       </section>
 
@@ -252,8 +292,8 @@ function Home() {
             </FadeIn>
             <div>
               <FadeIn>
-                <h2 className="text-3xl md:text-4xl font-bold">Trusted by patients in 32 countries</h2>
-                <p className="mt-3 text-muted-foreground max-w-xl">Real stories from people who used ImplantCost to plan their treatment.</p>
+                <h2 className="text-3xl md:text-4xl font-bold">Trusted by patients across the United States</h2>
+                <p className="mt-3 text-muted-foreground max-w-xl">Real stories from US patients who used ImplantCost to plan their treatment.</p>
               </FadeIn>
               <div className="mt-8 grid sm:grid-cols-2 gap-4">
                 {testimonials.map((t, i) => (
@@ -341,13 +381,13 @@ function Home() {
             <div className="relative z-10 max-w-2xl">
               <Users className="h-8 w-8 text-accent" />
               <h2 className="mt-3 text-3xl md:text-4xl font-bold">Plan your implant treatment with confidence</h2>
-              <p className="mt-3 text-primary-foreground/80">Join 240,000+ patients who used ImplantCost to compare prices, plan EMI and find the right treatment.</p>
+              <p className="mt-3 text-primary-foreground/80">Join 240,000+ US patients who used the Dental Implant Cost Calculator to plan their treatment with confidence.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90">
-                  <Link to="/calculator">Start free estimate <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                  <Link to="/ratio-calculator">How many implants?</Link>
+                  <Link to="/ratio">How many implants?</Link>
                 </Button>
               </div>
             </div>
