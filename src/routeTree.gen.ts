@@ -35,6 +35,8 @@ import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculat
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -171,13 +173,23 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
+const AuthorSlugRoute = AuthorSlugRouteImport.update({
+  id: '/author/$slug',
+  path: '/author/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
@@ -199,13 +211,15 @@ export interface FileRoutesByFullPath {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/author/$slug': typeof AuthorSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
@@ -227,6 +241,8 @@ export interface FileRoutesByTo {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/author/$slug': typeof AuthorSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -234,7 +250,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
@@ -256,6 +272,8 @@ export interface FileRoutesById {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/author/$slug': typeof AuthorSlugRoute
+  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -286,6 +304,8 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/author/$slug'
+    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -314,6 +334,8 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/author/$slug'
+    | '/blog/$slug'
   id:
     | '__root__'
     | '/'
@@ -342,6 +364,8 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/author/$slug'
+    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -349,7 +373,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AllOn4CalculatorRoute: typeof AllOn4CalculatorRoute
-  BlogRoute: typeof BlogRoute
+  BlogRoute: typeof BlogRouteWithChildren
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
@@ -371,6 +395,7 @@ export interface RootRouteChildren {
   SitemapRoute: typeof SitemapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  AuthorSlugRoute: typeof AuthorSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -557,15 +582,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/author/$slug': {
+      id: '/author/$slug'
+      path: '/author/$slug'
+      fullPath: '/author/$slug'
+      preLoaderRoute: typeof AuthorSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
   AllOn4CalculatorRoute: AllOn4CalculatorRoute,
-  BlogRoute: BlogRoute,
+  BlogRoute: BlogRouteWithChildren,
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
   CookiePolicyRoute: CookiePolicyRoute,
@@ -587,6 +636,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapRoute: SitemapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  AuthorSlugRoute: AuthorSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
