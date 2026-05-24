@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { FadeIn, PageShell } from "@/components/site/Section";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock, BadgeCheck } from "lucide-react";
+import { POSTS, getAuthor, formatDate } from "@/lib/authors";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -19,17 +20,6 @@ export const Route = createFileRoute("/blog")({
 });
 
 const CATEGORIES = ["All", "Cost Guide", "Education", "Finance", "Brands", "Patient Stories"] as const;
-
-const POSTS = [
-  { title: "India vs USA: Dental Implant Cost in 2026", excerpt: "A side-by-side breakdown of total treatment cost, travel expenses and quality of care.", tag: "Cost Guide", read: "8 min" },
-  { title: "All-on-4 vs All-on-6: Which Should You Choose?", excerpt: "Comparing two full-arch options on cost, longevity and candidacy.", tag: "Education", read: "6 min" },
-  { title: "Straumann vs Nobel Biocare vs Osstem", excerpt: "What actually separates premium and value implant brands.", tag: "Brands", read: "10 min" },
-  { title: "Financing Your Implants Without Breaking the Bank", excerpt: "EMI, dental loans, HSA/FSA and insurance — realistic options in 2026.", tag: "Finance", read: "7 min" },
-  { title: "Bone Grafting Explained: When You Really Need It", excerpt: "Cost, recovery time and when grafts can be avoided.", tag: "Education", read: "5 min" },
-  { title: "From London to Mumbai: A Patient's Implant Journey", excerpt: "How Priya saved £6,400 on full-arch implants — and what she'd do differently.", tag: "Patient Stories", read: "9 min" },
-  { title: "UK vs UAE: Where Does Your Money Go Further?", excerpt: "Total cost, clinic standards and travel weighed honestly.", tag: "Cost Guide", read: "8 min" },
-  { title: "Zirconia vs E.max Crowns: Aesthetics and Price", excerpt: "Choose the right crown material for your case and budget.", tag: "Education", read: "6 min" },
-];
 
 function Blog() {
   const [cat, setCat] = useState<string>("All");
@@ -54,24 +44,44 @@ function Blog() {
       </div>
 
       <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((p, i) => (
-          <FadeIn key={p.title} delay={i * 0.04}>
-            <Card className="overflow-hidden h-full border-border/70 hover:shadow-elegant transition-shadow group">
-              <div className="aspect-[16/9] bg-gradient-accent opacity-90 group-hover:opacity-100 transition-opacity" />
-              <div className="p-5">
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <Badge variant="secondary" className="bg-secondary/10 text-secondary border-0">{p.tag}</Badge>
-                  <span className="inline-flex items-center gap-1"><Clock className="h-3 w-3" /> {p.read}</span>
+        {filtered.map((p, i) => {
+          const author = getAuthor(p.authorSlug)!;
+          const reviewer = p.reviewerSlug ? getAuthor(p.reviewerSlug) : undefined;
+          return (
+            <FadeIn key={p.slug} delay={i * 0.04}>
+              <Card className="overflow-hidden h-full border-border/70 hover:shadow-elegant hover:-translate-y-0.5 transition-all group flex flex-col">
+                <div className="aspect-[16/9] bg-gradient-accent opacity-90 group-hover:opacity-100 transition-opacity" />
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center justify-between text-xs text-muted-foreground">
+                    <Badge variant="secondary" className="bg-secondary/10 text-secondary border-0">{p.tag}</Badge>
+                    <span className="inline-flex items-center gap-1"><Clock className="h-3 w-3" /> {p.read}</span>
+                  </div>
+                  <h2 className="mt-3 text-lg font-semibold leading-snug">
+                    <Link to="/blog/$slug" params={{ slug: p.slug }} className="hover:text-secondary transition-colors">
+                      {p.title}
+                    </Link>
+                  </h2>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.excerpt}</p>
+                  <div className="mt-4 pt-4 border-t border-border/60 flex items-center gap-3">
+                    <img src={author.image} alt={author.name} width={36} height={36} loading="lazy" className="h-9 w-9 rounded-full object-cover ring-2 ring-border" />
+                    <div className="leading-tight flex-1 min-w-0">
+                      <p className="text-xs font-semibold truncate">{author.name}</p>
+                      <p className="text-[11px] text-muted-foreground truncate">{formatDate(p.publishedAt)}</p>
+                    </div>
+                    {reviewer && (
+                      <span title={`Reviewed by ${reviewer.name}`} className="inline-flex items-center gap-1 text-[10px] text-secondary font-semibold">
+                        <BadgeCheck className="h-3.5 w-3.5" /> Reviewed
+                      </span>
+                    )}
+                  </div>
+                  <Link to="/blog/$slug" params={{ slug: p.slug }} className="mt-4 inline-flex items-center text-sm font-semibold text-secondary">
+                    Read article <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                  </Link>
                 </div>
-                <h2 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{p.excerpt}</p>
-                <Link to="/blog" className="mt-4 inline-flex items-center text-sm font-semibold text-secondary">
-                  Read article <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </Card>
-          </FadeIn>
-        ))}
+              </Card>
+            </FadeIn>
+          );
+        })}
       </div>
     </PageShell>
   );
