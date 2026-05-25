@@ -27,5 +27,5 @@ export function formatDistanceToNow(date: string | Date) {
 export async function logActivity(action: string, entity_type: string, entity_id?: string, metadata?: Record<string, unknown>) {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
-  await supabase.from("activity_log").insert({ action, entity_type, entity_id: entity_id ?? null, metadata: metadata ?? null, user_id: user.id });
+  await supabase.from("activity_log").insert({ action, entity_type, entity_id: entity_id ?? null, metadata: (metadata ?? null) as never, user_id: user.id });
 }
