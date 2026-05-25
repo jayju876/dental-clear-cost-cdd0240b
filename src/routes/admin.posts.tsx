@@ -100,7 +100,6 @@ function PostsList() {
                 <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium capitalize ${
                   p.status === "published" ? "bg-emerald-100 text-emerald-700" :
                   p.status === "scheduled" ? "bg-blue-100 text-blue-700" :
-                  p.status === "archived" ? "bg-gray-100 text-gray-700" :
                   "bg-amber-100 text-amber-700"
                 }`}>{p.status}</span>
                 {p.status === "published" && (
