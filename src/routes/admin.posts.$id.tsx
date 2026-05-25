@@ -23,7 +23,7 @@ type PostForm = {
   featured_image: string;
   author_id: string | null;
   reviewer_id: string | null;
-  status: "draft" | "published" | "scheduled" | "archived";
+  status: "draft" | "published" | "scheduled";
   published_at: string | null;
   scheduled_for: string | null;
   categories: string[];
