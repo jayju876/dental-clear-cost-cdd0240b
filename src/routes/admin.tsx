@@ -15,14 +15,15 @@ export const Route = createFileRoute("/admin")({
 
 const NAV = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
-  { to: "/admin/posts", label: "Blog Posts", icon: FileText },
+  { to: "/admin/posts", label: "Blogs", icon: FileText },
+  { to: "/admin/seo", label: "Pages SEO", icon: Search },
   { to: "/admin/authors", label: "Authors", icon: UserCog },
-  { to: "/admin/media", label: "Media", icon: ImageIcon },
-  { to: "/admin/seo", label: "Page SEO", icon: Search },
-  { to: "/admin/users", label: "Users & Roles", icon: Users, requireAdmin: true },
-  { to: "/admin/settings", label: "Site Settings", icon: Settings, requireAdmin: true },
+  { to: "/admin/media", label: "Media Library", icon: ImageIcon },
+  { to: "/admin/users", label: "Users", icon: Users, requireAdmin: true },
+  { to: "/admin/settings", label: "Settings", icon: Settings, requireAdmin: true },
   { to: "/admin/activity", label: "Activity Log", icon: Activity, requireAdmin: true },
 ];
+
 
 function AdminLayout() {
   const { user, loading, isCmsUser, hasAnyRole, signOut } = useAuth();
