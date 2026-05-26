@@ -59,11 +59,12 @@ function PostsList() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Blog Posts</h1>
-          <p className="text-sm text-muted-foreground">Manage all blog content</p>
+          <h1 className="text-3xl font-bold tracking-tight">Blogs</h1>
+          <p className="text-sm text-muted-foreground">Create, edit and publish blog content</p>
         </div>
-        <Button onClick={newPost}><Plus className="mr-2 h-4 w-4" />New post</Button>
+        <Button size="lg" onClick={newPost}><Plus className="mr-2 h-4 w-4" />Add New Blog</Button>
       </div>
+
 
       <Card className="p-4">
         <div className="flex flex-wrap items-center gap-2">

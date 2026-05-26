@@ -60,11 +60,15 @@ function MediaLibrary() {
   const filtered = (items ?? []).filter((m) => !q || m.filename.toLowerCase().includes(q.toLowerCase()));
 
   return (
-    <div className="space-y-6">
+    <div
+      className="space-y-6"
+      onDragOver={(e) => { e.preventDefault(); }}
+      onDrop={(e) => { e.preventDefault(); onUpload(e.dataTransfer.files); }}
+    >
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Media Library</h1>
-          <p className="text-sm text-muted-foreground">Upload and reuse images across posts and pages</p>
+          <p className="text-sm text-muted-foreground">Drag &amp; drop images anywhere, or click upload. Click an image to copy its URL.</p>
         </div>
         <div className="flex gap-2">
           <Input placeholder="Search files..." value={q} onChange={(e) => setQ(e.target.value)} className="w-48" />
@@ -78,7 +82,7 @@ function MediaLibrary() {
       {isLoading ? (
         <Card className="p-8 text-center text-sm text-muted-foreground">Loading...</Card>
       ) : filtered.length === 0 ? (
-        <Card className="p-12 text-center"><Upload className="mx-auto h-10 w-10 text-muted-foreground" /><p className="mt-2 text-sm text-muted-foreground">No media yet. Drop files in to get started.</p></Card>
+        <Card className="p-12 text-center border-2 border-dashed"><Upload className="mx-auto h-10 w-10 text-muted-foreground" /><p className="mt-2 text-sm text-muted-foreground">Drop image files anywhere on this page to upload.</p></Card>
       ) : (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {filtered.map((m) => (
@@ -98,3 +102,4 @@ function MediaLibrary() {
     </div>
   );
 }
+
