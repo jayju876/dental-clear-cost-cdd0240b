@@ -62,7 +62,7 @@ function PostsList() {
           <h1 className="text-3xl font-bold tracking-tight">Blogs</h1>
           <p className="text-sm text-muted-foreground">Create, edit and publish blog content</p>
         </div>
-        <Button size="lg" onClick={newPost}><Plus className="mr-2 h-4 w-4" />Add New Blog</Button>
+        <Button size="lg" asChild><Link to="/admin/blog/new"><Plus className="mr-2 h-4 w-4" />Add New Blog</Link></Button>
       </div>
 
 
