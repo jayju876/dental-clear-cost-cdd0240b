@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -9,10 +9,19 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { formatDistanceToNow, logActivity } from "@/lib/admin-utils";
 
-export const Route = createFileRoute("/admin/posts")({ component: PostsList });
+export const Route = createFileRoute("/admin/posts")({ component: PostsRoute });
+
+function PostsRoute() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  if (pathname !== "/admin/posts") {
+    return <Outlet />;
+  }
+
+  return <PostsList />;
+}
 
 function PostsList() {
-  const navigate = useNavigate();
   const qc = useQueryClient();
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState<"all" | "published" | "draft" | "scheduled">("all");
@@ -34,17 +43,6 @@ function PostsList() {
     if (q && !p.title.toLowerCase().includes(q.toLowerCase()) && !p.slug.toLowerCase().includes(q.toLowerCase())) return false;
     return true;
   });
-
-  const newPost = async () => {
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .insert({ title: "Untitled post", slug: `untitled-${Date.now()}`, status: "draft", content_md: "" })
-      .select("id")
-      .single();
-    if (error) { toast.error(error.message); return; }
-    await logActivity("created", "blog_post", data.id);
-    navigate({ to: "/admin/posts/$id", params: { id: data.id } });
-  };
 
   const del = async (id: string) => {
     if (!confirm("Delete this post permanently?")) return;
