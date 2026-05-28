@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FadeIn } from "@/components/site/Section";
+import { CountUp } from "@/components/site/CountUp";
 import heroImg from "@/assets/hero-clinic.jpg";
 import implant3d from "@/assets/implant-3d.jpg";
 import smilingPatient from "@/assets/smiling-patient.jpg";
@@ -107,7 +108,7 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-soft">
         <div className="absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]">
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 h-[480px] w-[900px] rounded-full bg-gradient-accent blur-3xl opacity-20" />
+          <div className="absolute top-10 left-1/2 -translate-x-1/2 h-[480px] w-[900px] rounded-full bg-gradient-accent blur-3xl animate-pulse-soft" />
         </div>
         <div className="container mx-auto px-4 pt-12 pb-14 md:pt-20 md:pb-20">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -127,7 +128,7 @@ function Home() {
                 Estimate your dental implant costs instantly based on implant type, materials, procedures, and financing options across the United States.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
+                <Button asChild size="lg" className="shimmer-btn bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
                   <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
@@ -147,14 +148,16 @@ function Home() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
               className="relative"
             >
-              <div className="absolute -inset-6 bg-gradient-accent/20 blur-3xl rounded-full -z-10" />
-              <img
-                src={heroImg}
-                alt="Dentist showing a dental implant model to a smiling patient"
-                width={1600}
-                height={1100}
-                className="w-full rounded-2xl shadow-elegant border border-border/60 object-cover aspect-[4/3]"
-              />
+              <div className="absolute -inset-6 bg-gradient-accent/20 blur-3xl rounded-full -z-10 animate-pulse-soft" />
+              <div className="animate-float">
+                <img
+                  src={heroImg}
+                  alt="Dentist showing a dental implant model to a smiling patient"
+                  width={1600}
+                  height={1100}
+                  className="w-full rounded-2xl shadow-elegant border border-border/60 object-cover aspect-[4/3]"
+                />
+              </div>
               <Card className="absolute -bottom-5 -left-5 hidden md:flex p-3 items-center gap-3 shadow-elegant border-border/70 bg-background/95 backdrop-blur">
                 <div className="h-10 w-10 rounded-lg bg-gradient-primary inline-flex items-center justify-center text-primary-foreground"><ShieldCheck className="h-5 w-5" /></div>
                 <div>
@@ -169,9 +172,9 @@ function Home() {
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {stats.map((s, i) => (
               <FadeIn key={s.label} delay={i * 0.05}>
-                <Card className="p-4 md:p-5 text-center border-border/70">
-                  <s.icon className="mx-auto h-6 w-6 text-secondary" />
-                  <p className="mt-2 text-2xl font-bold tracking-tight">{s.value}</p>
+                <Card className="card-lift p-4 md:p-5 text-center border-border/70 hover:shadow-elegant">
+                  <s.icon className="mx-auto h-6 w-6 text-secondary transition-transform duration-300 group-hover:scale-110" />
+                  <p className="mt-2 text-2xl font-bold tracking-tight"><CountUp value={s.value} /></p>
                   <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
                 </Card>
               </FadeIn>
@@ -190,7 +193,7 @@ function Home() {
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {costRanges.map((r, i) => (
             <FadeIn key={r.label} delay={i * 0.05}>
-              <Card className="p-6 h-full border-border/70 hover:shadow-elegant transition-shadow">
+              <Card className="p-6 h-full border-border/70 card-lift hover:shadow-elegant">
                 <p className="text-xs font-semibold uppercase tracking-wider text-secondary">{r.label}</p>
                 <p className="mt-3 text-3xl font-bold tracking-tight">{r.range}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
@@ -210,7 +213,7 @@ function Home() {
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {calculators.map((c, i) => (
             <FadeIn key={c.to} delay={i * 0.06}>
-              <Card className="overflow-hidden h-full border-border/70 hover:shadow-elegant transition-all group">
+              <Card className="overflow-hidden h-full border-border/70 card-lift hover:shadow-elegant group">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img src={c.img} alt={c.title} width={1400} height={1000} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent" />
@@ -274,7 +277,7 @@ function Home() {
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {educational.map((e, i) => (
             <FadeIn key={e.title} delay={i * 0.05}>
-              <div className="p-5 rounded-xl border border-border bg-card h-full hover:shadow-elegant transition-shadow">
+              <div className="p-5 rounded-xl border border-border bg-card h-full card-lift hover:shadow-elegant">
                 <h3 className="font-semibold">{e.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
               </div>
@@ -333,7 +336,7 @@ function Home() {
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {blogTeasers.map((p, i) => (
             <FadeIn key={p.title} delay={i * 0.06}>
-              <Card className="overflow-hidden h-full border-border/70 hover:shadow-elegant transition-shadow group">
+              <Card className="overflow-hidden h-full border-border/70 card-lift hover:shadow-elegant group">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img src={p.img} alt={p.title} width={1400} height={1000} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
@@ -383,7 +386,7 @@ function Home() {
               <h2 className="mt-3 text-3xl md:text-4xl font-bold">Plan your implant treatment with confidence</h2>
               <p className="mt-3 text-primary-foreground/80">Join 240,000+ US patients who used the Dental Implant Cost Calculator to plan their treatment with confidence.</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90">
+                <Button asChild size="lg" className="shimmer-btn bg-background text-foreground hover:bg-background/90">
                   <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">

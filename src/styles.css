@@ -95,3 +95,38 @@
     color: transparent;
   }
 }
+
+@layer utilities {
+  @keyframes float-y {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(1.05); }
+  }
+  @keyframes shimmer-sweep {
+    0% { transform: translateX(-120%) skewX(-12deg); }
+    100% { transform: translateX(220%) skewX(-12deg); }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-float { animation: float-y 6s ease-in-out infinite; }
+  .animate-pulse-soft { animation: pulse-soft 7s ease-in-out infinite; }
+  .animate-marquee { animation: marquee 28s linear infinite; }
+
+  .shimmer-btn { position: relative; overflow: hidden; isolation: isolate; }
+  .shimmer-btn::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: translateX(-120%) skewX(-12deg);
+    pointer-events: none;
+  }
+  .shimmer-btn:hover::after { animation: shimmer-sweep 0.9s ease-out; }
+
+  .card-lift { transition: transform 0.35s ease, box-shadow 0.35s ease; will-change: transform; }
+  .card-lift:hover { transform: translateY(-4px); }
+}
