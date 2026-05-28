@@ -108,7 +108,7 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-soft">
         <div className="absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]">
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 h-[480px] w-[900px] rounded-full bg-gradient-accent blur-3xl opacity-20" />
+          <div className="absolute top-10 left-1/2 -translate-x-1/2 h-[480px] w-[900px] rounded-full bg-gradient-accent blur-3xl animate-pulse-soft" />
         </div>
         <div className="container mx-auto px-4 pt-12 pb-14 md:pt-20 md:pb-20">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
