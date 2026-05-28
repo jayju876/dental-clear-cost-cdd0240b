@@ -148,14 +148,16 @@ function Home() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
               className="relative"
             >
-              <div className="absolute -inset-6 bg-gradient-accent/20 blur-3xl rounded-full -z-10" />
-              <img
-                src={heroImg}
-                alt="Dentist showing a dental implant model to a smiling patient"
-                width={1600}
-                height={1100}
-                className="w-full rounded-2xl shadow-elegant border border-border/60 object-cover aspect-[4/3]"
-              />
+              <div className="absolute -inset-6 bg-gradient-accent/20 blur-3xl rounded-full -z-10 animate-pulse-soft" />
+              <div className="animate-float">
+                <img
+                  src={heroImg}
+                  alt="Dentist showing a dental implant model to a smiling patient"
+                  width={1600}
+                  height={1100}
+                  className="w-full rounded-2xl shadow-elegant border border-border/60 object-cover aspect-[4/3]"
+                />
+              </div>
               <Card className="absolute -bottom-5 -left-5 hidden md:flex p-3 items-center gap-3 shadow-elegant border-border/70 bg-background/95 backdrop-blur">
                 <div className="h-10 w-10 rounded-lg bg-gradient-primary inline-flex items-center justify-center text-primary-foreground"><ShieldCheck className="h-5 w-5" /></div>
                 <div>
