@@ -193,7 +193,7 @@ function Home() {
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {costRanges.map((r, i) => (
             <FadeIn key={r.label} delay={i * 0.05}>
-              <Card className="p-6 h-full border-border/70 hover:shadow-elegant transition-shadow">
+              <Card className="p-6 h-full border-border/70 card-lift hover:shadow-elegant">
                 <p className="text-xs font-semibold uppercase tracking-wider text-secondary">{r.label}</p>
                 <p className="mt-3 text-3xl font-bold tracking-tight">{r.range}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
@@ -213,7 +213,7 @@ function Home() {
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {calculators.map((c, i) => (
             <FadeIn key={c.to} delay={i * 0.06}>
-              <Card className="overflow-hidden h-full border-border/70 hover:shadow-elegant transition-all group">
+              <Card className="overflow-hidden h-full border-border/70 card-lift hover:shadow-elegant group">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img src={c.img} alt={c.title} width={1400} height={1000} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent" />
@@ -277,7 +277,7 @@ function Home() {
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {educational.map((e, i) => (
             <FadeIn key={e.title} delay={i * 0.05}>
-              <div className="p-5 rounded-xl border border-border bg-card h-full hover:shadow-elegant transition-shadow">
+              <div className="p-5 rounded-xl border border-border bg-card h-full card-lift hover:shadow-elegant">
                 <h3 className="font-semibold">{e.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
               </div>
@@ -336,7 +336,7 @@ function Home() {
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {blogTeasers.map((p, i) => (
             <FadeIn key={p.title} delay={i * 0.06}>
-              <Card className="overflow-hidden h-full border-border/70 hover:shadow-elegant transition-shadow group">
+              <Card className="overflow-hidden h-full border-border/70 card-lift hover:shadow-elegant group">
                 <div className="aspect-[16/9] overflow-hidden">
                   <img src={p.img} alt={p.title} width={1400} height={1000} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
