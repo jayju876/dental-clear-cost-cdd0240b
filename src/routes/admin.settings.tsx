@@ -14,7 +14,7 @@ import { logActivity } from "@/lib/admin-utils";
 
 export const Route = createFileRoute("/admin/settings")({ component: Settings });
 
-const DEFAULT_KEYS = ["site_name", "site_description", "logo_url", "primary_color", "contact_email", "social_twitter", "social_facebook", "social_instagram", "google_analytics_id", "robots_txt"] as const;
+const DEFAULT_KEYS = ["site_name", "site_description", "logo_url", "primary_color", "contact_email", "social_twitter", "social_facebook", "social_instagram", "google_analytics_id", "google_tag_manager_id", "robots_txt"] as const;
 
 function Settings() {
   const qc = useQueryClient();
@@ -88,6 +88,11 @@ function Settings() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-1.5"><Label>Google Analytics ID</Label><Input disabled={!canEdit} value={values.google_analytics_id ?? ""} onChange={(e) => set("google_analytics_id", e.target.value)} placeholder="G-XXXXXXXXXX" /></div>
+            <div className="space-y-1.5">
+              <Label>Google Tag Manager ID</Label>
+              <Input disabled={!canEdit} value={values.google_tag_manager_id ?? ""} onChange={(e) => set("google_tag_manager_id", e.target.value.trim())} placeholder="GTM-XXXXXXX" />
+              <p className="text-xs text-muted-foreground">Paste your GTM container ID (format: GTM-XXXXXXX). The tag fires on every public page automatically.</p>
+            </div>
             <div className="space-y-1.5"><Label>robots.txt</Label><Textarea disabled={!canEdit} rows={6} className="font-mono text-xs" value={values.robots_txt ?? ""} onChange={(e) => set("robots_txt", e.target.value)} placeholder="User-agent: *\nAllow: /" /></div>
           </CardContent>
         </Card>
