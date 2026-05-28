@@ -172,9 +172,9 @@ function Home() {
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {stats.map((s, i) => (
               <FadeIn key={s.label} delay={i * 0.05}>
-                <Card className="p-4 md:p-5 text-center border-border/70">
-                  <s.icon className="mx-auto h-6 w-6 text-secondary" />
-                  <p className="mt-2 text-2xl font-bold tracking-tight">{s.value}</p>
+                <Card className="card-lift p-4 md:p-5 text-center border-border/70 hover:shadow-elegant">
+                  <s.icon className="mx-auto h-6 w-6 text-secondary transition-transform duration-300 group-hover:scale-110" />
+                  <p className="mt-2 text-2xl font-bold tracking-tight"><CountUp value={s.value} /></p>
                   <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
                 </Card>
               </FadeIn>
