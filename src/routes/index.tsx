@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FadeIn } from "@/components/site/Section";
+import { CountUp } from "@/components/site/CountUp";
 import heroImg from "@/assets/hero-clinic.jpg";
 import implant3d from "@/assets/implant-3d.jpg";
 import smilingPatient from "@/assets/smiling-patient.jpg";
