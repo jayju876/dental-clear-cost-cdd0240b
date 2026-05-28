@@ -119,6 +119,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <GoogleTagManager />
+        <CustomCodeInjector />
         {isAdmin ? (
           <>
             <Outlet />
