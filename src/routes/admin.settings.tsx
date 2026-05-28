@@ -14,7 +14,7 @@ import { logActivity } from "@/lib/admin-utils";
 
 export const Route = createFileRoute("/admin/settings")({ component: Settings });
 
-const DEFAULT_KEYS = ["site_name", "site_description", "logo_url", "primary_color", "contact_email", "social_twitter", "social_facebook", "social_instagram", "google_analytics_id", "google_tag_manager_id", "robots_txt"] as const;
+const DEFAULT_KEYS = ["site_name", "site_description", "logo_url", "primary_color", "contact_email", "social_twitter", "social_facebook", "social_instagram", "google_analytics_id", "google_tag_manager_id", "robots_txt", "custom_head_code", "custom_body_code"] as const;
 
 function Settings() {
   const qc = useQueryClient();
