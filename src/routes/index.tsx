@@ -128,7 +128,7 @@ function Home() {
                 Estimate your dental implant costs instantly based on implant type, materials, procedures, and financing options across the United States.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
+                <Button asChild size="lg" className="shimmer-btn bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
                   <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
