@@ -117,6 +117,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <GoogleTagManager />
         {isAdmin ? (
           <>
             <Outlet />
