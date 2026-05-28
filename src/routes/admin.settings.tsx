@@ -96,6 +96,44 @@ function Settings() {
             <div className="space-y-1.5"><Label>robots.txt</Label><Textarea disabled={!canEdit} rows={6} className="font-mono text-xs" value={values.robots_txt ?? ""} onChange={(e) => set("robots_txt", e.target.value)} placeholder="User-agent: *\nAllow: /" /></div>
           </CardContent>
         </Card>
+
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-base">Custom Code (Head &amp; Body)</CardTitle>
+            <CardDescription>
+              Paste schema markup, verification tags, pixels, or any third-party scripts. Works like the WordPress "Insert Headers and Footers" plugin — code is injected on every public page.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-1.5">
+              <Label>Head (inside &lt;head&gt;)</Label>
+              <Textarea
+                disabled={!canEdit}
+                rows={8}
+                className="font-mono text-xs"
+                value={values.custom_head_code ?? ""}
+                onChange={(e) => set("custom_head_code", e.target.value)}
+                placeholder={'<!-- e.g. schema markup, verification meta, analytics -->\n<script type="application/ld+json">{ }</script>'}
+              />
+              <p className="text-xs text-muted-foreground">Best for meta tags, JSON-LD schema, site verification, and analytics snippets.</p>
+            </div>
+            <div className="space-y-1.5">
+              <Label>Body (end of &lt;body&gt;)</Label>
+              <Textarea
+                disabled={!canEdit}
+                rows={8}
+                className="font-mono text-xs"
+                value={values.custom_body_code ?? ""}
+                onChange={(e) => set("custom_body_code", e.target.value)}
+                placeholder={'<!-- e.g. chat widgets, tracking pixels, noscript fallbacks -->'}
+              />
+              <p className="text-xs text-muted-foreground">Best for chat widgets, conversion pixels, and deferred scripts.</p>
+            </div>
+            <div className="rounded-md border border-amber-200 bg-amber-50 p-2 text-xs text-amber-800">
+              ⚠️ Only paste code from sources you trust. Custom scripts run on every page with full access to your site.
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {canEdit && (
