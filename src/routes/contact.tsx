@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Clock, Send, MessageCircle, Globe2, ShieldCheck, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { FadeIn, PageShell } from "@/components/site/Section";
 import { toast } from "sonner";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
