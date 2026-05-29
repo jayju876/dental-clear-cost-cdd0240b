@@ -80,22 +80,24 @@ function Contact() {
 
         <div className="space-y-4">
           <Card className="p-5 border-border/70">
-            <Info icon={Mail} title="Email" value="hello@implantcost.health" />
-            <Info icon={Phone} title="Phone" value="+91 80 4000 4000" />
-            <Info icon={MapPin} title="Office" value="WeWork Galaxy, Residency Rd, Bengaluru 560025" />
-            <Info icon={Clock} title="Hours" value="Mon–Sat · 9 AM – 7 PM IST" />
+            <Info icon={Clock} title="Response time" value="Within 1 business day" />
+            <Info icon={MessageCircle} title="Support channel" value="Use the form — we reply in-thread" />
+            <Info icon={Globe2} title="Coverage" value="India · USA · UK · UAE · Global" />
+            <Info icon={ShieldCheck} title="Privacy" value="Your details are never shared with clinics" />
           </Card>
           <Card className="overflow-hidden border-border/70">
             <div className="aspect-[4/3] bg-gradient-soft relative">
               <div className="absolute inset-0 grid place-items-center text-muted-foreground text-sm">
-                <div className="text-center">
-                  <MapPin className="h-8 w-8 mx-auto text-secondary" />
-                  <p className="mt-2 font-medium text-foreground">Google Map</p>
-                  <p className="text-xs">Bengaluru, Karnataka, India</p>
+                <div className="text-center px-6">
+                  <Sparkles className="h-8 w-8 mx-auto text-secondary" />
+                  <p className="mt-2 font-medium text-foreground">Free personalized estimate</p>
+                  <p className="text-xs mt-1">Share your treatment goals — get a transparent cost breakdown tailored to your country.</p>
                 </div>
               </div>
             </div>
           </Card>
+        </div>
+
         </div>
       </div>
     </PageShell>
