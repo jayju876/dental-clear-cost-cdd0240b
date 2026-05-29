@@ -99,12 +99,11 @@ function Contact() {
         </div>
       </div>
     </PageShell>
-
-    </PageShell>
   );
 }
 
-function Info({ icon: Icon, title, value }: { icon: typeof Mail; title: string; value: string }) {
+function Info({ icon: Icon, title, value }: { icon: typeof Clock; title: string; value: string }) {
+
   return (
     <div className="flex items-start gap-3 py-3 border-b border-border last:border-0">
       <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary"><Icon className="h-4 w-4" /></div>
