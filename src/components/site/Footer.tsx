@@ -61,12 +61,14 @@ export function Footer() {
             ))}
           </ul>
         </div>
+        <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Why ImplantCost</h3>
           <ul className="space-y-3 text-sm text-primary-foreground/70">
             <li className="flex items-start gap-2"><Globe2 className="h-4 w-4 mt-0.5" /><span>Pricing across 12+ countries, updated quarterly</span></li>
             <li className="flex items-start gap-2"><Clock className="h-4 w-4 mt-0.5" /><span>Instant estimates — no sign-up required</span></li>
             <li className="flex items-start gap-2"><ShieldCheck className="h-4 w-4 mt-0.5" /><span>Reviewed by licensed dental clinicians</span></li>
           </ul>
+        </div>
 
       </div>
       <div className="border-t border-primary-foreground/10">
