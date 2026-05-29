@@ -97,9 +97,9 @@ function Contact() {
             </div>
           </Card>
         </div>
-
-        </div>
       </div>
+    </PageShell>
+
     </PageShell>
   );
 }
