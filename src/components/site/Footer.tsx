@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin, Stethoscope } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Clock, Globe2, ShieldCheck, Stethoscope } from "lucide-react";
+
 
 const legal = [
   { to: "/privacy-policy", label: "Privacy Policy" },
