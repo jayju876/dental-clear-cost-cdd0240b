@@ -17,7 +17,7 @@ import loanImg from "@/assets/loan-calc.jpg";
 import jawImg from "@/assets/jaw-diagram.jpg";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
+  head: (<meta name="google-site-verification" content="UDDICvLjeg4CkqawYoCKpy0QSfZ3bgahLfNBOR9e2EM" />) => ({
     meta: [
       { title: "Dental Implant Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
       { name: "description", content: "Use our free dental implant cost calculator to estimate single tooth, All-on-4, and full mouth dental implant costs in the USA. Instant personalized estimates." },
