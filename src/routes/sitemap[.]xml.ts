@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { POSTS, AUTHORS } from "@/lib/authors";
 
-const BASE_URL = "https://dental-clear-cost.lovable.app";
+const BASE_URL = "https://dentalimplantcalculators.com/";
 
 const PATHS = [
   { path: "/", priority: "1.0", changefreq: "weekly" as const },
