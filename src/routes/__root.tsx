@@ -70,6 +70,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "UDDICvLjeg4CkqawYoCKpy0QSfZ3bgahLfNBOR9e2EM" },
       { title: "Dental Implant Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
       { name: "description", content: "Use our free dental implant cost calculator to estimate single tooth, All-on-4, and full mouth dental implant costs in the USA. Instant personalized estimates." },
       { name: "author", content: "ImplantCost" },
