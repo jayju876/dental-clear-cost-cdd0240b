@@ -14,6 +14,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { StickyCTA } from "@/components/site/StickyCTA";
 import { GoogleTagManager } from "@/components/site/GoogleTagManager";
+import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
 import { CustomCodeInjector } from "@/components/site/CustomCodeInjector";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/hooks/use-auth";
@@ -123,6 +124,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <GoogleTagManager />
+        <GoogleAnalytics />
         <CustomCodeInjector />
         {isAdmin ? (
           <>
