@@ -132,6 +132,7 @@ function RootComponent() {
         <GoogleTagManager />
         <GoogleAnalytics />
         <CustomCodeInjector />
+        <DynamicPageSeo />
         {isAdmin ? (
           <>
             <Outlet />
