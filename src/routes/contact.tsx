@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { FadeIn, PageShell } from "@/components/site/Section";
+import { InternalLinks } from "@/components/site/InternalLinks";
 import { toast } from "sonner";
 
 
@@ -98,6 +99,7 @@ function Contact() {
           </Card>
         </div>
       </div>
+      <InternalLinks heading="Helpful next steps" />
     </PageShell>
   );
 }
