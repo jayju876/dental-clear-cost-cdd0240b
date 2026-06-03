@@ -54,6 +54,7 @@ function FAQ() {
           ))}
         </Accordion>
       </FadeIn>
+      <InternalLinks heading="More implant resources" />
     </PageShell>
   );
 }
