@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/site/Section";
 import { AuthorByline, AuthorBioCard } from "@/components/site/AuthorCard";
 import { POSTS, getPost, getAuthor, formatDate } from "@/lib/authors";
+import { InternalLinks, POPULAR_POSTS } from "@/components/site/InternalLinks";
 import { ArrowRight, Clock, Facebook, Twitter, Linkedin, Link2 } from "lucide-react";
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -153,6 +154,19 @@ function PostPage() {
           <Link to="/cost">Open the calculator <ArrowRight className="ml-2 h-4 w-4" /></Link>
         </Button>
       </div>
+
+      <InternalLinks
+        heading="Keep reading"
+        groups={[
+          { title: "Popular guides", links: POPULAR_POSTS },
+          { title: "Helpful calculators", links: [
+            { to: "/cost", label: "Dental Implant Cost Calculator", body: "Personalized US cost estimates." },
+            { to: "/loan", label: "Implant Loan Calculator", body: "Plan EMI and interest." },
+            { to: "/ratio", label: "Implant Ratio Calculator", body: "How many implants you need." },
+            { to: "/all-on-4-calculator", label: "All-on-4 Calculator", body: "Full-arch implant pricing." },
+          ]},
+        ]}
+      />
     </article>
   );
 }
