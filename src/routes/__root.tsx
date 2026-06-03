@@ -16,6 +16,7 @@ import { StickyCTA } from "@/components/site/StickyCTA";
 import { GoogleTagManager } from "@/components/site/GoogleTagManager";
 import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
 import { CustomCodeInjector } from "@/components/site/CustomCodeInjector";
+import { DynamicPageSeo } from "@/components/site/DynamicPageSeo";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/hooks/use-auth";
 
