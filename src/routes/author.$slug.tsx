@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/site/Section";
 import { AUTHORS, getAuthor, postsByAuthor, formatDate } from "@/lib/authors";
+import { InternalLinks } from "@/components/site/InternalLinks";
 import { Linkedin, Twitter, Globe, GraduationCap, Stethoscope, BadgeCheck, FileText } from "lucide-react";
 
 export const Route = createFileRoute("/author/$slug")({
@@ -132,6 +133,8 @@ function AuthorPage() {
           ))}
         </div>
       </section>
+
+      <InternalLinks heading="Explore more on ImplantCost" />
     </div>
   );
 }

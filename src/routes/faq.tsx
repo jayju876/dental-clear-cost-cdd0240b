@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FadeIn, PageShell } from "@/components/site/Section";
+import { InternalLinks } from "@/components/site/InternalLinks";
 
 const FAQS_DATA = [
   { q: "How much does a dental implant cost?", a: "Single tooth implants typically range from $600 in India to $6,000 in the United States. Factors include brand, crown material, bone graft and clinic location." },
@@ -54,6 +55,7 @@ function FAQ() {
           ))}
         </Accordion>
       </FadeIn>
+      <InternalLinks heading="More implant resources" />
     </PageShell>
   );
 }

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ShieldCheck, Award, HeartHandshake, Globe2, Users, Microscope } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { FadeIn, PageShell } from "@/components/site/Section";
+import { InternalLinks } from "@/components/site/InternalLinks";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -83,6 +84,7 @@ function About() {
           ))}
         </div>
       </section>
+      <InternalLinks heading="Explore ImplantCost" />
     </PageShell>
   );
 }

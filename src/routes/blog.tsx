@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { FadeIn, PageShell } from "@/components/site/Section";
+import { InternalLinks, TEAM_LINKS } from "@/components/site/InternalLinks";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Clock, BadgeCheck } from "lucide-react";
 import { POSTS, getAuthor, formatDate } from "@/lib/authors";
@@ -83,6 +84,17 @@ function Blog() {
           );
         })}
       </div>
+      <InternalLinks
+        heading="More on ImplantCost"
+        groups={[
+          { title: "Calculators", links: [
+            { to: "/cost", label: "Cost Calculator", body: "Personalize a US implant estimate." },
+            { to: "/loan", label: "Loan Calculator", body: "Model monthly payments and APR." },
+            { to: "/ratio", label: "Ratio Calculator", body: "Find the right number of implants." },
+          ]},
+          { title: "Meet the editorial team", links: TEAM_LINKS },
+        ]}
+      />
     </PageShell>
   );
 }
