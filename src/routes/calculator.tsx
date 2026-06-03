@@ -16,6 +16,7 @@ import {
   COUNTRIES, IMPLANT_TYPES, CROWN_MATERIALS, BRANDS, estimate, formatCurrency, emi,
   type CalcInput, type CountryCode,
 } from "@/lib/implant-pricing";
+import { InternalLinks } from "@/components/site/InternalLinks";
 
 export const Route = createFileRoute("/calculator")({
   head: () => ({
@@ -134,6 +135,9 @@ export function CalculatorPage() {
             Current selection: <span className="font-medium text-foreground">{country.name}</span> · {input.teeth} tooth/teeth · {IMPLANT_TYPES.find((t) => t.id === input.implantType)?.label}
           </div>
         )}
+        <div className="container mx-auto px-4">
+          <InternalLinks heading="Related implant tools & guides" />
+        </div>
       </div>
     </div>
   );

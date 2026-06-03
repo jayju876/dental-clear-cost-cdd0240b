@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { RatioCalculator } from "@/components/site/RatioCalculator";
+import { InternalLinks } from "@/components/site/InternalLinks";
 
 export const Route = createFileRoute("/ratio")({
   head: () => ({
@@ -12,9 +13,14 @@ export const Route = createFileRoute("/ratio")({
     links: [{ rel: "canonical", href: "/ratio" }],
   }),
   component: () => (
-    <RatioCalculator
-      title="Dental Implant Ratio Calculator"
-      lead="Estimate how many implants you'll need and the right treatment match — based on missing teeth, jaw and bone condition."
-    />
+    <>
+      <RatioCalculator
+        title="Dental Implant Ratio Calculator"
+        lead="Estimate how many implants you'll need and the right treatment match — based on missing teeth, jaw and bone condition."
+      />
+      <div className="container mx-auto px-4 pb-16">
+        <InternalLinks heading="More implant planning tools" />
+      </div>
+    </>
   ),
 });

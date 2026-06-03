@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LoanCalculator } from "@/components/site/LoanCalculator";
+import { InternalLinks } from "@/components/site/InternalLinks";
 
 export const Route = createFileRoute("/loan")({
   head: () => ({
@@ -12,9 +13,14 @@ export const Route = createFileRoute("/loan")({
     links: [{ rel: "canonical", href: "/loan" }],
   }),
   component: () => (
-    <LoanCalculator
-      title="Dental Implant Loan Calculator"
-      lead="Estimate monthly payments, interest and total payable amount for dental implant financing in the United States."
-    />
+    <>
+      <LoanCalculator
+        title="Dental Implant Loan Calculator"
+        lead="Estimate monthly payments, interest and total payable amount for dental implant financing in the United States."
+      />
+      <div className="container mx-auto px-4 pb-16">
+        <InternalLinks heading="More implant planning tools" />
+      </div>
+    </>
   ),
 });
