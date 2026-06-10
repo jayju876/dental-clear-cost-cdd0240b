@@ -17,6 +17,7 @@ export const SITE_PAGES: SitePage[] = [
   { path: "/ratio", name: "Implant Ratio", group: "Calculators" },
   { path: "/ratio-calculator", name: "Ratio Calculator", group: "Calculators" },
   { path: "/all-on-4-calculator", name: "All-on-4 Calculator", group: "Calculators" },
+  { path: "/breast-implant-cost-calculator", name: "Breast Implant Cost Calculator", group: "Calculators" },
   { path: "/implant-support-calculator", name: "Implant Support Calculator", group: "Calculators" },
   { path: "/dental-implant-finance-calculator", name: "Implant Finance Calculator", group: "Calculators" },
   { path: "/dental-implant-loan-calculator", name: "Implant Loan Calculator", group: "Calculators" },
