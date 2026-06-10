@@ -14,6 +14,7 @@ const legal = [
 
 const explore = [
   { to: "/cost", label: "Dental Implant Cost Calculator" },
+  { to: "/breast-implant-cost-calculator", label: "Breast Implant Cost Calculator" },
   { to: "/loan", label: "Loan EMI Calculator" },
   { to: "/ratio", label: "Implant Ratio Calculator" },
   { to: "/blog", label: "Blog" },
