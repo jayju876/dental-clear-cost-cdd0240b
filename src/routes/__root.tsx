@@ -17,6 +17,7 @@ import { GoogleTagManager } from "@/components/site/GoogleTagManager";
 import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
 import { CustomCodeInjector } from "@/components/site/CustomCodeInjector";
 import { DynamicPageSeo } from "@/components/site/DynamicPageSeo";
+import { SchemaInjector } from "@/components/site/SchemaInjector";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/hooks/use-auth";
 
@@ -97,7 +98,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "ImplantCost",
+          url: "https://dentalimplantcalculator.lovable.app/",
           description: "America's dental implant cost estimation platform — instant cost, loan and ratio calculators.",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: "https://dentalimplantcalculator.lovable.app/blog?q={search_term_string}",
+            },
+            "query-input": "required name=search_term_string",
+          },
         }),
       },
     ],
@@ -133,6 +143,7 @@ function RootComponent() {
         <GoogleAnalytics />
         <CustomCodeInjector />
         <DynamicPageSeo />
+        <SchemaInjector />
         {isAdmin ? (
           <>
             <Outlet />
