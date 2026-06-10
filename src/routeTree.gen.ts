@@ -29,6 +29,7 @@ import { Route as CostRouteImport } from './routes/cost'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as BreastImplantCostCalculatorRouteImport } from './routes/breast-implant-cost-calculator'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculator'
 import { Route as AdminRouteImport } from './routes/admin'
@@ -155,6 +156,12 @@ const CalculatorRoute = CalculatorRouteImport.update({
   path: '/calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BreastImplantCostCalculatorRoute =
+  BreastImplantCostCalculatorRouteImport.update({
+    id: '/breast-implant-cost-calculator',
+    path: '/breast-implant-cost-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -263,6 +270,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteWithChildren
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
   '/blog': typeof BlogRouteWithChildren
+  '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
@@ -304,6 +312,7 @@ export interface FileRoutesByTo {
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
   '/blog': typeof BlogRouteWithChildren
+  '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
@@ -347,6 +356,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteWithChildren
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
   '/blog': typeof BlogRouteWithChildren
+  '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
@@ -391,6 +401,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/all-on-4-calculator'
     | '/blog'
+    | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
     | '/cookie-policy'
@@ -432,6 +443,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/all-on-4-calculator'
     | '/blog'
+    | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
     | '/cookie-policy'
@@ -474,6 +486,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/all-on-4-calculator'
     | '/blog'
+    | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
     | '/cookie-policy'
@@ -517,6 +530,7 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRouteWithChildren
   AllOn4CalculatorRoute: typeof AllOn4CalculatorRoute
   BlogRoute: typeof BlogRouteWithChildren
+  BreastImplantCostCalculatorRoute: typeof BreastImplantCostCalculatorRoute
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
@@ -680,6 +694,13 @@ declare module '@tanstack/react-router' {
       path: '/calculator'
       fullPath: '/calculator'
       preLoaderRoute: typeof CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/breast-implant-cost-calculator': {
+      id: '/breast-implant-cost-calculator'
+      path: '/breast-implant-cost-calculator'
+      fullPath: '/breast-implant-cost-calculator'
+      preLoaderRoute: typeof BreastImplantCostCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -894,6 +915,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRouteWithChildren,
   AllOn4CalculatorRoute: AllOn4CalculatorRoute,
   BlogRoute: BlogRouteWithChildren,
+  BreastImplantCostCalculatorRoute: BreastImplantCostCalculatorRoute,
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
   CookiePolicyRoute: CookiePolicyRoute,
