@@ -9,6 +9,7 @@ export type LinkGroup = { title: string; links: InternalLink[] };
 
 const CALCULATORS: InternalLink[] = [
   { to: "/cost", label: "Dental Implant Cost Calculator", body: "Estimate single, multiple or full-arch implant cost." },
+  { to: "/breast-implant-cost-calculator", label: "Breast Implant Cost Calculator", body: "Estimate breast augmentation surgery cost by type and country." },
   { to: "/loan", label: "Implant Loan Calculator", body: "Plan monthly EMI, APR and total interest." },
   { to: "/ratio", label: "Implant Ratio Calculator", body: "How many implants you actually need." },
   { to: "/all-on-4-calculator", label: "All-on-4 Calculator", body: "Cost ranges for full-arch All-on-4 cases." },
