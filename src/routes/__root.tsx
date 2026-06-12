@@ -100,14 +100,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "ImplantCost",
           url: "https://dentalimplantcalculator.lovable.app/",
           description: "America's dental implant cost estimation platform — instant cost, loan and ratio calculators.",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: {
-              "@type": "EntryPoint",
-              urlTemplate: "https://dentalimplantcalculator.lovable.app/blog?q={search_term_string}",
-            },
-            "query-input": "required name=search_term_string",
-          },
         }),
       },
     ],
