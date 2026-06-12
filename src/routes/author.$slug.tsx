@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/site/Section";
-import { AUTHORS, getAuthor, postsByAuthor, formatDate } from "@/lib/authors";
+import { AUTHORS, getAuthor } from "@/lib/authors";
 import { InternalLinks } from "@/components/site/InternalLinks";
 import { Linkedin, Twitter, Globe, GraduationCap, Stethoscope, BadgeCheck, FileText } from "lucide-react";
 
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/author/$slug")({
   notFoundComponent: () => (
     <div className="container mx-auto px-4 py-24 text-center">
       <h1 className="text-3xl font-bold">Author not found</h1>
-      <Link to="/blog" className="mt-4 inline-block text-secondary font-semibold">Back to blog</Link>
+      <Link to="/" className="mt-4 inline-block text-secondary font-semibold">Back to home</Link>
     </div>
   ),
   component: AuthorPage,
@@ -52,7 +52,6 @@ export const Route = createFileRoute("/author/$slug")({
 
 function AuthorPage() {
   const { author } = Route.useLoaderData() as { author: import("@/lib/authors").Author };
-  const articles = postsByAuthor(author.slug);
   const others = AUTHORS.filter((a) => a.slug !== author.slug);
 
 
@@ -101,21 +100,16 @@ function AuthorPage() {
         </Card>
 
         <div className="md:col-span-2">
-          <h2 className="text-2xl font-bold tracking-tight">Published articles</h2>
-          <div className="mt-5 grid sm:grid-cols-2 gap-5">
-            {articles.map((p) => (
-              <Card key={p.slug} className="p-5 border-border/70 hover:shadow-elegant transition-shadow">
-                <Badge variant="secondary" className="bg-secondary/10 text-secondary border-0">{p.tag}</Badge>
-                <h3 className="mt-3 text-base font-semibold leading-snug">
-                  <Link to="/blog/$slug" params={{ slug: p.slug }} className="hover:text-secondary">{p.title}</Link>
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{p.excerpt}</p>
-                <p className="mt-3 text-xs text-muted-foreground">{formatDate(p.publishedAt)} · {p.read} read</p>
-              </Card>
+          <h2 className="text-2xl font-bold tracking-tight">Areas of expertise</h2>
+          <p className="mt-3 text-muted-foreground leading-relaxed">{author.longBio}</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {author.expertise.map((e) => (
+              <Badge key={e} variant="secondary" className="bg-secondary/10 text-secondary border-0">{e}</Badge>
             ))}
           </div>
         </div>
       </section>
+
 
       <section className="mt-16">
         <h2 className="text-2xl font-bold tracking-tight">More from our editorial team</h2>

@@ -30,26 +30,20 @@ import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as BreastImplantCostCalculatorRouteImport } from './routes/breast-implant-cost-calculator'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculator'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminSeoRouteImport } from './routes/admin.seo'
-import { Route as AdminPostsRouteImport } from './routes/admin.posts'
 import { Route as AdminMediaRouteImport } from './routes/admin.media'
 import { Route as AdminAuthorsRouteImport } from './routes/admin.authors'
 import { Route as AdminActivityRouteImport } from './routes/admin.activity'
-import { Route as AdminPostsIdRouteImport } from './routes/admin.posts.$id'
-import { Route as AdminBlogNewRouteImport } from './routes/admin.blog.new'
 import { Route as AdminAuthorsIdRouteImport } from './routes/admin.authors.$id'
-import { Route as AdminBlogEditSlugRouteImport } from './routes/admin.blog.edit.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -162,11 +156,6 @@ const BreastImplantCostCalculatorRoute =
     path: '/breast-implant-cost-calculator',
     getParentRoute: () => rootRouteImport,
   } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AllOn4CalculatorRoute = AllOn4CalculatorRouteImport.update({
   id: '/all-on-4-calculator',
   path: '/all-on-4-calculator',
@@ -197,11 +186,6 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
-} as any)
 const AuthorSlugRoute = AuthorSlugRouteImport.update({
   id: '/author/$slug',
   path: '/author/$slug',
@@ -222,11 +206,6 @@ const AdminSeoRoute = AdminSeoRouteImport.update({
   path: '/seo',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminPostsRoute = AdminPostsRouteImport.update({
-  id: '/posts',
-  path: '/posts',
-  getParentRoute: () => AdminRoute,
-} as any)
 const AdminMediaRoute = AdminMediaRouteImport.update({
   id: '/media',
   path: '/media',
@@ -242,25 +221,10 @@ const AdminActivityRoute = AdminActivityRouteImport.update({
   path: '/activity',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminPostsIdRoute = AdminPostsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => AdminPostsRoute,
-} as any)
-const AdminBlogNewRoute = AdminBlogNewRouteImport.update({
-  id: '/blog/new',
-  path: '/blog/new',
-  getParentRoute: () => AdminRoute,
-} as any)
 const AdminAuthorsIdRoute = AdminAuthorsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => AdminAuthorsRoute,
-} as any)
-const AdminBlogEditSlugRoute = AdminBlogEditSlugRouteImport.update({
-  id: '/blog/edit/$slug',
-  path: '/blog/edit/$slug',
-  getParentRoute: () => AdminRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -269,7 +233,6 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/admin': typeof AdminRouteWithChildren
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -294,24 +257,18 @@ export interface FileRoutesByFullPath {
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
   '/admin/media': typeof AdminMediaRoute
-  '/admin/posts': typeof AdminPostsRouteWithChildren
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
-  '/admin/blog/new': typeof AdminBlogNewRoute
-  '/admin/posts/$id': typeof AdminPostsIdRoute
-  '/admin/blog/edit/$slug': typeof AdminBlogEditSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -336,17 +293,12 @@ export interface FileRoutesByTo {
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
   '/admin/media': typeof AdminMediaRoute
-  '/admin/posts': typeof AdminPostsRouteWithChildren
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/admin': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
-  '/admin/blog/new': typeof AdminBlogNewRoute
-  '/admin/posts/$id': typeof AdminPostsIdRoute
-  '/admin/blog/edit/$slug': typeof AdminBlogEditSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -355,7 +307,6 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/admin': typeof AdminRouteWithChildren
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -380,17 +331,12 @@ export interface FileRoutesById {
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
   '/admin/media': typeof AdminMediaRoute
-  '/admin/posts': typeof AdminPostsRouteWithChildren
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
-  '/admin/blog/new': typeof AdminBlogNewRoute
-  '/admin/posts/$id': typeof AdminPostsIdRoute
-  '/admin/blog/edit/$slug': typeof AdminBlogEditSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -400,7 +346,6 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/admin'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -425,24 +370,18 @@ export interface FileRouteTypes {
     | '/admin/activity'
     | '/admin/authors'
     | '/admin/media'
-    | '/admin/posts'
     | '/admin/seo'
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$slug'
     | '/admin/'
     | '/admin/authors/$id'
-    | '/admin/blog/new'
-    | '/admin/posts/$id'
-    | '/admin/blog/edit/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/accessibility'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -467,17 +406,12 @@ export interface FileRouteTypes {
     | '/admin/activity'
     | '/admin/authors'
     | '/admin/media'
-    | '/admin/posts'
     | '/admin/seo'
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$slug'
     | '/admin'
     | '/admin/authors/$id'
-    | '/admin/blog/new'
-    | '/admin/posts/$id'
-    | '/admin/blog/edit/$slug'
   id:
     | '__root__'
     | '/'
@@ -485,7 +419,6 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/admin'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -510,17 +443,12 @@ export interface FileRouteTypes {
     | '/admin/activity'
     | '/admin/authors'
     | '/admin/media'
-    | '/admin/posts'
     | '/admin/seo'
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$slug'
     | '/admin/'
     | '/admin/authors/$id'
-    | '/admin/blog/new'
-    | '/admin/posts/$id'
-    | '/admin/blog/edit/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -529,7 +457,6 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   AdminRoute: typeof AdminRouteWithChildren
   AllOn4CalculatorRoute: typeof AllOn4CalculatorRoute
-  BlogRoute: typeof BlogRouteWithChildren
   BreastImplantCostCalculatorRoute: typeof BreastImplantCostCalculatorRoute
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
@@ -703,13 +630,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BreastImplantCostCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/all-on-4-calculator': {
       id: '/all-on-4-calculator'
       path: '/all-on-4-calculator'
@@ -752,13 +672,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
-    }
     '/author/$slug': {
       id: '/author/$slug'
       path: '/author/$slug'
@@ -787,13 +700,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSeoRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/posts': {
-      id: '/admin/posts'
-      path: '/posts'
-      fullPath: '/admin/posts'
-      preLoaderRoute: typeof AdminPostsRouteImport
-      parentRoute: typeof AdminRoute
-    }
     '/admin/media': {
       id: '/admin/media'
       path: '/media'
@@ -815,33 +721,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminActivityRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/posts/$id': {
-      id: '/admin/posts/$id'
-      path: '/$id'
-      fullPath: '/admin/posts/$id'
-      preLoaderRoute: typeof AdminPostsIdRouteImport
-      parentRoute: typeof AdminPostsRoute
-    }
-    '/admin/blog/new': {
-      id: '/admin/blog/new'
-      path: '/blog/new'
-      fullPath: '/admin/blog/new'
-      preLoaderRoute: typeof AdminBlogNewRouteImport
-      parentRoute: typeof AdminRoute
-    }
     '/admin/authors/$id': {
       id: '/admin/authors/$id'
       path: '/$id'
       fullPath: '/admin/authors/$id'
       preLoaderRoute: typeof AdminAuthorsIdRouteImport
       parentRoute: typeof AdminAuthorsRoute
-    }
-    '/admin/blog/edit/$slug': {
-      id: '/admin/blog/edit/$slug'
-      path: '/blog/edit/$slug'
-      fullPath: '/admin/blog/edit/$slug'
-      preLoaderRoute: typeof AdminBlogEditSlugRouteImport
-      parentRoute: typeof AdminRoute
     }
   }
 }
@@ -858,55 +743,27 @@ const AdminAuthorsRouteWithChildren = AdminAuthorsRoute._addFileChildren(
   AdminAuthorsRouteChildren,
 )
 
-interface AdminPostsRouteChildren {
-  AdminPostsIdRoute: typeof AdminPostsIdRoute
-}
-
-const AdminPostsRouteChildren: AdminPostsRouteChildren = {
-  AdminPostsIdRoute: AdminPostsIdRoute,
-}
-
-const AdminPostsRouteWithChildren = AdminPostsRoute._addFileChildren(
-  AdminPostsRouteChildren,
-)
-
 interface AdminRouteChildren {
   AdminActivityRoute: typeof AdminActivityRoute
   AdminAuthorsRoute: typeof AdminAuthorsRouteWithChildren
   AdminMediaRoute: typeof AdminMediaRoute
-  AdminPostsRoute: typeof AdminPostsRouteWithChildren
   AdminSeoRoute: typeof AdminSeoRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminIndexRoute: typeof AdminIndexRoute
-  AdminBlogNewRoute: typeof AdminBlogNewRoute
-  AdminBlogEditSlugRoute: typeof AdminBlogEditSlugRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminActivityRoute: AdminActivityRoute,
   AdminAuthorsRoute: AdminAuthorsRouteWithChildren,
   AdminMediaRoute: AdminMediaRoute,
-  AdminPostsRoute: AdminPostsRouteWithChildren,
   AdminSeoRoute: AdminSeoRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminIndexRoute: AdminIndexRoute,
-  AdminBlogNewRoute: AdminBlogNewRoute,
-  AdminBlogEditSlugRoute: AdminBlogEditSlugRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
-
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -914,7 +771,6 @@ const rootRouteChildren: RootRouteChildren = {
   AccessibilityRoute: AccessibilityRoute,
   AdminRoute: AdminRouteWithChildren,
   AllOn4CalculatorRoute: AllOn4CalculatorRoute,
-  BlogRoute: BlogRouteWithChildren,
   BreastImplantCostCalculatorRoute: BreastImplantCostCalculatorRoute,
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,

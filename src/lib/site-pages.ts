@@ -7,7 +7,6 @@ export const SITE_PAGES: SitePage[] = [
   { path: "/about", name: "About", group: "Core" },
   { path: "/contact", name: "Contact", group: "Core" },
   { path: "/faq", name: "FAQ", group: "Core" },
-  { path: "/blog", name: "Blog", group: "Content" },
   { path: "/sitemap", name: "Sitemap", group: "Content" },
 
   { path: "/cost", name: "Dental Implant Cost", group: "Calculators" },

@@ -89,11 +89,6 @@ const educational = [
   { title: "Crown Materials", body: "Zirconia, PFM and E.max — each balances aesthetics, durability and price differently." },
 ];
 
-const blogTeasers = [
-  { title: "Dental Implant Cost in New York", excerpt: "Average prices across NYC clinics and what drives the wide cost range.", tag: "Cost Guide", img: smilingPatient },
-  { title: "Does Insurance Cover Dental Implants?", excerpt: "Medical vs. dental insurance, HSA/FSA, and what's typically covered in 2026.", tag: "Insurance", img: implant3d },
-  { title: "Financing Your Implants in the USA", excerpt: "CareCredit, dental loans and 0% APR options — realistic financing for 2026.", tag: "Finance", img: loanImg },
-];
 
 const faqs = [
   { q: "How accurate is the dental implant cost calculator?", a: "Our estimates are based on aggregated 2025–2026 US clinic pricing and are typically within 10–15% of final invoices." },
@@ -324,33 +319,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Blog */}
-      <section className="container mx-auto px-4 py-14 md:py-16">
-        <FadeIn className="flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold">From the blog</h2>
-            <p className="mt-2 text-muted-foreground max-w-xl">Cost guides, brand comparisons and patient stories — medically reviewed.</p>
-          </div>
-          <Button asChild variant="outline"><Link to="/blog">View all articles <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
-        </FadeIn>
-        <div className="mt-8 grid md:grid-cols-3 gap-5">
-          {blogTeasers.map((p, i) => (
-            <FadeIn key={p.title} delay={i * 0.06}>
-              <Card className="overflow-hidden h-full border-border/70 card-lift hover:shadow-elegant group">
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img src={p.img} alt={p.title} width={1400} height={1000} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="p-5">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-secondary">{p.tag}</span>
-                  <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.excerpt}</p>
-                  <Link to="/blog" className="mt-3 inline-flex items-center text-sm font-semibold text-secondary">Read more <ArrowRight className="ml-1 h-3.5 w-3.5" /></Link>
-                </div>
-              </Card>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="bg-card border-y border-border">
