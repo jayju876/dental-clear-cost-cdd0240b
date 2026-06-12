@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
-import { AUTHORS, POSTS } from "@/lib/authors";
+import { AUTHORS } from "@/lib/authors";
 
 export type InternalLink = { to: string; params?: Record<string, string>; label: string; body?: string };
 
@@ -18,7 +18,6 @@ const CALCULATORS: InternalLink[] = [
 ];
 
 const RESOURCES: InternalLink[] = [
-  { to: "/blog", label: "Implant Cost Blog", body: "Cost guides, brand comparisons and patient stories." },
   { to: "/faq", label: "Implant FAQs", body: "Reviewed answers to common implant questions." },
   { to: "/about", label: "About ImplantCost", body: "Editorial team, methodology and review process." },
   { to: "/contact", label: "Contact us", body: "Ask a question or send press inquiries." },
@@ -30,15 +29,7 @@ export const RELATED_GROUPS: LinkGroup[] = [
   { title: "Guides & resources", links: RESOURCES },
 ];
 
-// Top blog posts to surface as featured contextual links across the site.
-export const POPULAR_POSTS: InternalLink[] = POSTS.slice(0, 4).map((p) => ({
-  to: "/blog/$slug",
-  params: { slug: p.slug },
-  label: p.title,
-  body: p.excerpt,
-}));
-
-// Editorial team links — surfaced on author + blog pages for SEO E-E-A-T.
+// Editorial team links — surfaced on author pages for SEO E-E-A-T.
 export const TEAM_LINKS: InternalLink[] = AUTHORS.map((a) => ({
   to: "/author/$slug",
   params: { slug: a.slug },
