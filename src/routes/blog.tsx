@@ -3,7 +3,10 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 export const Route = createFileRoute("/blog")({
   server: {
     handlers: {
-      GET: async () => Response.redirect(new URL("/", "http://placeholder").toString().replace("http://placeholder", ""), 301),
+      GET: async ({ request }) => {
+        const url = new URL("/", request.url);
+        return new Response(null, { status: 301, headers: { Location: url.toString() } });
+      },
     },
   },
   beforeLoad: () => {
