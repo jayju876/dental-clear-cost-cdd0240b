@@ -52,7 +52,6 @@ export const Route = createFileRoute("/author/$slug")({
 
 function AuthorPage() {
   const { author } = Route.useLoaderData() as { author: import("@/lib/authors").Author };
-  const articles = postsByAuthor(author.slug);
   const others = AUTHORS.filter((a) => a.slug !== author.slug);
 
 
