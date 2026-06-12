@@ -100,21 +100,16 @@ function AuthorPage() {
         </Card>
 
         <div className="md:col-span-2">
-          <h2 className="text-2xl font-bold tracking-tight">Published articles</h2>
-          <div className="mt-5 grid sm:grid-cols-2 gap-5">
-            {articles.map((p) => (
-              <Card key={p.slug} className="p-5 border-border/70 hover:shadow-elegant transition-shadow">
-                <Badge variant="secondary" className="bg-secondary/10 text-secondary border-0">{p.tag}</Badge>
-                <h3 className="mt-3 text-base font-semibold leading-snug">
-                  <Link to="/blog/$slug" params={{ slug: p.slug }} className="hover:text-secondary">{p.title}</Link>
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{p.excerpt}</p>
-                <p className="mt-3 text-xs text-muted-foreground">{formatDate(p.publishedAt)} · {p.read} read</p>
-              </Card>
+          <h2 className="text-2xl font-bold tracking-tight">Areas of expertise</h2>
+          <p className="mt-3 text-muted-foreground leading-relaxed">{author.longBio}</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {author.expertise.map((e) => (
+              <Badge key={e} variant="secondary" className="bg-secondary/10 text-secondary border-0">{e}</Badge>
             ))}
           </div>
         </div>
       </section>
+
 
       <section className="mt-16">
         <h2 className="text-2xl font-bold tracking-tight">More from our editorial team</h2>
