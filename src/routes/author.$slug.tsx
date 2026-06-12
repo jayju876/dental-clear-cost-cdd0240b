@@ -44,7 +44,7 @@ export const Route = createFileRoute("/author/$slug")({
   notFoundComponent: () => (
     <div className="container mx-auto px-4 py-24 text-center">
       <h1 className="text-3xl font-bold">Author not found</h1>
-      <Link to="/blog" className="mt-4 inline-block text-secondary font-semibold">Back to blog</Link>
+      <Link to="/" className="mt-4 inline-block text-secondary font-semibold">Back to home</Link>
     </div>
   ),
   component: AuthorPage,
