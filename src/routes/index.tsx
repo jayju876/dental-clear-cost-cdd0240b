@@ -89,11 +89,6 @@ const educational = [
   { title: "Crown Materials", body: "Zirconia, PFM and E.max — each balances aesthetics, durability and price differently." },
 ];
 
-const blogTeasers = [
-  { title: "Dental Implant Cost in New York", excerpt: "Average prices across NYC clinics and what drives the wide cost range.", tag: "Cost Guide", img: smilingPatient },
-  { title: "Does Insurance Cover Dental Implants?", excerpt: "Medical vs. dental insurance, HSA/FSA, and what's typically covered in 2026.", tag: "Insurance", img: implant3d },
-  { title: "Financing Your Implants in the USA", excerpt: "CareCredit, dental loans and 0% APR options — realistic financing for 2026.", tag: "Finance", img: loanImg },
-];
 
 const faqs = [
   { q: "How accurate is the dental implant cost calculator?", a: "Our estimates are based on aggregated 2025–2026 US clinic pricing and are typically within 10–15% of final invoices." },
