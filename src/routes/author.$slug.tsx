@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/site/Section";
-import { AUTHORS, getAuthor, postsByAuthor, formatDate } from "@/lib/authors";
+import { AUTHORS, getAuthor } from "@/lib/authors";
 import { InternalLinks } from "@/components/site/InternalLinks";
 import { Linkedin, Twitter, Globe, GraduationCap, Stethoscope, BadgeCheck, FileText } from "lucide-react";
 
