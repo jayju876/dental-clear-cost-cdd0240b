@@ -17,7 +17,7 @@ const explore = [
   { to: "/breast-implant-cost-calculator", label: "Breast Implant Cost Calculator" },
   { to: "/loan", label: "Loan EMI Calculator" },
   { to: "/ratio", label: "Implant Ratio Calculator" },
-  { to: "/blog", label: "Blog" },
+  
   { to: "/about", label: "About Us" },
   { to: "/contact", label: "Contact" },
   { to: "/faq", label: "FAQ" },
