@@ -324,33 +324,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Blog */}
-      <section className="container mx-auto px-4 py-14 md:py-16">
-        <FadeIn className="flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold">From the blog</h2>
-            <p className="mt-2 text-muted-foreground max-w-xl">Cost guides, brand comparisons and patient stories — medically reviewed.</p>
-          </div>
-          <Button asChild variant="outline"><Link to="/blog">View all articles <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
-        </FadeIn>
-        <div className="mt-8 grid md:grid-cols-3 gap-5">
-          {blogTeasers.map((p, i) => (
-            <FadeIn key={p.title} delay={i * 0.06}>
-              <Card className="overflow-hidden h-full border-border/70 card-lift hover:shadow-elegant group">
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img src={p.img} alt={p.title} width={1400} height={1000} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="p-5">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-secondary">{p.tag}</span>
-                  <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.excerpt}</p>
-                  <Link to="/blog" className="mt-3 inline-flex items-center text-sm font-semibold text-secondary">Read more <ArrowRight className="ml-1 h-3.5 w-3.5" /></Link>
-                </div>
-              </Card>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="bg-card border-y border-border">
