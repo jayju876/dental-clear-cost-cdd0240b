@@ -22,7 +22,8 @@ export const Route = createFileRoute("/")({
       { title: "Dental Implant Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
       { name: "description", content: "Use our free dental implant cost calculator to estimate single tooth, All-on-4, and full mouth dental implant costs in the USA. Instant personalized estimates." },
       { property: "og:title", content: "Dental Implant Cost Calculator (2026) – Instant US Estimate" },
-      { property: "og:description", content: "America's dental implant cost estimation platform — single tooth, All-on-4 and full mouth estimates across the United States." },
+      { property: "og:description", content: "Free dental implant cost calculator for the USA — estimate single tooth implant cost, full mouth dental implant cost, and permanent implant cost with or without insurance." },
+      { name: "keywords", content: "dental implant cost calculator, single tooth implant cost, cheapest tooth implant cost, full mouth dental implant cost calculator in USA, permanent dental implant cost calculator in USA, dental implant cost calculator in USA with insurance, dental procedures cost list, delta dental cost estimator with insurance, cost of dental procedures without insurance, dental cost with insurance, dental procedure cost estimator, dental implant cost with insurance in California, dental implant cost in USA with insurance" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
