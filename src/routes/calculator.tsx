@@ -21,10 +21,10 @@ import { InternalLinks } from "@/components/site/InternalLinks";
 export const Route = createFileRoute("/calculator")({
   head: () => ({
     meta: [
-      { title: "Dental Implant Cost Calculator — Free Instant Estimate" },
-      { name: "description", content: "Calculate your dental implant cost in seconds. Country, brand, crown material, bone graft and EMI breakdown included." },
-      { property: "og:title", content: "Dental Implant Cost Calculator" },
-      { property: "og:description", content: "Free, instant dental implant cost estimates with treatment breakdown." },
+      { title: "Dental Implant Cost Calculator — Free Instant Estimate (USA)" },
+      { name: "description", content: "Free dental implant cost calculator: estimate single tooth implant cost, full mouth dental implant cost and permanent implant pricing in the USA — with or without insurance." },
+      { property: "og:title", content: "Dental Implant Cost Calculator (USA)" },
+      { property: "og:description", content: "Instant single tooth, All-on-4, full mouth and permanent dental implant cost estimates — with insurance and without." },
     ],
     links: [{ rel: "canonical", href: "/calculator" }],
   }),

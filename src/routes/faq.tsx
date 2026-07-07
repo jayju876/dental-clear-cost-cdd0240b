@@ -4,25 +4,26 @@ import { FadeIn, PageShell } from "@/components/site/Section";
 import { InternalLinks } from "@/components/site/InternalLinks";
 
 const FAQS_DATA = [
-  { q: "How much does a dental implant cost?", a: "Single tooth implants typically range from $600 in India to $6,000 in the United States. Factors include brand, crown material, bone graft and clinic location." },
-  { q: "How accurate is the ImplantCost calculator?", a: "Our estimates are within 10–15% of final clinic invoices based on data from 1,800+ verified clinics across 32 countries, updated quarterly." },
+  { q: "How much does a single tooth implant cost in the USA?", a: "The single tooth implant cost in the USA is typically $3,500–$6,000, including the implant, abutment and crown. The cheapest tooth implant cost — around $1,500–$2,500 — is usually found at dental schools and community clinics." },
+  { q: "How accurate is this dental implant cost calculator?", a: "Our dental implant cost calculator is within 10–15% of final clinic invoices based on data from 1,800+ verified US clinics, updated quarterly." },
+  { q: "How much is a full mouth dental implant in the USA?", a: "Full mouth dental implants cost $40,000–$90,000 in the USA. Our full mouth dental implant cost calculator in USA breaks the price down by state, materials and clinic tier." },
+  { q: "What is the permanent dental implant cost in the USA?", a: "Permanent dental implants — screw-retained zirconia bridges designed to last 20+ years — typically run $25,000–$60,000 per arch. Use our permanent dental implant cost calculator in USA for a personalized estimate." },
+  { q: "Does the calculator include insurance?", a: "Yes. The dental implant cost calculator in USA with insurance models common PPO coverage (10–50%) and shows both dental cost with insurance and cost of dental procedures without insurance side-by-side." },
+  { q: "How does this compare to the Delta Dental cost estimator with insurance?", a: "The Delta Dental cost estimator with insurance and its Delta Dental procedures cost list only cover Delta Dental subscribers. Our dental procedure cost estimator works across every US insurer, state and clinic type." },
+  { q: "What's the dental implant cost with insurance in California?", a: "After typical PPO coverage, the dental implant cost with insurance in California ranges $2,500–$4,500 per tooth. Los Angeles, San Diego and San Francisco price higher than Sacramento or Fresno." },
   { q: "Are dental implants painful?", a: "Implant placement is performed under local anaesthesia. Most patients report mild discomfort for 2–3 days, well-managed with standard pain relief." },
   { q: "How long do dental implants last?", a: "With good oral hygiene and regular checkups, implants commonly last 20+ years; many last a lifetime." },
-  { q: "What is All-on-4?", a: "All-on-4 is a full-arch restoration anchored on four strategically placed implants. It's used to restore an entire upper or lower jaw." },
-  { q: "Is dental tourism to India safe?", a: "Yes — when you choose accredited clinics with internationally trained dentists. We only list clinics that meet our verification standards." },
-  { q: "Does insurance cover implants?", a: "Coverage varies. Many dental plans partially cover the crown but not the implant fixture. HSA/FSA accounts in the US can typically be used." },
-  { q: "How long is the treatment timeline?", a: "Traditional implants take 3–6 months including healing. Immediate-load implants and All-on-4 can sometimes be completed in days." },
-  { q: "Can I finance my treatment?", a: "Yes — many clinics offer 0% EMI for 6–12 months. Dental-specific lenders extend up to 24-month plans." },
+  { q: "Can I finance my treatment?", a: "Yes — many US clinics offer 0% EMI for 6–12 months, and dental lenders extend 12–24 month plans. HSA/FSA funds can also apply." },
   { q: "Do you share my information with clinics?", a: "Only when you explicitly request to connect with a specific clinic. We never sell your data — see our Privacy Policy." },
 ];
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Dental Implant FAQ — Common Questions Answered" },
-      { name: "description", content: "Answers to the most common dental implant questions: cost, procedure, recovery, financing and country comparisons." },
-      { property: "og:title", content: "Dental Implant FAQ" },
-      { property: "og:description", content: "Common dental implant questions answered by our medical team." },
+      { title: "Dental Implant Cost FAQ (USA) — Insurance, Single Tooth & Full Mouth" },
+      { name: "description", content: "Answers on single tooth implant cost, full mouth dental implant cost, permanent implant pricing and dental implant cost with insurance in the USA — including California." },
+      { property: "og:title", content: "Dental Implant Cost Calculator — FAQ" },
+      { property: "og:description", content: "Common questions on dental implant cost, insurance and financing across the USA." },
     ],
     links: [{ rel: "canonical", href: "/faq" }],
     scripts: [{

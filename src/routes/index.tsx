@@ -22,7 +22,8 @@ export const Route = createFileRoute("/")({
       { title: "Dental Implant Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
       { name: "description", content: "Use our free dental implant cost calculator to estimate single tooth, All-on-4, and full mouth dental implant costs in the USA. Instant personalized estimates." },
       { property: "og:title", content: "Dental Implant Cost Calculator (2026) – Instant US Estimate" },
-      { property: "og:description", content: "America's dental implant cost estimation platform — single tooth, All-on-4 and full mouth estimates across the United States." },
+      { property: "og:description", content: "Free dental implant cost calculator for the USA — estimate single tooth implant cost, full mouth dental implant cost, and permanent implant cost with or without insurance." },
+      { name: "keywords", content: "dental implant cost calculator, single tooth implant cost, cheapest tooth implant cost, full mouth dental implant cost calculator in USA, permanent dental implant cost calculator in USA, dental implant cost calculator in USA with insurance, dental procedures cost list, delta dental cost estimator with insurance, cost of dental procedures without insurance, dental cost with insurance, dental procedure cost estimator, dental implant cost with insurance in California, dental implant cost in USA with insurance" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
@@ -53,9 +54,9 @@ const stats = [
 const trustBadges = ["HIPAA Aligned", "Insurance Friendly", "Financing Available", "Medically Reviewed"];
 
 const costRanges = [
-  { label: "Single Tooth Implant", range: "$3,500 – $6,000", body: "Implant + abutment + crown, per tooth." },
-  { label: "All-on-4 (Full Arch)", range: "$20,000 – $30,000", body: "Four implants supporting a full-arch prosthesis." },
-  { label: "Full Mouth Implants", range: "$40,000 – $90,000", body: "Both arches, premium materials and brands." },
+  { label: "Single Tooth Implant Cost", range: "$3,500 – $6,000", body: "Implant + abutment + crown per tooth. The cheapest tooth implant cost in the USA typically starts near $1,800 at dental schools and community clinics." },
+  { label: "All-on-4 (Full Arch)", range: "$20,000 – $30,000", body: "Four implants supporting a full-arch prosthesis — a popular permanent dental implant option in the USA." },
+  { label: "Full Mouth Dental Implants", range: "$40,000 – $90,000", body: "Both arches with premium materials. Use our full mouth dental implant cost calculator in USA for a personalized range." },
 ];
 
 const calculators = [
@@ -83,18 +84,20 @@ const testimonials = [
 ];
 
 const educational = [
-  { title: "Single Tooth Implant", body: "Replacement of one missing tooth with a titanium post, abutment and crown — typically $3,500–$6,000 in the US." },
-  { title: "All-on-4 / All-on-6", body: "Full-arch restoration anchored on 4 or 6 implants — ideal for full-mouth rehabilitation in a single visit." },
-  { title: "Bone Grafting", body: "Augments insufficient jawbone to securely host an implant; US cost typically $400–$1,200 per site." },
-  { title: "Crown Materials", body: "Zirconia, PFM and E.max — each balances aesthetics, durability and price differently." },
+  { title: "Single Tooth Implant Cost", body: "One missing tooth replaced with a titanium post, abutment and crown — typically $3,500–$6,000 in the US, or as low as ~$1,800 at the cheapest tooth implant clinics." },
+  { title: "Full Mouth & All-on-4", body: "Full-arch restoration on 4 or 6 implants. Our full mouth dental implant cost calculator in USA breaks the number down by state and clinic tier." },
+  { title: "Permanent Implants in the USA", body: "Our permanent dental implant cost calculator in USA models zirconia bridges and screw-retained prosthetics designed to last 20+ years." },
+  { title: "Cost With & Without Insurance", body: "Compare the cost of dental procedures without insurance to your dental cost with insurance — most PPO plans cover 10–50% of implant treatment." },
 ];
 
 
 const faqs = [
-  { q: "How accurate is the dental implant cost calculator?", a: "Our estimates are based on aggregated 2025–2026 US clinic pricing and are typically within 10–15% of final invoices." },
-  { q: "How much does a dental implant cost in the US?", a: "A single tooth dental implant typically costs $3,500–$6,000 in the United States. All-on-4 ranges $20,000–$30,000 per arch and full mouth implants $40,000–$90,000." },
-  { q: "Is the calculator free to use?", a: "Yes. All three calculators — cost, loan and ratio — are 100% free, with no signup required." },
-  { q: "Does insurance cover dental implants?", a: "Most dental insurance plans cover a portion (10–50%) of implant treatment. Medical insurance may cover bone grafts after trauma. Check your specific plan." },
+  { q: "How accurate is this dental implant cost calculator?", a: "Our dental implant cost calculator uses aggregated 2025–2026 US clinic pricing and is typically within 10–15% of final invoices for single tooth, All-on-4 and full mouth cases." },
+  { q: "What is the cheapest tooth implant cost in the USA?", a: "The cheapest tooth implant cost in the USA is roughly $1,500–$2,500 at dental schools and community clinics. Private practices average $3,500–$6,000 per single tooth implant, including the crown." },
+  { q: "How much is a full mouth dental implant in the USA?", a: "Full mouth dental implants cost $40,000–$90,000 in the USA depending on materials and clinic tier. Use our full mouth dental implant cost calculator in USA for a personalized estimate." },
+  { q: "Does the calculator include insurance?", a: "Yes. Our dental implant cost calculator in USA with insurance models common PPO coverage (10–50%) and lets you compare the cost of dental procedures without insurance side-by-side." },
+  { q: "How does this compare to the Delta Dental cost estimator?", a: "Unlike the Delta Dental cost estimator with insurance — which is limited to Delta Dental subscribers and their procedures cost list — our dental procedure cost estimator works across all US insurers, states and treatment types." },
+  { q: "How much do dental implants cost in California with insurance?", a: "The dental implant cost with insurance in California typically ranges $2,500–$4,500 per tooth after PPO coverage. Los Angeles, San Diego and San Francisco price higher than inland cities." },
 ];
 
 function Home() {
@@ -120,7 +123,7 @@ function Home() {
                 Dental Implant <span className="text-gradient">Cost Calculator</span>
               </h1>
               <p className="mt-4 text-lg text-muted-foreground">
-                Estimate your dental implant costs instantly based on implant type, materials, procedures, and financing options across the United States.
+                The free Dental Implant Cost Calculator estimates single tooth implant cost, full mouth dental implant cost and permanent implant pricing across the USA — with or without insurance — in under 60 seconds.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
@@ -183,7 +186,7 @@ function Home() {
         <FadeIn className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Average US implant costs · 2026</p>
           <h2 className="mt-2 text-3xl md:text-4xl font-bold">Realistic dental implant cost ranges in the USA</h2>
-          <p className="mt-3 text-muted-foreground">Aggregated from verified clinic pricing across New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix.</p>
+          <p className="mt-3 text-muted-foreground">Aggregated from a verified dental procedures cost list covering New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix — useful as a dental procedure cost estimator before your consultation.</p>
         </FadeIn>
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {costRanges.map((r, i) => (
@@ -280,6 +283,29 @@ function Home() {
           ))}
         </div>
       </section>
+
+      {/* Insurance & cost-transparency section */}
+      <section className="container mx-auto px-4 py-12 md:py-14">
+        <FadeIn className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Insurance & transparency</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental implant cost in USA — with insurance and without</h2>
+          <p className="mt-3 text-muted-foreground">
+            Use our dental implant cost calculator in USA with insurance to see your out-of-pocket after PPO benefits, then flip to the uninsured view to compare the cost of dental procedures without insurance. It works as a broader dental procedure cost estimator too — a plain-English alternative to the Delta Dental cost estimator with insurance and the Delta Dental procedures cost list — covering every US insurer, state and clinic tier, including the dental implant cost with insurance in California.
+          </p>
+          <div className="mt-6 grid sm:grid-cols-2 gap-4">
+            <div className="p-5 rounded-xl border border-border bg-card">
+              <h3 className="font-semibold">Dental cost with insurance</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Most PPO plans cover 10–50% of implant treatment, capped by an annual maximum. Our estimator applies your coverage tier to a real US dental procedures cost list.</p>
+            </div>
+            <div className="p-5 rounded-xl border border-border bg-card">
+              <h3 className="font-semibold">Dental cost without insurance</h3>
+              <p className="mt-2 text-sm text-muted-foreground">For uninsured patients we surface the cheapest tooth implant cost tiers — dental schools, community clinics and in-house membership plans — alongside standard private pricing.</p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+
 
       {/* Testimonials with patient image */}
       <section className="bg-gradient-soft border-y border-border">
