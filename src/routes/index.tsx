@@ -123,7 +123,7 @@ function Home() {
                 Dental Implant <span className="text-gradient">Cost Calculator</span>
               </h1>
               <p className="mt-4 text-lg text-muted-foreground">
-                Estimate your dental implant costs instantly based on implant type, materials, procedures, and financing options across the United States.
+                The free Dental Implant Cost Calculator estimates single tooth implant cost, full mouth dental implant cost and permanent implant pricing across the USA — with or without insurance — in under 60 seconds.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
