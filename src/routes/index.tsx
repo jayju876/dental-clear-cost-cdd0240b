@@ -284,6 +284,29 @@ function Home() {
         </div>
       </section>
 
+      {/* Insurance & cost-transparency section */}
+      <section className="container mx-auto px-4 py-12 md:py-14">
+        <FadeIn className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Insurance & transparency</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental implant cost in USA — with insurance and without</h2>
+          <p className="mt-3 text-muted-foreground">
+            Use our dental implant cost calculator in USA with insurance to see your out-of-pocket after PPO benefits, then flip to the uninsured view to compare the cost of dental procedures without insurance. It works as a broader dental procedure cost estimator too — a plain-English alternative to the Delta Dental cost estimator with insurance and the Delta Dental procedures cost list — covering every US insurer, state and clinic tier, including the dental implant cost with insurance in California.
+          </p>
+          <div className="mt-6 grid sm:grid-cols-2 gap-4">
+            <div className="p-5 rounded-xl border border-border bg-card">
+              <h3 className="font-semibold">Dental cost with insurance</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Most PPO plans cover 10–50% of implant treatment, capped by an annual maximum. Our estimator applies your coverage tier to a real US dental procedures cost list.</p>
+            </div>
+            <div className="p-5 rounded-xl border border-border bg-card">
+              <h3 className="font-semibold">Dental cost without insurance</h3>
+              <p className="mt-2 text-sm text-muted-foreground">For uninsured patients we surface the cheapest tooth implant cost tiers — dental schools, community clinics and in-house membership plans — alongside standard private pricing.</p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+
+
       {/* Testimonials with patient image */}
       <section className="bg-gradient-soft border-y border-border">
         <div className="container mx-auto px-4 py-14 md:py-16">
