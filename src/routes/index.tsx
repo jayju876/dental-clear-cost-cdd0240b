@@ -84,18 +84,20 @@ const testimonials = [
 ];
 
 const educational = [
-  { title: "Single Tooth Implant", body: "Replacement of one missing tooth with a titanium post, abutment and crown — typically $3,500–$6,000 in the US." },
-  { title: "All-on-4 / All-on-6", body: "Full-arch restoration anchored on 4 or 6 implants — ideal for full-mouth rehabilitation in a single visit." },
-  { title: "Bone Grafting", body: "Augments insufficient jawbone to securely host an implant; US cost typically $400–$1,200 per site." },
-  { title: "Crown Materials", body: "Zirconia, PFM and E.max — each balances aesthetics, durability and price differently." },
+  { title: "Single Tooth Implant Cost", body: "One missing tooth replaced with a titanium post, abutment and crown — typically $3,500–$6,000 in the US, or as low as ~$1,800 at the cheapest tooth implant clinics." },
+  { title: "Full Mouth & All-on-4", body: "Full-arch restoration on 4 or 6 implants. Our full mouth dental implant cost calculator in USA breaks the number down by state and clinic tier." },
+  { title: "Permanent Implants in the USA", body: "Our permanent dental implant cost calculator in USA models zirconia bridges and screw-retained prosthetics designed to last 20+ years." },
+  { title: "Cost With & Without Insurance", body: "Compare the cost of dental procedures without insurance to your dental cost with insurance — most PPO plans cover 10–50% of implant treatment." },
 ];
 
 
 const faqs = [
-  { q: "How accurate is the dental implant cost calculator?", a: "Our estimates are based on aggregated 2025–2026 US clinic pricing and are typically within 10–15% of final invoices." },
-  { q: "How much does a dental implant cost in the US?", a: "A single tooth dental implant typically costs $3,500–$6,000 in the United States. All-on-4 ranges $20,000–$30,000 per arch and full mouth implants $40,000–$90,000." },
-  { q: "Is the calculator free to use?", a: "Yes. All three calculators — cost, loan and ratio — are 100% free, with no signup required." },
-  { q: "Does insurance cover dental implants?", a: "Most dental insurance plans cover a portion (10–50%) of implant treatment. Medical insurance may cover bone grafts after trauma. Check your specific plan." },
+  { q: "How accurate is this dental implant cost calculator?", a: "Our dental implant cost calculator uses aggregated 2025–2026 US clinic pricing and is typically within 10–15% of final invoices for single tooth, All-on-4 and full mouth cases." },
+  { q: "What is the cheapest tooth implant cost in the USA?", a: "The cheapest tooth implant cost in the USA is roughly $1,500–$2,500 at dental schools and community clinics. Private practices average $3,500–$6,000 per single tooth implant, including the crown." },
+  { q: "How much is a full mouth dental implant in the USA?", a: "Full mouth dental implants cost $40,000–$90,000 in the USA depending on materials and clinic tier. Use our full mouth dental implant cost calculator in USA for a personalized estimate." },
+  { q: "Does the calculator include insurance?", a: "Yes. Our dental implant cost calculator in USA with insurance models common PPO coverage (10–50%) and lets you compare the cost of dental procedures without insurance side-by-side." },
+  { q: "How does this compare to the Delta Dental cost estimator?", a: "Unlike the Delta Dental cost estimator with insurance — which is limited to Delta Dental subscribers and their procedures cost list — our dental procedure cost estimator works across all US insurers, states and treatment types." },
+  { q: "How much do dental implants cost in California with insurance?", a: "The dental implant cost with insurance in California typically ranges $2,500–$4,500 per tooth after PPO coverage. Los Angeles, San Diego and San Francisco price higher than inland cities." },
 ];
 
 function Home() {
