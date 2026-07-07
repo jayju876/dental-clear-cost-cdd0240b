@@ -20,10 +20,10 @@ const FAQS_DATA = [
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Dental Implant FAQ — Common Questions Answered" },
-      { name: "description", content: "Answers to the most common dental implant questions: cost, procedure, recovery, financing and country comparisons." },
-      { property: "og:title", content: "Dental Implant FAQ" },
-      { property: "og:description", content: "Common dental implant questions answered by our medical team." },
+      { title: "Dental Implant Cost FAQ (USA) — Insurance, Single Tooth & Full Mouth" },
+      { name: "description", content: "Answers on single tooth implant cost, full mouth dental implant cost, permanent implant pricing and dental implant cost with insurance in the USA — including California." },
+      { property: "og:title", content: "Dental Implant Cost Calculator — FAQ" },
+      { property: "og:description", content: "Common questions on dental implant cost, insurance and financing across the USA." },
     ],
     links: [{ rel: "canonical", href: "/faq" }],
     scripts: [{
