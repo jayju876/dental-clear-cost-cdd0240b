@@ -108,60 +108,15 @@ export type BlogPost = {
 
 export const POSTS: BlogPost[] = [
   {
-    slug: "us-dental-implant-cost-2026",
-    title: "Dental Implant Cost in the US: Full 2026 Breakdown",
-    excerpt: "A state-by-state look at single tooth, All-on-4, and full mouth implant costs across the United States.",
-    tag: "Cost Guide", read: "8 min", publishedAt: "2026-04-12",
-    authorSlug: "dr-michael-carter", reviewerSlug: "dr-sarah-mitchell",
-  },
-  {
-    slug: "all-on-4-vs-all-on-6",
-    title: "All-on-4 vs All-on-6: Which Should You Choose?",
-    excerpt: "Comparing two full-arch options on cost, longevity, and candidacy.",
-    tag: "Education", read: "6 min", publishedAt: "2026-03-28",
-    authorSlug: "dr-sarah-mitchell", reviewerSlug: "dr-michael-carter",
-  },
-  {
-    slug: "straumann-vs-nobel-vs-osstem",
-    title: "Straumann vs Nobel Biocare vs Osstem",
-    excerpt: "What actually separates premium and value implant brands.",
-    tag: "Brands", read: "10 min", publishedAt: "2026-03-15",
-    authorSlug: "james-walker", reviewerSlug: "dr-michael-carter",
-  },
-  {
-    slug: "financing-dental-implants",
-    title: "Financing Your Implants Without Breaking the Bank",
-    excerpt: "Dental loans, HSA/FSA, in-house payment plans, and insurance — realistic options in 2026.",
-    tag: "Finance", read: "7 min", publishedAt: "2026-03-02",
-    authorSlug: "emily-roberts", reviewerSlug: "dr-michael-carter",
-  },
-  {
-    slug: "bone-grafting-explained",
-    title: "Bone Grafting Explained: When You Really Need It",
-    excerpt: "Cost, recovery time, and when grafts can be avoided.",
-    tag: "Education", read: "5 min", publishedAt: "2026-02-20",
-    authorSlug: "dr-michael-carter", reviewerSlug: "dr-sarah-mitchell",
-  },
-  {
-    slug: "patient-journey-full-arch",
-    title: "A Patient's Full-Arch Implant Journey",
-    excerpt: "How one US patient navigated treatment planning, financing, and recovery for full-arch implants.",
-    tag: "Patient Stories", read: "9 min", publishedAt: "2026-02-08",
-    authorSlug: "james-walker", reviewerSlug: "dr-sarah-mitchell",
-  },
-  {
-    slug: "dental-insurance-coverage",
-    title: "Does Insurance Cover Dental Implants in 2026?",
-    excerpt: "What major US dental insurance plans actually pay toward implant treatment.",
-    tag: "Finance", read: "8 min", publishedAt: "2026-01-26",
-    authorSlug: "emily-roberts", reviewerSlug: "dr-michael-carter",
-  },
-  {
-    slug: "zirconia-vs-emax-crowns",
-    title: "Zirconia vs E.max Crowns: Aesthetics and Price",
-    excerpt: "Choose the right crown material for your case and budget.",
-    tag: "Education", read: "6 min", publishedAt: "2026-01-14",
-    authorSlug: "dr-sarah-mitchell", reviewerSlug: "dr-michael-carter",
+    slug: "spark-vs-invisalign-cost-comfort-treatment-time",
+    title: "Spark vs Invisalign: Cost, Comfort & Treatment Time",
+    excerpt:
+      "Compare Spark and Invisalign clear aligners on materials, comfort, treatment time and how to budget alongside a dental implant cost calculator.",
+    tag: "Education",
+    read: "6 min",
+    publishedAt: "2026-05-10",
+    authorSlug: "dr-sarah-mitchell",
+    reviewerSlug: "dr-michael-carter",
   },
 ];
 
