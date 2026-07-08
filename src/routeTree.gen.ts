@@ -37,7 +37,7 @@ import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as BlogSplatRouteImport } from './routes/blog.$'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
@@ -193,9 +193,9 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
-const BlogSplatRoute = BlogSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
 const AuthorSlugRoute = AuthorSlugRouteImport.update({
@@ -274,7 +274,7 @@ export interface FileRoutesByFullPath {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$': typeof BlogSplatRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
@@ -312,7 +312,7 @@ export interface FileRoutesByTo {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$': typeof BlogSplatRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/admin': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
@@ -352,7 +352,7 @@ export interface FileRoutesById {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$': typeof BlogSplatRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
@@ -393,7 +393,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$'
+    | '/blog/$slug'
     | '/admin/'
     | '/admin/authors/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -431,7 +431,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$'
+    | '/blog/$slug'
     | '/admin'
     | '/admin/authors/$id'
   id:
@@ -470,7 +470,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$'
+    | '/blog/$slug'
     | '/admin/'
     | '/admin/authors/$id'
   fileRoutesById: FileRoutesById
@@ -704,11 +704,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/blog/$': {
-      id: '/blog/$'
-      path: '/$'
-      fullPath: '/blog/$'
-      preLoaderRoute: typeof BlogSplatRouteImport
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
     '/author/$slug': {
@@ -805,11 +805,11 @@ const AdminRouteChildren: AdminRouteChildren = {
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface BlogRouteChildren {
-  BlogSplatRoute: typeof BlogSplatRoute
+  BlogSlugRoute: typeof BlogSlugRoute
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
-  BlogSplatRoute: BlogSplatRoute,
+  BlogSlugRoute: BlogSlugRoute,
 }
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
