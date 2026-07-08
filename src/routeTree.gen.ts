@@ -30,14 +30,12 @@ import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as BreastImplantCostCalculatorRouteImport } from './routes/breast-implant-cost-calculator'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculator'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as BlogSplatRouteImport } from './routes/blog.$'
 import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
@@ -158,11 +156,6 @@ const BreastImplantCostCalculatorRoute =
     path: '/breast-implant-cost-calculator',
     getParentRoute: () => rootRouteImport,
   } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AllOn4CalculatorRoute = AllOn4CalculatorRouteImport.update({
   id: '/all-on-4-calculator',
   path: '/all-on-4-calculator',
@@ -192,11 +185,6 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRoute,
-} as any)
-const BlogSplatRoute = BlogSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => BlogRoute,
 } as any)
 const AuthorSlugRoute = AuthorSlugRouteImport.update({
   id: '/author/$slug',
@@ -245,7 +233,6 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/admin': typeof AdminRouteWithChildren
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -274,7 +261,6 @@ export interface FileRoutesByFullPath {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$': typeof BlogSplatRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
@@ -283,7 +269,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -312,7 +297,6 @@ export interface FileRoutesByTo {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$': typeof BlogSplatRoute
   '/admin': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
@@ -323,7 +307,6 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/admin': typeof AdminRouteWithChildren
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -352,7 +335,6 @@ export interface FileRoutesById {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/author/$slug': typeof AuthorSlugRoute
-  '/blog/$': typeof BlogSplatRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
@@ -364,7 +346,6 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/admin'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -393,7 +374,6 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$'
     | '/admin/'
     | '/admin/authors/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -402,7 +382,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/accessibility'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -431,7 +410,6 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$'
     | '/admin'
     | '/admin/authors/$id'
   id:
@@ -441,7 +419,6 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/admin'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -470,7 +447,6 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/users'
     | '/author/$slug'
-    | '/blog/$'
     | '/admin/'
     | '/admin/authors/$id'
   fileRoutesById: FileRoutesById
@@ -481,7 +457,6 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   AdminRoute: typeof AdminRouteWithChildren
   AllOn4CalculatorRoute: typeof AllOn4CalculatorRoute
-  BlogRoute: typeof BlogRouteWithChildren
   BreastImplantCostCalculatorRoute: typeof BreastImplantCostCalculatorRoute
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
@@ -655,13 +630,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BreastImplantCostCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/all-on-4-calculator': {
       id: '/all-on-4-calculator'
       path: '/all-on-4-calculator'
@@ -703,13 +671,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
-    }
-    '/blog/$': {
-      id: '/blog/$'
-      path: '/$'
-      fullPath: '/blog/$'
-      preLoaderRoute: typeof BlogSplatRouteImport
-      parentRoute: typeof BlogRoute
     }
     '/author/$slug': {
       id: '/author/$slug'
@@ -804,23 +765,12 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
-interface BlogRouteChildren {
-  BlogSplatRoute: typeof BlogSplatRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSplatRoute: BlogSplatRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
   AdminRoute: AdminRouteWithChildren,
   AllOn4CalculatorRoute: AllOn4CalculatorRoute,
-  BlogRoute: BlogRouteWithChildren,
   BreastImplantCostCalculatorRoute: BreastImplantCostCalculatorRoute,
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
@@ -847,13 +797,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
