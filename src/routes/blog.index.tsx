@@ -6,7 +6,7 @@ import { POSTS, getAuthor, formatDate } from "@/lib/authors";
 import { InternalLinks } from "@/components/site/InternalLinks";
 import { ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Dental Implant Blog — Guides, Costs & Insurance | ImplantCost" },

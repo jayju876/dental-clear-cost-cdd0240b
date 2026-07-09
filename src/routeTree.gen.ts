@@ -30,12 +30,12 @@ import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as BreastImplantCostCalculatorRouteImport } from './routes/breast-implant-cost-calculator'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculator'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
@@ -158,11 +158,6 @@ const BreastImplantCostCalculatorRoute =
     path: '/breast-implant-cost-calculator',
     getParentRoute: () => rootRouteImport,
   } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AllOn4CalculatorRoute = AllOn4CalculatorRouteImport.update({
   id: '/all-on-4-calculator',
   path: '/all-on-4-calculator',
@@ -188,15 +183,20 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AuthorSlugRoute = AuthorSlugRouteImport.update({
   id: '/author/$slug',
@@ -245,7 +245,6 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/admin': typeof AdminRouteWithChildren
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -276,6 +275,7 @@ export interface FileRoutesByFullPath {
   '/author/$slug': typeof AuthorSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
+  '/blog/': typeof BlogIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
 export interface FileRoutesByTo {
@@ -283,7 +283,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -314,6 +313,7 @@ export interface FileRoutesByTo {
   '/author/$slug': typeof AuthorSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/admin': typeof AdminIndexRoute
+  '/blog': typeof BlogIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
 export interface FileRoutesById {
@@ -323,7 +323,6 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/admin': typeof AdminRouteWithChildren
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
-  '/blog': typeof BlogRouteWithChildren
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
@@ -354,6 +353,7 @@ export interface FileRoutesById {
   '/author/$slug': typeof AuthorSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
+  '/blog/': typeof BlogIndexRoute
   '/admin/authors/$id': typeof AdminAuthorsIdRoute
 }
 export interface FileRouteTypes {
@@ -364,7 +364,6 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/admin'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -395,6 +394,7 @@ export interface FileRouteTypes {
     | '/author/$slug'
     | '/blog/$slug'
     | '/admin/'
+    | '/blog/'
     | '/admin/authors/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -402,7 +402,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/accessibility'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -433,6 +432,7 @@ export interface FileRouteTypes {
     | '/author/$slug'
     | '/blog/$slug'
     | '/admin'
+    | '/blog'
     | '/admin/authors/$id'
   id:
     | '__root__'
@@ -441,7 +441,6 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/admin'
     | '/all-on-4-calculator'
-    | '/blog'
     | '/breast-implant-cost-calculator'
     | '/calculator'
     | '/contact'
@@ -472,6 +471,7 @@ export interface FileRouteTypes {
     | '/author/$slug'
     | '/blog/$slug'
     | '/admin/'
+    | '/blog/'
     | '/admin/authors/$id'
   fileRoutesById: FileRoutesById
 }
@@ -481,7 +481,6 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   AdminRoute: typeof AdminRouteWithChildren
   AllOn4CalculatorRoute: typeof AllOn4CalculatorRoute
-  BlogRoute: typeof BlogRouteWithChildren
   BreastImplantCostCalculatorRoute: typeof BreastImplantCostCalculatorRoute
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
@@ -504,6 +503,8 @@ export interface RootRouteChildren {
   SitemapRoute: typeof SitemapRoute
   TermsRoute: typeof TermsRoute
   AuthorSlugRoute: typeof AuthorSlugRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -655,13 +656,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BreastImplantCostCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/all-on-4-calculator': {
       id: '/all-on-4-calculator'
       path: '/all-on-4-calculator'
@@ -697,6 +691,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -706,10 +707,10 @@ declare module '@tanstack/react-router' {
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/author/$slug': {
       id: '/author/$slug'
@@ -804,23 +805,12 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
   AdminRoute: AdminRouteWithChildren,
   AllOn4CalculatorRoute: AllOn4CalculatorRoute,
-  BlogRoute: BlogRouteWithChildren,
   BreastImplantCostCalculatorRoute: BreastImplantCostCalculatorRoute,
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
@@ -843,6 +833,8 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapRoute: SitemapRoute,
   TermsRoute: TermsRoute,
   AuthorSlugRoute: AuthorSlugRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
