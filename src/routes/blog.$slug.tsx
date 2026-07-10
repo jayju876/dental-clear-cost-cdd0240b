@@ -550,7 +550,7 @@ function BlogPostPage() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
           <div className="min-w-0">
-            <article className="prose prose-slate dark:prose-invert max-w-none prose-lg prose-headings:tracking-tight prose-headings:scroll-mt-24 prose-h2:mt-14 prose-h2:mb-4 prose-h2:text-3xl prose-h2:font-bold prose-h2:border-b prose-h2:border-border/60 prose-h2:pb-3 prose-h3:mt-10 prose-h3:text-2xl prose-h3:font-semibold prose-h4:text-lg prose-h4:font-semibold prose-p:leading-[1.8] prose-p:text-foreground/85 prose-a:text-secondary prose-a:font-semibold prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:border prose-img:border-border/60 prose-table:text-sm prose-blockquote:border-l-secondary prose-blockquote:bg-secondary/5 prose-blockquote:py-1 prose-blockquote:not-italic prose-blockquote:font-medium prose-strong:text-foreground prose-code:before:content-none prose-code:after:content-none prose-code:rounded prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[0.9em] prose-li:my-1">
+            <article className="prose prose-slate dark:prose-invert max-w-none prose-base sm:prose-lg break-words prose-headings:tracking-tight prose-headings:scroll-mt-24 prose-headings:break-words prose-h2:mt-12 prose-h2:mb-4 prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:font-bold prose-h2:border-b prose-h2:border-border/60 prose-h2:pb-3 prose-h3:mt-8 prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:font-semibold prose-h4:text-lg prose-h4:font-semibold prose-p:leading-[1.8] prose-p:text-foreground/85 prose-p:break-words prose-a:text-secondary prose-a:font-semibold prose-a:no-underline hover:prose-a:underline prose-a:break-words prose-img:rounded-xl prose-img:border prose-img:border-border/60 prose-img:mx-auto prose-blockquote:border-l-secondary prose-blockquote:bg-secondary/5 prose-blockquote:py-1 prose-blockquote:not-italic prose-blockquote:font-medium prose-strong:text-foreground prose-code:before:content-none prose-code:after:content-none prose-code:rounded prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[0.9em] prose-code:break-words prose-pre:overflow-x-auto prose-li:my-1 prose-li:break-words prose-ul:pl-6 prose-ol:pl-6">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
@@ -562,12 +562,42 @@ function BlogPostPage() {
                     const id = slugify(nodesToText(children));
                     return <h3 id={id}>{children}</h3>;
                   },
+                  table: ({ children }) => (
+                    <div className="my-6 -mx-4 sm:mx-0 overflow-x-auto rounded-lg border border-border/60">
+                      <table className="w-full text-sm">{children}</table>
+                    </div>
+                  ),
+                  th: ({ children }) => (
+                    <th className="bg-muted/60 px-4 py-2 text-left font-semibold">
+                      {children}
+                    </th>
+                  ),
+                  td: ({ children }) => (
+                    <td className="border-t border-border/60 px-4 py-2 align-top">
+                      {children}
+                    </td>
+                  ),
+                  img: ({ src, alt }) => (
+                    <figure className="my-8">
+                      <img
+                        src={src as string}
+                        alt={alt ?? ""}
+                        loading="lazy"
+                        className="w-full h-auto rounded-xl border border-border/60"
+                      />
+                      {alt && (
+                        <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+                          {alt}
+                        </figcaption>
+                      )}
+                    </figure>
+                  ),
                   a: ({ href, children, ...rest }) => {
                     if (href && href.startsWith("/")) {
                       return (
                         <Link
                           to={href as any}
-                          className="text-secondary font-semibold underline decoration-secondary/30 underline-offset-4 hover:decoration-secondary"
+                          className="text-secondary font-semibold underline decoration-secondary/30 underline-offset-4 hover:decoration-secondary break-words"
                         >
                           {children}
                         </Link>
@@ -578,6 +608,7 @@ function BlogPostPage() {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="break-words"
                         {...rest}
                       >
                         {children}
@@ -589,6 +620,7 @@ function BlogPostPage() {
                 {markdown}
               </ReactMarkdown>
             </article>
+
 
             <InlineCta />
 
