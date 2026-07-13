@@ -15,6 +15,7 @@ import {
   type BlogPost,
 } from "@/lib/authors";
 import sparkVsInvisalign from "@/content/blog/spark-vs-invisalign.md?raw";
+import rootCanalTiming from "@/content/blog/how-long-does-a-root-canal-take.md?raw";
 import {
   ArrowRight,
   BadgeCheck,
@@ -31,6 +32,7 @@ import {
 // Blog post body content keyed by slug.
 const POST_MARKDOWN: Record<string, string> = {
   "spark-vs-invisalign-cost-comfort-treatment-time": sparkVsInvisalign,
+  "how-long-does-a-root-canal-take-timing-by-tooth": rootCanalTiming,
 };
 
 export const Route = createFileRoute("/blog/$slug")({
