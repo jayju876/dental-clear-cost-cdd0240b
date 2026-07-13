@@ -118,6 +118,17 @@ export const POSTS: BlogPost[] = [
     authorSlug: "dr-sarah-mitchell",
     reviewerSlug: "dr-michael-carter",
   },
+  {
+    slug: "how-long-does-a-root-canal-take-timing-by-tooth",
+    title: "How Long Does a Root Canal Take? Timing by Tooth",
+    excerpt:
+      "Root canal timing varies by tooth type and infection severity. Learn what to expect and how to plan for restorative options with a dental implant cost calculator.",
+    tag: "Procedures",
+    read: "5 min",
+    publishedAt: "2026-07-01",
+    authorSlug: "james-walker",
+    reviewerSlug: "dr-michael-carter",
+  },
 ];
 
 export function getPost(slug: string) {
