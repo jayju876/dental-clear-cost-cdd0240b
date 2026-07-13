@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { Clock, Send, MessageCircle, Globe2, ShieldCheck, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -8,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { FadeIn, PageShell } from "@/components/site/Section";
 import { InternalLinks } from "@/components/site/InternalLinks";
+import { submitContactForm } from "@/lib/contact.functions";
 import { toast } from "sonner";
 
 
