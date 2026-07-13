@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { Clock, Send, MessageCircle, Globe2, ShieldCheck, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -8,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { FadeIn, PageShell } from "@/components/site/Section";
 import { InternalLinks } from "@/components/site/InternalLinks";
+import { submitContactForm } from "@/lib/contact.functions";
 import { toast } from "sonner";
 
 
@@ -27,19 +29,25 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
+  const submitFn = useServerFn(submitContactForm);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill name, email and message.");
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await submitFn({ data: form });
       toast.success("Message sent! We'll be in touch within one business day.");
       setForm({ name: "", email: "", subject: "", message: "" });
-    }, 700);
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
