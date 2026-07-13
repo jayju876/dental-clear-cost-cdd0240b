@@ -29,19 +29,25 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
+  const submitFn = useServerFn(submitContactForm);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill name, email and message.");
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await submitFn({ data: form });
       toast.success("Message sent! We'll be in touch within one business day.");
       setForm({ name: "", email: "", subject: "", message: "" });
-    }, 700);
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
