@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as RatioCalculatorRouteImport } from './routes/ratio-calculator'
 import { Route as RatioRouteImport } from './routes/ratio'
@@ -50,6 +51,11 @@ import { Route as AdminAuthorsIdRouteImport } from './routes/admin.authors.$id'
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapRoute = SitemapRouteImport.update({
@@ -265,6 +271,7 @@ export interface FileRoutesByFullPath {
   '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
@@ -303,6 +310,7 @@ export interface FileRoutesByTo {
   '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
@@ -343,6 +351,7 @@ export interface FileRoutesById {
   '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
   '/sitemap': typeof SitemapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
@@ -384,6 +393,7 @@ export interface FileRouteTypes {
     | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
+    | '/sitemap.xml'
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
@@ -422,6 +432,7 @@ export interface FileRouteTypes {
     | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
+    | '/sitemap.xml'
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
@@ -461,6 +472,7 @@ export interface FileRouteTypes {
     | '/ratio'
     | '/ratio-calculator'
     | '/sitemap'
+    | '/sitemap.xml'
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
@@ -501,6 +513,7 @@ export interface RootRouteChildren {
   RatioRoute: typeof RatioRoute
   RatioCalculatorRoute: typeof RatioCalculatorRoute
   SitemapRoute: typeof SitemapRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   AuthorSlugRoute: typeof AuthorSlugRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -514,6 +527,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap': {
@@ -831,6 +851,7 @@ const rootRouteChildren: RootRouteChildren = {
   RatioRoute: RatioRoute,
   RatioCalculatorRoute: RatioCalculatorRoute,
   SitemapRoute: SitemapRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   AuthorSlugRoute: AuthorSlugRoute,
   BlogSlugRoute: BlogSlugRoute,

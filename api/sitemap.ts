@@ -1,58 +1,16 @@
-// Vercel Serverless Function — dynamic sitemap.xml
-// Pulls published blog posts and CMS authors from Supabase at request time so
-// new content appears automatically without a redeploy.
+// Vercel Serverless Function — dynamic sitemap.xml.
+// Auto-derives entries from SITE_PAGES, POSTS, and AUTHORS so adding a
+// page/post/author anywhere in code instantly updates the sitemap.
+// Also merges any published rows from the Supabase-backed CMS.
 import { createClient } from "@supabase/supabase-js";
+import { buildSitemapEntries, renderSitemapXml, SITEMAP_BASE_URL, type SitemapEntry } from "../src/lib/sitemap";
 
-const BASE_URL = "https://dentalimplantcalculators.com";
+export default async function handler(_req: Request): Promise<Response> {
+  const entries: SitemapEntry[] = buildSitemapEntries();
+  const seen = new Set(entries.map((e) => e.loc));
 
-// Static, indexable routes (admin and utility routes intentionally excluded)
-const STATIC_PATHS: { path: string; priority: string; changefreq: string }[] = [
-  { path: "/", priority: "1.0", changefreq: "weekly" },
-  { path: "/calculator", priority: "0.9", changefreq: "weekly" },
-  { path: "/cost", priority: "0.9", changefreq: "weekly" },
-  { path: "/loan", priority: "0.8", changefreq: "weekly" },
-  { path: "/ratio", priority: "0.8", changefreq: "weekly" },
-  { path: "/loan-calculator", priority: "0.8", changefreq: "weekly" },
-  { path: "/ratio-calculator", priority: "0.8", changefreq: "weekly" },
-  { path: "/all-on-4-calculator", priority: "0.8", changefreq: "weekly" },
-  { path: "/implant-support-calculator", priority: "0.8", changefreq: "weekly" },
-  { path: "/dental-implant-loan-calculator", priority: "0.8", changefreq: "weekly" },
-  { path: "/dental-implant-finance-calculator", priority: "0.8", changefreq: "weekly" },
-  { path: "/dental-implant-payment-calculator", priority: "0.8", changefreq: "weekly" },
-  { path: "/dental-implant-ratio-calculator", priority: "0.8", changefreq: "weekly" },
-  { path: "/blog", priority: "0.8", changefreq: "daily" },
-  { path: "/about", priority: "0.6", changefreq: "monthly" },
-  { path: "/contact", priority: "0.5", changefreq: "monthly" },
-  { path: "/faq", priority: "0.6", changefreq: "monthly" },
-  { path: "/sitemap", priority: "0.3", changefreq: "monthly" },
-  { path: "/privacy-policy", priority: "0.3", changefreq: "yearly" },
-  { path: "/terms", priority: "0.3", changefreq: "yearly" },
-  { path: "/disclaimer", priority: "0.3", changefreq: "yearly" },
-  { path: "/cookie-policy", priority: "0.3", changefreq: "yearly" },
-  { path: "/hipaa", priority: "0.3", changefreq: "yearly" },
-  { path: "/accessibility", priority: "0.3", changefreq: "yearly" },
-  { path: "/editorial-policy", priority: "0.3", changefreq: "yearly" },
-];
-
-const escape = (s: string) =>
-  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
-
-interface UrlEntry {
-  loc: string;
-  lastmod?: string;
-  changefreq?: string;
-  priority?: string;
-}
-
-export default async function handler(req: Request): Promise<Response> {
   const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
   const supabaseKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_PUBLISHABLE_KEY;
-
-  const entries: UrlEntry[] = STATIC_PATHS.map((p) => ({
-    loc: `${BASE_URL}${p.path}`,
-    changefreq: p.changefreq,
-    priority: p.priority,
-  }));
 
   if (supabaseUrl && supabaseKey) {
     try {
@@ -67,49 +25,38 @@ export default async function handler(req: Request): Promise<Response> {
           .eq("status", "published")
           .lte("published_at", new Date().toISOString())
           .limit(5000),
-        supabase
-          .from("cms_authors")
-          .select("slug, updated_at")
-          .limit(1000),
+        supabase.from("cms_authors").select("slug, updated_at").limit(1000),
       ]);
 
-      (postsRes.data ?? []).forEach((p: { slug: string; updated_at?: string; published_at?: string }) => {
+      for (const p of postsRes.data ?? []) {
+        const loc = `${SITEMAP_BASE_URL}/blog/${p.slug}`;
+        if (seen.has(loc)) continue;
+        seen.add(loc);
         entries.push({
-          loc: `${BASE_URL}/blog/${p.slug}`,
+          loc,
           lastmod: (p.updated_at || p.published_at || "").slice(0, 10) || undefined,
           changefreq: "weekly",
           priority: "0.7",
         });
-      });
+      }
 
-      (authorsRes.data ?? []).forEach((a: { slug: string; updated_at?: string }) => {
+      for (const a of authorsRes.data ?? []) {
+        const loc = `${SITEMAP_BASE_URL}/author/${a.slug}`;
+        if (seen.has(loc)) continue;
+        seen.add(loc);
         entries.push({
-          loc: `${BASE_URL}/author/${a.slug}`,
+          loc,
           lastmod: (a.updated_at || "").slice(0, 10) || undefined,
           changefreq: "monthly",
           priority: "0.5",
         });
-      });
+      }
     } catch (err) {
       console.error("[sitemap] Supabase fetch failed:", err);
     }
   }
 
-  const body =
-    `<?xml version="1.0" encoding="UTF-8"?>\n` +
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    entries
-      .map((e) => {
-        const parts = [`    <loc>${escape(e.loc)}</loc>`];
-        if (e.lastmod) parts.push(`    <lastmod>${e.lastmod}</lastmod>`);
-        if (e.changefreq) parts.push(`    <changefreq>${e.changefreq}</changefreq>`);
-        if (e.priority) parts.push(`    <priority>${e.priority}</priority>`);
-        return `  <url>\n${parts.join("\n")}\n  </url>`;
-      })
-      .join("\n") +
-    `\n</urlset>\n`;
-
-  return new Response(body, {
+  return new Response(renderSitemapXml(entries), {
     status: 200,
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
