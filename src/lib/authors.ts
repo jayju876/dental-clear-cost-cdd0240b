@@ -129,6 +129,17 @@ export const POSTS: BlogPost[] = [
     authorSlug: "james-walker",
     reviewerSlug: "dr-michael-carter",
   },
+  {
+    slug: "dental-implant-vs-bridge-cost-lifespan-pain-2026",
+    title: "Dental Implant vs Bridge: Cost, Lifespan & Pain (2026)",
+    excerpt:
+      "Compare dental implants vs bridges in 2026 on cost, lifespan, pain and recovery — and plan your budget with a dental implant cost calculator.",
+    tag: "Comparisons",
+    read: "6 min",
+    publishedAt: "2026-07-15",
+    authorSlug: "dr-michael-carter",
+    reviewerSlug: "dr-sarah-mitchell",
+  },
 ];
 
 export function getPost(slug: string) {
