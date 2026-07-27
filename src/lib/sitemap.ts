@@ -1,7 +1,7 @@
 // Shared sitemap builder. Any new entry in SITE_PAGES, POSTS, or AUTHORS
 // flows into /sitemap.xml automatically — no manual edit required.
-import { SITE_PAGES } from "@/lib/site-pages";
-import { AUTHORS, POSTS } from "@/lib/authors";
+import { SITE_PAGES } from "./site-pages";
+import { AUTHORS, POSTS } from "./authors";
 
 export const SITEMAP_BASE_URL = "https://dentalimplantcalculators.com";
 
