@@ -3,7 +3,7 @@
 // page/post/author anywhere in code instantly updates the sitemap.
 // Also merges any published rows from the Supabase-backed CMS.
 import { createClient } from "@supabase/supabase-js";
-import { buildSitemapEntries, renderSitemapXml, SITEMAP_BASE_URL, type SitemapEntry } from "../src/lib/sitemap.js";
+import { buildSitemapEntries, renderSitemapXml, SITEMAP_BASE_URL, type SitemapEntry } from "../src/lib/sitemap";
 
 export default async function handler(_req: Request): Promise<Response> {
   const entries: SitemapEntry[] = buildSitemapEntries();
