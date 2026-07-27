@@ -9,153 +9,68 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SitemapRouteImport } from './routes/sitemap'
-import { Route as RatioCalculatorRouteImport } from './routes/ratio-calculator'
-import { Route as RatioRouteImport } from './routes/ratio'
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as LoanCalculatorRouteImport } from './routes/loan-calculator'
-import { Route as LoanRouteImport } from './routes/loan'
-import { Route as ImplantSupportCalculatorRouteImport } from './routes/implant-support-calculator'
-import { Route as HipaaRouteImport } from './routes/hipaa'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as EditorialPolicyRouteImport } from './routes/editorial-policy'
-import { Route as DisclaimerRouteImport } from './routes/disclaimer'
-import { Route as DentalImplantRatioCalculatorRouteImport } from './routes/dental-implant-ratio-calculator'
-import { Route as DentalImplantPaymentCalculatorRouteImport } from './routes/dental-implant-payment-calculator'
-import { Route as DentalImplantLoanCalculatorRouteImport } from './routes/dental-implant-loan-calculator'
-import { Route as DentalImplantFinanceCalculatorRouteImport } from './routes/dental-implant-finance-calculator'
-import { Route as CostRouteImport } from './routes/cost'
-import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CalculatorRouteImport } from './routes/calculator'
-import { Route as BreastImplantCostCalculatorRouteImport } from './routes/breast-implant-cost-calculator'
-import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculator'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as AccessibilityRouteImport } from './routes/accessibility'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculator'
+import { Route as BreastImplantCostCalculatorRouteImport } from './routes/breast-implant-cost-calculator'
+import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
+import { Route as CostRouteImport } from './routes/cost'
+import { Route as DentalImplantFinanceCalculatorRouteImport } from './routes/dental-implant-finance-calculator'
+import { Route as DentalImplantLoanCalculatorRouteImport } from './routes/dental-implant-loan-calculator'
+import { Route as DentalImplantPaymentCalculatorRouteImport } from './routes/dental-implant-payment-calculator'
+import { Route as DentalImplantRatioCalculatorRouteImport } from './routes/dental-implant-ratio-calculator'
+import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as EditorialPolicyRouteImport } from './routes/editorial-policy'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HipaaRouteImport } from './routes/hipaa'
+import { Route as ImplantSupportCalculatorRouteImport } from './routes/implant-support-calculator'
+import { Route as LoanRouteImport } from './routes/loan'
+import { Route as LoanCalculatorRouteImport } from './routes/loan-calculator'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as RatioRouteImport } from './routes/ratio'
+import { Route as RatioCalculatorRouteImport } from './routes/ratio-calculator'
+import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
-import { Route as AdminUsersRouteImport } from './routes/admin.users'
-import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
-import { Route as AdminSeoRouteImport } from './routes/admin.seo'
-import { Route as AdminMediaRouteImport } from './routes/admin.media'
-import { Route as AdminAuthorsRouteImport } from './routes/admin.authors'
 import { Route as AdminActivityRouteImport } from './routes/admin.activity'
+import { Route as AdminAuthorsRouteImport } from './routes/admin.authors'
+import { Route as AdminMediaRouteImport } from './routes/admin.media'
+import { Route as AdminSeoRouteImport } from './routes/admin.seo'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AdminAuthorsIdRouteImport } from './routes/admin.authors.$id'
 
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapRoute = SitemapRouteImport.update({
-  id: '/sitemap',
-  path: '/sitemap',
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RatioCalculatorRoute = RatioCalculatorRouteImport.update({
-  id: '/ratio-calculator',
-  path: '/ratio-calculator',
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RatioRoute = RatioRouteImport.update({
-  id: '/ratio',
-  path: '/ratio',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoanCalculatorRoute = LoanCalculatorRouteImport.update({
-  id: '/loan-calculator',
-  path: '/loan-calculator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoanRoute = LoanRouteImport.update({
-  id: '/loan',
-  path: '/loan',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImplantSupportCalculatorRoute =
-  ImplantSupportCalculatorRouteImport.update({
-    id: '/implant-support-calculator',
-    path: '/implant-support-calculator',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const HipaaRoute = HipaaRouteImport.update({
-  id: '/hipaa',
-  path: '/hipaa',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EditorialPolicyRoute = EditorialPolicyRouteImport.update({
-  id: '/editorial-policy',
-  path: '/editorial-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DisclaimerRoute = DisclaimerRouteImport.update({
-  id: '/disclaimer',
-  path: '/disclaimer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DentalImplantRatioCalculatorRoute =
-  DentalImplantRatioCalculatorRouteImport.update({
-    id: '/dental-implant-ratio-calculator',
-    path: '/dental-implant-ratio-calculator',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const DentalImplantPaymentCalculatorRoute =
-  DentalImplantPaymentCalculatorRouteImport.update({
-    id: '/dental-implant-payment-calculator',
-    path: '/dental-implant-payment-calculator',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const DentalImplantLoanCalculatorRoute =
-  DentalImplantLoanCalculatorRouteImport.update({
-    id: '/dental-implant-loan-calculator',
-    path: '/dental-implant-loan-calculator',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const DentalImplantFinanceCalculatorRoute =
-  DentalImplantFinanceCalculatorRouteImport.update({
-    id: '/dental-implant-finance-calculator',
-    path: '/dental-implant-finance-calculator',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const CostRoute = CostRouteImport.update({
-  id: '/cost',
-  path: '/cost',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CookiePolicyRoute = CookiePolicyRouteImport.update({
-  id: '/cookie-policy',
-  path: '/cookie-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CalculatorRoute = CalculatorRouteImport.update({
-  id: '/calculator',
-  path: '/calculator',
+const AllOn4CalculatorRoute = AllOn4CalculatorRouteImport.update({
+  id: '/all-on-4-calculator',
+  path: '/all-on-4-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BreastImplantCostCalculatorRoute =
@@ -164,34 +79,114 @@ const BreastImplantCostCalculatorRoute =
     path: '/breast-implant-cost-calculator',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AllOn4CalculatorRoute = AllOn4CalculatorRouteImport.update({
-  id: '/all-on-4-calculator',
-  path: '/all-on-4-calculator',
+const CalculatorRoute = CalculatorRouteImport.update({
+  id: '/calculator',
+  path: '/calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AccessibilityRoute = AccessibilityRouteImport.update({
-  id: '/accessibility',
-  path: '/accessibility',
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const CostRoute = CostRouteImport.update({
+  id: '/cost',
+  path: '/cost',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const DentalImplantFinanceCalculatorRoute =
+  DentalImplantFinanceCalculatorRouteImport.update({
+    id: '/dental-implant-finance-calculator',
+    path: '/dental-implant-finance-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DentalImplantLoanCalculatorRoute =
+  DentalImplantLoanCalculatorRouteImport.update({
+    id: '/dental-implant-loan-calculator',
+    path: '/dental-implant-loan-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DentalImplantPaymentCalculatorRoute =
+  DentalImplantPaymentCalculatorRouteImport.update({
+    id: '/dental-implant-payment-calculator',
+    path: '/dental-implant-payment-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DentalImplantRatioCalculatorRoute =
+  DentalImplantRatioCalculatorRouteImport.update({
+    id: '/dental-implant-ratio-calculator',
+    path: '/dental-implant-ratio-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DisclaimerRoute = DisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
+const EditorialPolicyRoute = EditorialPolicyRouteImport.update({
+  id: '/editorial-policy',
+  path: '/editorial-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HipaaRoute = HipaaRouteImport.update({
+  id: '/hipaa',
+  path: '/hipaa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImplantSupportCalculatorRoute =
+  ImplantSupportCalculatorRouteImport.update({
+    id: '/implant-support-calculator',
+    path: '/implant-support-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LoanRoute = LoanRouteImport.update({
+  id: '/loan',
+  path: '/loan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoanCalculatorRoute = LoanCalculatorRouteImport.update({
+  id: '/loan-calculator',
+  path: '/loan-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatioRoute = RatioRouteImport.update({
+  id: '/ratio',
+  path: '/ratio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatioCalculatorRoute = RatioCalculatorRouteImport.update({
+  id: '/ratio-calculator',
+  path: '/ratio-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -199,34 +194,9 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthorSlugRoute = AuthorSlugRouteImport.update({
-  id: '/author/$slug',
-  path: '/author/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminUsersRoute = AdminUsersRouteImport.update({
-  id: '/users',
-  path: '/users',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminSettingsRoute = AdminSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminSeoRoute = AdminSeoRouteImport.update({
-  id: '/seo',
-  path: '/seo',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminMediaRoute = AdminMediaRouteImport.update({
-  id: '/media',
-  path: '/media',
+const AdminActivityRoute = AdminActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminAuthorsRoute = AdminAuthorsRouteImport.update({
@@ -234,10 +204,40 @@ const AdminAuthorsRoute = AdminAuthorsRouteImport.update({
   path: '/authors',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminActivityRoute = AdminActivityRouteImport.update({
-  id: '/activity',
-  path: '/activity',
+const AdminMediaRoute = AdminMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
   getParentRoute: () => AdminRoute,
+} as any)
+const AdminSeoRoute = AdminSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AuthorSlugRoute = AuthorSlugRouteImport.update({
+  id: '/author/$slug',
+  path: '/author/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminAuthorsIdRoute = AdminAuthorsIdRouteImport.update({
   id: '/$id',
@@ -522,179 +522,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap': {
-      id: '/sitemap'
-      path: '/sitemap'
-      fullPath: '/sitemap'
-      preLoaderRoute: typeof SitemapRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratio-calculator': {
-      id: '/ratio-calculator'
-      path: '/ratio-calculator'
-      fullPath: '/ratio-calculator'
-      preLoaderRoute: typeof RatioCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ratio': {
-      id: '/ratio'
-      path: '/ratio'
-      fullPath: '/ratio'
-      preLoaderRoute: typeof RatioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/loan-calculator': {
-      id: '/loan-calculator'
-      path: '/loan-calculator'
-      fullPath: '/loan-calculator'
-      preLoaderRoute: typeof LoanCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/loan': {
-      id: '/loan'
-      path: '/loan'
-      fullPath: '/loan'
-      preLoaderRoute: typeof LoanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/implant-support-calculator': {
-      id: '/implant-support-calculator'
-      path: '/implant-support-calculator'
-      fullPath: '/implant-support-calculator'
-      preLoaderRoute: typeof ImplantSupportCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hipaa': {
-      id: '/hipaa'
-      path: '/hipaa'
-      fullPath: '/hipaa'
-      preLoaderRoute: typeof HipaaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/editorial-policy': {
-      id: '/editorial-policy'
-      path: '/editorial-policy'
-      fullPath: '/editorial-policy'
-      preLoaderRoute: typeof EditorialPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/disclaimer': {
-      id: '/disclaimer'
-      path: '/disclaimer'
-      fullPath: '/disclaimer'
-      preLoaderRoute: typeof DisclaimerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dental-implant-ratio-calculator': {
-      id: '/dental-implant-ratio-calculator'
-      path: '/dental-implant-ratio-calculator'
-      fullPath: '/dental-implant-ratio-calculator'
-      preLoaderRoute: typeof DentalImplantRatioCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dental-implant-payment-calculator': {
-      id: '/dental-implant-payment-calculator'
-      path: '/dental-implant-payment-calculator'
-      fullPath: '/dental-implant-payment-calculator'
-      preLoaderRoute: typeof DentalImplantPaymentCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dental-implant-loan-calculator': {
-      id: '/dental-implant-loan-calculator'
-      path: '/dental-implant-loan-calculator'
-      fullPath: '/dental-implant-loan-calculator'
-      preLoaderRoute: typeof DentalImplantLoanCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dental-implant-finance-calculator': {
-      id: '/dental-implant-finance-calculator'
-      path: '/dental-implant-finance-calculator'
-      fullPath: '/dental-implant-finance-calculator'
-      preLoaderRoute: typeof DentalImplantFinanceCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cost': {
-      id: '/cost'
-      path: '/cost'
-      fullPath: '/cost'
-      preLoaderRoute: typeof CostRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cookie-policy': {
-      id: '/cookie-policy'
-      path: '/cookie-policy'
-      fullPath: '/cookie-policy'
-      preLoaderRoute: typeof CookiePolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/calculator': {
-      id: '/calculator'
-      path: '/calculator'
-      fullPath: '/calculator'
-      preLoaderRoute: typeof CalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/breast-implant-cost-calculator': {
-      id: '/breast-implant-cost-calculator'
-      path: '/breast-implant-cost-calculator'
-      fullPath: '/breast-implant-cost-calculator'
-      preLoaderRoute: typeof BreastImplantCostCalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/all-on-4-calculator': {
-      id: '/all-on-4-calculator'
-      path: '/all-on-4-calculator'
-      fullPath: '/all-on-4-calculator'
-      preLoaderRoute: typeof AllOn4CalculatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/accessibility': {
-      id: '/accessibility'
-      path: '/accessibility'
-      fullPath: '/accessibility'
-      preLoaderRoute: typeof AccessibilityRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -704,18 +536,179 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/all-on-4-calculator': {
+      id: '/all-on-4-calculator'
+      path: '/all-on-4-calculator'
+      fullPath: '/all-on-4-calculator'
+      preLoaderRoute: typeof AllOn4CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/breast-implant-cost-calculator': {
+      id: '/breast-implant-cost-calculator'
+      path: '/breast-implant-cost-calculator'
+      fullPath: '/breast-implant-cost-calculator'
+      preLoaderRoute: typeof BreastImplantCostCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculator': {
+      id: '/calculator'
+      path: '/calculator'
+      fullPath: '/calculator'
+      preLoaderRoute: typeof CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cost': {
+      id: '/cost'
+      path: '/cost'
+      fullPath: '/cost'
+      preLoaderRoute: typeof CostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-implant-finance-calculator': {
+      id: '/dental-implant-finance-calculator'
+      path: '/dental-implant-finance-calculator'
+      fullPath: '/dental-implant-finance-calculator'
+      preLoaderRoute: typeof DentalImplantFinanceCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-implant-loan-calculator': {
+      id: '/dental-implant-loan-calculator'
+      path: '/dental-implant-loan-calculator'
+      fullPath: '/dental-implant-loan-calculator'
+      preLoaderRoute: typeof DentalImplantLoanCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-implant-payment-calculator': {
+      id: '/dental-implant-payment-calculator'
+      path: '/dental-implant-payment-calculator'
+      fullPath: '/dental-implant-payment-calculator'
+      preLoaderRoute: typeof DentalImplantPaymentCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-implant-ratio-calculator': {
+      id: '/dental-implant-ratio-calculator'
+      path: '/dental-implant-ratio-calculator'
+      fullPath: '/dental-implant-ratio-calculator'
+      preLoaderRoute: typeof DentalImplantRatioCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/editorial-policy': {
+      id: '/editorial-policy'
+      path: '/editorial-policy'
+      fullPath: '/editorial-policy'
+      preLoaderRoute: typeof EditorialPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hipaa': {
+      id: '/hipaa'
+      path: '/hipaa'
+      fullPath: '/hipaa'
+      preLoaderRoute: typeof HipaaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/implant-support-calculator': {
+      id: '/implant-support-calculator'
+      path: '/implant-support-calculator'
+      fullPath: '/implant-support-calculator'
+      preLoaderRoute: typeof ImplantSupportCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loan': {
+      id: '/loan'
+      path: '/loan'
+      fullPath: '/loan'
+      preLoaderRoute: typeof LoanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loan-calculator': {
+      id: '/loan-calculator'
+      path: '/loan-calculator'
+      fullPath: '/loan-calculator'
+      preLoaderRoute: typeof LoanCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratio': {
+      id: '/ratio'
+      path: '/ratio'
+      fullPath: '/ratio'
+      preLoaderRoute: typeof RatioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratio-calculator': {
+      id: '/ratio-calculator'
+      path: '/ratio-calculator'
+      fullPath: '/ratio-calculator'
+      preLoaderRoute: typeof RatioCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -725,46 +718,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/author/$slug': {
-      id: '/author/$slug'
-      path: '/author/$slug'
-      fullPath: '/author/$slug'
-      preLoaderRoute: typeof AuthorSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin/users': {
-      id: '/admin/users'
-      path: '/users'
-      fullPath: '/admin/users'
-      preLoaderRoute: typeof AdminUsersRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/settings': {
-      id: '/admin/settings'
-      path: '/settings'
-      fullPath: '/admin/settings'
-      preLoaderRoute: typeof AdminSettingsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/seo': {
-      id: '/admin/seo'
-      path: '/seo'
-      fullPath: '/admin/seo'
-      preLoaderRoute: typeof AdminSeoRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/media': {
-      id: '/admin/media'
-      path: '/media'
-      fullPath: '/admin/media'
-      preLoaderRoute: typeof AdminMediaRouteImport
+    '/admin/activity': {
+      id: '/admin/activity'
+      path: '/activity'
+      fullPath: '/admin/activity'
+      preLoaderRoute: typeof AdminActivityRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/authors': {
@@ -774,12 +732,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthorsRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/activity': {
-      id: '/admin/activity'
-      path: '/activity'
-      fullPath: '/admin/activity'
-      preLoaderRoute: typeof AdminActivityRouteImport
+    '/admin/media': {
+      id: '/admin/media'
+      path: '/media'
+      fullPath: '/admin/media'
+      preLoaderRoute: typeof AdminMediaRouteImport
       parentRoute: typeof AdminRoute
+    }
+    '/admin/seo': {
+      id: '/admin/seo'
+      path: '/seo'
+      fullPath: '/admin/seo'
+      preLoaderRoute: typeof AdminSeoRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/author/$slug': {
+      id: '/author/$slug'
+      path: '/author/$slug'
+      fullPath: '/author/$slug'
+      preLoaderRoute: typeof AuthorSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/admin/authors/$id': {
       id: '/admin/authors/$id'
