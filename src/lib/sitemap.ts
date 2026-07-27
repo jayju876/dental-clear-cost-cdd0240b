@@ -1,7 +1,7 @@
 // Shared sitemap builder. Any new entry in SITE_PAGES, POSTS, or AUTHORS
 // flows into /sitemap.xml automatically — no manual edit required.
 import { SITE_PAGES } from "./site-pages";
-import { AUTHORS, POSTS } from "./authors";
+import { AUTHOR_SLUGS, POSTS_INDEX } from "./blog-index";
 
 export const SITEMAP_BASE_URL = "https://dentalimplantcalculators.com";
 
@@ -46,8 +46,8 @@ export function buildSitemapEntries(baseUrl = SITEMAP_BASE_URL): SitemapEntry[] 
     });
   }
 
-  // Blog posts — every post registered in src/lib/authors.ts.
-  for (const post of POSTS) {
+  // Blog posts — every post registered in src/lib/blog-index.ts.
+  for (const post of POSTS_INDEX) {
     entries.push({
       loc: `${baseUrl}/blog/${post.slug}`,
       lastmod: post.publishedAt?.slice(0, 10),
@@ -57,9 +57,9 @@ export function buildSitemapEntries(baseUrl = SITEMAP_BASE_URL): SitemapEntry[] 
   }
 
   // Author profile pages.
-  for (const a of AUTHORS) {
+  for (const slug of AUTHOR_SLUGS) {
     entries.push({
-      loc: `${baseUrl}/author/${a.slug}`,
+      loc: `${baseUrl}/author/${slug}`,
       changefreq: "monthly",
       priority: "0.5",
     });
