@@ -140,6 +140,17 @@ export const POSTS: BlogPost[] = [
     authorSlug: "dr-michael-carter",
     reviewerSlug: "dr-sarah-mitchell",
   },
+  {
+    slug: "typical-cost-full-set-dental-implants",
+    title: "What Is the Typical Cost of a Full Set of Dental Implants?",
+    excerpt:
+      "Full-mouth implant costs explained — surgical fees, materials, location and financing, plus how to plan your budget with a dental implant cost calculator.",
+    tag: "Costs",
+    read: "7 min",
+    publishedAt: "2026-08-05",
+    authorSlug: "emily-roberts",
+    reviewerSlug: "dr-michael-carter",
+  },
 ];
 
 export function getPost(slug: string) {
