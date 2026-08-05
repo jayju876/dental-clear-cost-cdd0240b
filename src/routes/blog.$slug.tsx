@@ -17,6 +17,7 @@ import {
 import sparkVsInvisalign from "@/content/blog/spark-vs-invisalign.md?raw";
 import rootCanalTiming from "@/content/blog/how-long-does-a-root-canal-take.md?raw";
 import implantVsBridge from "@/content/blog/dental-implant-vs-bridge-cost-lifespan-pain-2026.md?raw";
+import fullSetCost from "@/content/blog/full-set-dental-implants-cost.md?raw";
 import {
   ArrowRight,
   BadgeCheck,
@@ -35,6 +36,7 @@ const POST_MARKDOWN: Record<string, string> = {
   "spark-vs-invisalign-cost-comfort-treatment-time": sparkVsInvisalign,
   "how-long-does-a-root-canal-take-timing-by-tooth": rootCanalTiming,
   "dental-implant-vs-bridge-cost-lifespan-pain-2026": implantVsBridge,
+  "typical-cost-full-set-dental-implants": fullSetCost,
 };
 
 export const Route = createFileRoute("/blog/$slug")({

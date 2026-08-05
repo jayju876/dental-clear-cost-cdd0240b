@@ -21,6 +21,11 @@ export const POSTS_INDEX: BlogPostMeta[] = [
     publishedAt: "2026-07-15",
     authorSlug: "dr-michael-carter",
   },
+  {
+    slug: "typical-cost-full-set-dental-implants",
+    publishedAt: "2026-08-05",
+    authorSlug: "emily-roberts",
+  },
 ];
 
 export const AUTHOR_SLUGS: string[] = [
