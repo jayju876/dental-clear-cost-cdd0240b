@@ -39,6 +39,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminActivityRouteImport } from './routes/admin.activity'
 import { Route as AdminAuthorsRouteImport } from './routes/admin.authors'
+import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
 import { Route as AdminMediaRouteImport } from './routes/admin.media'
 import { Route as AdminSeoRouteImport } from './routes/admin.seo'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
@@ -204,6 +205,11 @@ const AdminAuthorsRoute = AdminAuthorsRouteImport.update({
   path: '/authors',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminLeadsRoute = AdminLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminMediaRoute = AdminMediaRouteImport.update({
   id: '/media',
   path: '/media',
@@ -275,6 +281,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
+  '/admin/leads': typeof AdminLeadsRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
@@ -314,6 +321,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
+  '/admin/leads': typeof AdminLeadsRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
@@ -355,6 +363,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
+  '/admin/leads': typeof AdminLeadsRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
@@ -397,6 +406,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
+    | '/admin/leads'
     | '/admin/media'
     | '/admin/seo'
     | '/admin/settings'
@@ -436,6 +446,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
+    | '/admin/leads'
     | '/admin/media'
     | '/admin/seo'
     | '/admin/settings'
@@ -476,6 +487,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
+    | '/admin/leads'
     | '/admin/media'
     | '/admin/seo'
     | '/admin/settings'
@@ -732,6 +744,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthorsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/leads': {
+      id: '/admin/leads'
+      path: '/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminLeadsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/media': {
       id: '/admin/media'
       path: '/media'
@@ -806,6 +825,7 @@ const AdminAuthorsRouteWithChildren = AdminAuthorsRoute._addFileChildren(
 interface AdminRouteChildren {
   AdminActivityRoute: typeof AdminActivityRoute
   AdminAuthorsRoute: typeof AdminAuthorsRouteWithChildren
+  AdminLeadsRoute: typeof AdminLeadsRoute
   AdminMediaRoute: typeof AdminMediaRoute
   AdminSeoRoute: typeof AdminSeoRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
@@ -816,6 +836,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminActivityRoute: AdminActivityRoute,
   AdminAuthorsRoute: AdminAuthorsRouteWithChildren,
+  AdminLeadsRoute: AdminLeadsRoute,
   AdminMediaRoute: AdminMediaRoute,
   AdminSeoRoute: AdminSeoRoute,
   AdminSettingsRoute: AdminSettingsRoute,
