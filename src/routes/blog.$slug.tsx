@@ -36,6 +36,7 @@ const POST_MARKDOWN: Record<string, string> = {
   "spark-vs-invisalign-cost-comfort-treatment-time": sparkVsInvisalign,
   "how-long-does-a-root-canal-take-timing-by-tooth": rootCanalTiming,
   "dental-implant-vs-bridge-cost-lifespan-pain-2026": implantVsBridge,
+  "typical-cost-full-set-dental-implants": fullSetCost,
 };
 
 export const Route = createFileRoute("/blog/$slug")({
