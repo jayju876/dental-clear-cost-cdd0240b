@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { LayoutDashboard, Users, Image as ImageIcon, Search, Settings, Activity, LogOut, ShieldCheck, UserCog, Loader2 } from "lucide-react";
+import { LayoutDashboard, Users, Image as ImageIcon, Search, Settings, Activity, LogOut, ShieldCheck, UserCog, Loader2, Inbox } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin")({
