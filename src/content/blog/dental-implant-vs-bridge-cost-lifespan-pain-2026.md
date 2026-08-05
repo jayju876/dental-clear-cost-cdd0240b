@@ -72,7 +72,7 @@ Dental implants are a better choice for lasting results. They replace the whole 
 
 #### Long-term Financial Considerations
 
-Even though implants cost more upfront, they save money in the long run. A dental implant cost estimator helps see the total cost. Many find that implants are worth it to avoid spending on bridges again and again.
+Even though implants cost more upfront, they save money in the long run. A dental implant cost estimator helps see the total cost. Many find that implants are worth it to avoid spending on bridges again and again. For multiple missing teeth, compare against [the typical cost of a full set of dental implants](/blog/typical-cost-full-set-dental-implants).
 
 #### Bone Health and Structural Integrity
 

@@ -18,6 +18,7 @@ const CALCULATORS: InternalLink[] = [
 ];
 
 const RESOURCES: InternalLink[] = [
+  { to: "/blog/$slug", params: { slug: "typical-cost-full-set-dental-implants" }, label: "Full Set of Dental Implants: Typical Cost", body: "What full-mouth implants cost and what drives the price." },
   { to: "/faq", label: "Implant FAQs", body: "Reviewed answers to common implant questions." },
   { to: "/about", label: "About ImplantCost", body: "Editorial team, methodology and review process." },
   { to: "/contact", label: "Contact us", body: "Ask a question or send press inquiries." },
