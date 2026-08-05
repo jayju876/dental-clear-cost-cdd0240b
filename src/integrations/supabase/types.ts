@@ -203,6 +203,48 @@ export type Database = {
         }
         Relationships: []
       }
+      leads: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          message: string
+          notes: string | null
+          phone: string | null
+          source: string | null
+          status: Database["public"]["Enums"]["lead_status"]
+          subject: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          message: string
+          notes?: string | null
+          phone?: string | null
+          source?: string | null
+          status?: Database["public"]["Enums"]["lead_status"]
+          subject?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          message?: string
+          notes?: string | null
+          phone?: string | null
+          source?: string | null
+          status?: Database["public"]["Enums"]["lead_status"]
+          subject?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       media_assets: {
         Row: {
           alt_text: string | null
@@ -391,6 +433,7 @@ export type Database = {
     }
     Enums: {
       app_role: "super_admin" | "admin" | "content_editor" | "seo_manager"
+      lead_status: "new" | "contacted" | "closed"
       post_status: "draft" | "scheduled" | "published"
     }
     CompositeTypes: {
@@ -520,6 +563,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["super_admin", "admin", "content_editor", "seo_manager"],
+      lead_status: ["new", "contacted", "closed"],
       post_status: ["draft", "scheduled", "published"],
     },
   },
