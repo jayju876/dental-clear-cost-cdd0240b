@@ -27,7 +27,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
   const submitFn = useServerFn(submitContactForm);
 
@@ -41,7 +41,7 @@ function Contact() {
     try {
       await submitFn({ data: form });
       toast.success("Message sent! We'll be in touch within one business day.");
-      setForm({ name: "", email: "", subject: "", message: "" });
+      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong. Please try again.");
@@ -71,9 +71,15 @@ function Contact() {
                     <Input id="email" type="email" className="mt-2" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} />
                   </div>
                 </div>
-                <div>
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" className="mt-2" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} maxLength={150} />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="phone">Phone number <span className="text-muted-foreground text-xs">(optional)</span></Label>
+                    <Input id="phone" type="tel" className="mt-2" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={40} />
+                  </div>
+                  <div>
+                    <Label htmlFor="subject">Subject</Label>
+                    <Input id="subject" className="mt-2" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} maxLength={150} />
+                  </div>
                 </div>
                 <div>
                   <Label htmlFor="message">Message</Label>
