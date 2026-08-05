@@ -95,7 +95,7 @@ Good financial planning is key. It lets you afford all the treatments you need. 
 
 This way, you're ready for any dental care you might need. It helps you plan ahead.
 
-An [**online dental implant cost estimator**](/cost) can also help. It lets you compare costs of dental implants and clear aligners. Knowing these costs early makes things easier.
+An [**online dental implant cost estimator**](/cost) can also help. It lets you compare costs of dental implants and clear aligners. Knowing these costs early makes things easier. If full-mouth work is on the table, read [the typical cost of a full set of dental implants](/blog/typical-cost-full-set-dental-implants).
 
 Visit a qualified orthodontist to talk about your needs. They can create a plan that fits your health goals. This ensures your smile gets the best care.
 

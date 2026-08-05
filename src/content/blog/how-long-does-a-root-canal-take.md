@@ -32,7 +32,7 @@ Calcium buildup can make these canals hard to clean. A simple tooth might take 4
 
 The health of the area around your tooth also matters. A bad infection or a lot of swelling means more time. Sometimes, you need to go back more than once.
 
-If your tooth is too damaged, you might need a dental implant. You can ask about the cost. Online tools can help you compare costs.
+If your tooth is too damaged, you might need a dental implant. You can ask about the cost. Online tools can help you compare costs — and if several teeth are involved, see [what a full set of dental implants typically costs](/blog/typical-cost-full-set-dental-implants).
 
 Choosing between saving your tooth or getting an implant is big. Think about what's best for your health and money.
 
