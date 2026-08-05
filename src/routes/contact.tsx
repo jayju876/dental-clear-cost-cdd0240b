@@ -81,9 +81,6 @@ function Contact() {
                     <Input id="subject" className="mt-2" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} maxLength={150} />
                   </div>
                 </div>
-                <div className="hidden">
-                  <Label htmlFor="subject-x">Subject</Label>
-                </div>
                 <div>
                   <Label htmlFor="message">Message</Label>
                   <Textarea id="message" className="mt-2 min-h-[140px]" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={2000} />
