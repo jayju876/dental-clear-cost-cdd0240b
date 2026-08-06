@@ -15,9 +15,23 @@ const ContactSchema = z.object({
 export const submitContactForm = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => ContactSchema.parse(data))
   .handler(async ({ data }) => {
-    // 1. Store the lead securely in the database (primary source of truth)
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error: dbError } = await supabaseAdmin.from("leads").insert({
+    // 1. Store the lead securely in the database (primary source of truth).
+    // Uses the publishable key (public insert policy) so this works in every
+    // deployment environment, even where the service-role key isn't present.
+    const { createClient } = await import("@supabase/supabase-js");
+    const supabaseUrl = process.env['SUPABASE_URL'] ?? process.env['VITE_SUPABASE_URL'];
+    const supabaseKey =
+      process.env['SUPABASE_PUBLISHABLE_KEY'] ??
+      process.env['VITE_SUPABASE_PUBLISHABLE_KEY'] ??
+      process.env['SUPABASE_ANON_KEY'];
+    if (!supabaseUrl || !supabaseKey) {
+      console.error("Missing Supabase env vars for lead insert");
+      throw new Error("Failed to save submission");
+    }
+    const db = createClient(supabaseUrl, supabaseKey, {
+      auth: { persistSession: false, autoRefreshToken: false, storage: undefined },
+    });
+    const { error: dbError } = await db.from("leads").insert({
       full_name: data.name,
       email: data.email,
       phone: data.phone || null,
