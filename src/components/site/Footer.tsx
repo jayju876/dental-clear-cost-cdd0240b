@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Twitter, Clock, Globe2, ShieldCheck, Stethoscope } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Clock, Globe2, ShieldCheck, Stethoscope, Medium } from "lucide-react";
 
 
 const legal = [
@@ -24,6 +24,32 @@ const explore = [
   { to: "/faq", label: "FAQ" },
   { to: "/sitemap", label: "Sitemap" },
 ] as const;
+
+const socialLinks = [
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Medium, href: "https://medium.com/@dentalimplantcalculators", label: "Medium" },
+  { icon: SubstackIcon, href: "https://substack.com/@dentalimplantcalculators", label: "Substack" },
+  { icon: BloggerIcon, href: "https://dentalimplantcalculators.blogspot.com/", label: "Blogger" },
+] as const;
+
+function SubstackIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M22.539 8.242H1.477V5.407H22.54v2.835zm0 3.112H1.477v2.835H22.54v-2.835zM1.477 14.19v7.201l10.48-5.128L22.539 21.39V14.19H1.477z" />
+    </svg>
+  );
+}
+
+function BloggerIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M13.316 0h4.617c.443 0 .875.157 1.214.443l.007.006c.34.29.557.7.579 1.14l.005.162v14.99c0 .443-.157.875-.443 1.214l-.006.007a1.85 1.85 0 0 1-1.14.579l-.162.005H6.067a1.85 1.85 0 0 1-1.214-.443l-.007-.006a1.85 1.85 0 0 1-.579-1.14L4.263 16.9V7.852c0-.443.157-.875.443-1.214l.006-.007a1.85 1.85 0 0 1 1.14-.579l.162-.005h.7c.395 0 .757-.226.93-.58l.36-.752a1.85 1.85 0 0 1 1.67-1.075h2.642c.065 0 .13.003.194.01V1.75c0-.964.783-1.747 1.747-1.747h.01zm-1.692 6.316H8.526a1.013 1.013 0 0 0 0 2.026h3.098a1.013 1.013 0 0 0 0-2.026zm2.184 4.21H8.526a1.013 1.013 0 0 0 0 2.026h5.282a1.013 1.013 0 0 0 0-2.026z" />
+    </svg>
+  );
+}
 
 export function Footer() {
   return (
