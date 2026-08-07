@@ -1,19 +1,14 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
-const SPREADSHEET_ID = "1Z_h3bya52dW9QlSo2EXGVzeg6_KXwxRJ6LwY8V49YFM";
-const GATEWAY_URL = "https://connector-gateway.lovable.dev/google_sheets";
-
-const ContactSchema = z.object({
-  name: z.string().trim().min(1).max(100),
-  email: z.string().trim().email().max(255),
-  phone: z.string().trim().max(40).optional().default(""),
-  subject: z.string().trim().max(150).optional().default(""),
-  message: z.string().trim().min(1).max(2000),
-});
-
 export const submitContactForm = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => ContactSchema.parse(data))
+  .inputValidator((data: unknown) => z.object({
+    name: z.string().trim().min(1).max(100),
+    email: z.string().trim().email().max(255),
+    phone: z.string().trim().max(40).optional().default(""),
+    subject: z.string().trim().max(150).optional().default(""),
+    message: z.string().trim().min(1).max(2000),
+  }).parse(data))
   .handler(async ({ data }) => {
     // 1. Store the lead securely in the database (primary source of truth).
     // Uses the publishable key (public insert policy) so this works in every
@@ -30,6 +25,16 @@ export const submitContactForm = createServerFn({ method: "POST" })
     }
     const db = createClient(supabaseUrl, supabaseKey, {
       auth: { persistSession: false, autoRefreshToken: false, storage: undefined },
+      global: {
+        fetch: (input, init) => {
+          const headers = new Headers(init?.headers);
+          if (supabaseKey.startsWith("sb_") && headers.get("Authorization") === `Bearer ${supabaseKey}`) {
+            headers.delete("Authorization");
+          }
+          headers.set("apikey", supabaseKey);
+          return fetch(input, { ...init, headers });
+        },
+      },
     });
     const { error: dbError } = await db.from("leads").insert({
       full_name: data.name,
@@ -49,7 +54,7 @@ export const submitContactForm = createServerFn({ method: "POST" })
     const connKey = process.env['GOOGLE_SHEETS_API_KEY'];
     if (lovableKey && connKey) {
       try {
-        const url = `${GATEWAY_URL}/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A:E:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+        const url = "https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets/1Z_h3bya52dW9QlSo2EXGVzeg6_KXwxRJ6LwY8V49YFM/values/Sheet1!A:E:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS";
         const response = await fetch(url, {
           method: "POST",
           headers: {
