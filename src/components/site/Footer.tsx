@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Twitter, Clock, Globe2, ShieldCheck, Stethoscope } from "lucide-react";
+import { Clock, Globe2, ShieldCheck, Stethoscope } from "lucide-react";
 
 
 const legal = [
