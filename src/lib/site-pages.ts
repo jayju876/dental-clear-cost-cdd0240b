@@ -55,3 +55,9 @@ export function scoreSeo(args: { title: string; description: string; keywords?: 
   if ((args.ogImage ?? "").length > 0) s += 20;
   return Math.min(100, s);
 }
+
+/** Calculators shown in the header dropdown — future calculators added to
+ *  SITE_PAGES with group "Calculators" appear here automatically. */
+export const NAV_CALCULATORS = SITE_PAGES.filter(
+  (p) => p.group === "Calculators" && !p.hiddenInNav,
+);
