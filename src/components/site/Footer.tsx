@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Twitter, Clock, Globe2, ShieldCheck, Stethoscope, Medium } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Clock, Globe2, ShieldCheck, Stethoscope } from "lucide-react";
 
 
 const legal = [
@@ -30,10 +30,18 @@ const socialLinks = [
   { icon: Twitter, href: "#", label: "Twitter" },
   { icon: Instagram, href: "#", label: "Instagram" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Medium, href: "https://medium.com/@dentalimplantcalculators", label: "Medium" },
+  { icon: MediumIcon, href: "https://medium.com/@dentalimplantcalculators", label: "Medium" },
   { icon: SubstackIcon, href: "https://substack.com/@dentalimplantcalculators", label: "Substack" },
   { icon: BloggerIcon, href: "https://dentalimplantcalculators.blogspot.com/", label: "Blogger" },
 ] as const;
+
+function MediumIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M13.537 11.828c0-3.036-1.54-5.468-3.437-5.468-1.896 0-3.437 2.432-3.437 5.468 0 3.037 1.54 5.469 3.437 5.469 1.897 0 3.437-2.432 3.437-5.469zm9.463 0c0-3.036-1.54-5.468-3.437-5.468-1.897 0-3.437 2.432-3.437 5.468 0 3.037 1.54 5.469 3.437 5.469 1.897 0 3.437-2.432 3.437-5.469zM24 11.828c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6zM6 11.828c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z" />
+    </svg>
+  );
+}
 
 function SubstackIcon({ className }: { className?: string }) {
   return (
