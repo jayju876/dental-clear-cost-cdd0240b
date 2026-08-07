@@ -1,6 +1,14 @@
 // Canonical list of indexable site pages — used by Pages SEO auto-sync
 // and the internal link picker inside the blog editor.
-export type SitePage = { path: string; name: string; group: "Core" | "Calculators" | "Content" | "Legal" };
+export type SitePage = {
+  path: string;
+  name: string;
+  group: "Core" | "Calculators" | "Content" | "Legal";
+  /** Shown in the header Calculators dropdown unless true (duplicate alias routes) */
+  hiddenInNav?: boolean;
+  /** Optional short description used in the mega-dropdown */
+  navDescription?: string;
+};
 
 export const SITE_PAGES: SitePage[] = [
   { path: "/", name: "Home", group: "Core" },
@@ -10,19 +18,20 @@ export const SITE_PAGES: SitePage[] = [
   { path: "/blog", name: "Blog", group: "Content" },
   { path: "/sitemap", name: "Sitemap", group: "Content" },
 
-  { path: "/cost", name: "Dental Implant Cost", group: "Calculators" },
-  { path: "/calculator", name: "Implant Cost Calculator", group: "Calculators" },
-  { path: "/loan", name: "Dental Implant Loan", group: "Calculators" },
-  { path: "/loan-calculator", name: "Loan Calculator", group: "Calculators" },
-  { path: "/ratio", name: "Implant Ratio", group: "Calculators" },
-  { path: "/ratio-calculator", name: "Ratio Calculator", group: "Calculators" },
-  { path: "/all-on-4-calculator", name: "All-on-4 Calculator", group: "Calculators" },
-  { path: "/breast-implant-cost-calculator", name: "Breast Implant Cost Calculator", group: "Calculators" },
-  { path: "/implant-support-calculator", name: "Implant Support Calculator", group: "Calculators" },
-  { path: "/dental-implant-finance-calculator", name: "Implant Finance Calculator", group: "Calculators" },
-  { path: "/dental-implant-loan-calculator", name: "Implant Loan Calculator", group: "Calculators" },
-  { path: "/dental-implant-payment-calculator", name: "Implant Payment Calculator", group: "Calculators" },
-  { path: "/dental-implant-ratio-calculator", name: "Implant Ratio Calculator", group: "Calculators" },
+  { path: "/cost", name: "Dental Implant Cost Calculator", group: "Calculators", navDescription: "Estimate full implant treatment cost by tooth count and materials." },
+  { path: "/calculator", name: "Implant Cost Calculator", group: "Calculators", hiddenInNav: true },
+  { path: "/loan", name: "Dental Implant Loan Calculator", group: "Calculators", navDescription: "Monthly payments, interest and total cost of implant financing." },
+  { path: "/loan-calculator", name: "Loan Calculator", group: "Calculators", hiddenInNav: true },
+  { path: "/ratio", name: "Dental Implant Ratio Calculator", group: "Calculators", navDescription: "Crown-to-implant ratio guidance for treatment planning." },
+  { path: "/ratio-calculator", name: "Ratio Calculator", group: "Calculators", hiddenInNav: true },
+  { path: "/all-on-4-calculator", name: "All-on-4 Calculator", group: "Calculators", navDescription: "Full-arch All-on-4 cost estimates per arch." },
+  { path: "/breast-implant-cost-calculator", name: "Breast Implant Cost Calculator", group: "Calculators", navDescription: "Surgeon, facility and implant cost estimates." },
+  { path: "/implant-support-calculator", name: "Implant Support Calculator", group: "Calculators", navDescription: "How many implants your restoration needs." },
+  { path: "/dental-implant-finance-calculator", name: "Implant Finance Calculator", group: "Calculators", navDescription: "Compare financing plans and APR scenarios." },
+  { path: "/dental-implant-loan-calculator", name: "Implant Loan Calculator", group: "Calculators", hiddenInNav: true },
+  { path: "/dental-implant-payment-calculator", name: "Implant Payment Calculator", group: "Calculators", navDescription: "Break treatment cost into monthly payments." },
+  { path: "/dental-implant-ratio-calculator", name: "Implant Ratio Calculator", group: "Calculators", hiddenInNav: true },
+
 
   { path: "/privacy-policy", name: "Privacy Policy", group: "Legal" },
   { path: "/terms", name: "Terms", group: "Legal" },
