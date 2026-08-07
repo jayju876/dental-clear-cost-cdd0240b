@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Twitter, Clock, Globe2, ShieldCheck, Stethoscope } from "lucide-react";
+import { Clock, Globe2, ShieldCheck, Stethoscope } from "lucide-react";
 
 
 const legal = [
@@ -26,10 +26,6 @@ const explore = [
 ] as const;
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: MediumIcon, href: "https://medium.com/@dentalimplantcalculators", label: "Medium" },
   { icon: SubstackIcon, href: "https://substack.com/@dentalimplantcalculators", label: "Substack" },
   { icon: BloggerIcon, href: "https://dentalimplantcalculators.blogspot.com/", label: "Blogger" },
