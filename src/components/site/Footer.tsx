@@ -38,7 +38,7 @@ const socialLinks = [
 function MediumIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M13.537 11.828c0-3.036-1.54-5.468-3.437-5.468-1.896 0-3.437 2.432-3.437 5.468 0 3.037 1.54 5.469 3.437 5.469 1.897 0 3.437-2.432 3.437-5.469zm9.463 0c0-3.036-1.54-5.468-3.437-5.468-1.897 0-3.437 2.432-3.437 5.468 0 3.037 1.54 5.469 3.437 5.469 1.897 0 3.437-2.432 3.437-5.469zM24 11.828c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6zM6 11.828c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z" />
+      <path d="M2.846 6.36c.02-.2-.06-.4-.222-.52l-1.64-1.32v-.2h4.92l3.803 8.33 3.342-8.33h4.69v.2l-1.403 1.347c-.12.093-.187.24-.173.4v10.18c-.014.16.053.307.173.4l1.367 1.347v.2H13.15v-.2l1.407-1.367c.133-.133.133-.173.133-.4V7.52l-3.947 10.02h-.533L5.79 7.52v6.747c-.04.307.053.613.253.853l1.833 2.227v.2H2.18v-.2l1.833-2.227c.2-.24.293-.546.253-.853V6.36z" />
     </svg>
   );
 }
@@ -73,9 +73,9 @@ export function Footer() {
           <p className="text-sm text-primary-foreground/70 max-w-xs">
             Instant, transparent dental implant cost estimates across India, USA, UK, UAE and more.
           </p>
-          <div className="flex gap-3 pt-2">
-            {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-              <a key={i} href="#" aria-label="social" className="rounded-md p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+          <div className="flex flex-wrap gap-3 pt-2">
+            {socialLinks.map(({ icon: Icon, href, label }) => (
+              <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="rounded-md p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <Icon className="h-4 w-4" />
               </a>
             ))}
