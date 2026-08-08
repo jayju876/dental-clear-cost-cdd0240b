@@ -185,7 +185,7 @@ function Home() {
       <section className="container mx-auto px-4 py-12 md:py-14">
         <FadeIn className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Average US implant costs · 2026</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Realistic dental implant cost ranges in the USA</h2>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator ranges for the USA</h2>
           <p className="mt-3 text-muted-foreground">Aggregated from a verified dental procedures cost list covering New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix — useful as a dental procedure cost estimator before your consultation.</p>
         </FadeIn>
         <div className="mt-8 grid md:grid-cols-3 gap-5">
@@ -205,7 +205,7 @@ function Home() {
       <section className="container mx-auto px-4 py-14 md:py-16">
         <FadeIn className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Free calculator suite</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Three premium tools, zero signup</h2>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator tools — three, all free</h2>
           <p className="mt-3 text-muted-foreground">From estimating treatment cost to planning EMI and matching the right implant count — everything you need before your consultation.</p>
         </FadeIn>
         <div className="mt-8 grid md:grid-cols-3 gap-5">
@@ -238,7 +238,7 @@ function Home() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <FadeIn>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">How it works</p>
-              <h2 className="mt-2 text-3xl md:text-4xl font-bold">A clinic-grade estimate in 60 seconds</h2>
+              <h2 className="mt-2 text-3xl md:text-4xl font-bold">How the Dental Implant Cost Calculator works in 60 seconds</h2>
               <p className="mt-3 text-muted-foreground">Answer a few questions about your case and location. We model 2026 pricing data from verified clinics to produce a realistic range — broken down by component.</p>
               <div className="mt-6 space-y-3">
                 {[
@@ -270,7 +270,7 @@ function Home() {
       {/* Education */}
       <section className="container mx-auto px-4 py-14 md:py-16">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold max-w-2xl">Understand what drives implant cost</h2>
+          <h2 className="text-3xl md:text-4xl font-bold max-w-2xl">What the Dental Implant Cost Calculator factors in</h2>
         </FadeIn>
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {educational.map((e, i) => (
@@ -288,7 +288,7 @@ function Home() {
       <section className="container mx-auto px-4 py-12 md:py-14">
         <FadeIn className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Insurance & transparency</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental implant cost in USA — with insurance and without</h2>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator: with insurance and without</h2>
           <p className="mt-3 text-muted-foreground">
             Use our dental implant cost calculator in USA with insurance to see your out-of-pocket after PPO benefits, then flip to the uninsured view to compare the cost of dental procedures without insurance. It works as a broader dental procedure cost estimator too — a plain-English alternative to the Delta Dental cost estimator with insurance and the Delta Dental procedures cost list — covering every US insurer, state and clinic tier, including the dental implant cost with insurance in California.
           </p>
@@ -316,7 +316,7 @@ function Home() {
             </FadeIn>
             <div>
               <FadeIn>
-                <h2 className="text-3xl md:text-4xl font-bold">Trusted by patients across the United States</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator trusted across the United States</h2>
                 <p className="mt-3 text-muted-foreground max-w-xl">Real stories from US patients who used ImplantCost to plan their treatment.</p>
               </FadeIn>
               <div className="mt-8 grid sm:grid-cols-2 gap-4">
@@ -352,7 +352,7 @@ function Home() {
           <div className="grid md:grid-cols-3 gap-10">
             <FadeIn className="md:col-span-1">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">FAQ</p>
-              <h2 className="mt-2 text-3xl md:text-4xl font-bold">Common questions</h2>
+              <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator — common questions</h2>
               <p className="mt-3 text-muted-foreground">Everything you need to know before getting your estimate.</p>
               <Button asChild className="mt-5 bg-gradient-primary text-primary-foreground"><Link to="/faq">All FAQs</Link></Button>
             </FadeIn>
@@ -377,7 +377,7 @@ function Home() {
             <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-accent/30 blur-3xl" />
             <div className="relative z-10 max-w-2xl">
               <Users className="h-8 w-8 text-accent" />
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold">Plan your implant treatment with confidence</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl font-bold">Plan with the Dental Implant Cost Calculator with confidence</h2>
               <p className="mt-3 text-primary-foreground/80">Join 240,000+ US patients who used the Dental Implant Cost Calculator to plan their treatment with confidence.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-background text-foreground hover:bg-background/90">
