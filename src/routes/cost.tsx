@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalculatorPage } from "./calculator";
+import { CostGuideContent } from "@/components/site/CostGuideContent";
 
 // SEO-friendly short URL alias for the cost calculator.
 export const Route = createFileRoute("/cost")({
@@ -12,5 +13,15 @@ export const Route = createFileRoute("/cost")({
     ],
     links: [{ rel: "canonical", href: "/cost" }],
   }),
-  component: CalculatorPage,
+  component: CostPage,
 });
+
+function CostPage() {
+  return (
+    <>
+      <CalculatorPage />
+      <CostGuideContent />
+    </>
+  );
+}
+
