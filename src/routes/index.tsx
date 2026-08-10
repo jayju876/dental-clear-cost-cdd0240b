@@ -13,7 +13,6 @@ import { CalculatorPage } from "./calculator";
 import { CostGuideContent } from "@/components/site/CostGuideContent";
 
 import heroImg from "@/assets/hero-clinic.jpg";
-import implant3d from "@/assets/implant-3d.jpg";
 import smilingPatient from "@/assets/smiling-patient.jpg";
 import allOn4 from "@/assets/all-on-4.jpg";
 import loanImg from "@/assets/loan-calc.jpg";
