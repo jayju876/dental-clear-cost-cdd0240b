@@ -53,6 +53,14 @@ export function Header() {
             Home
           </Link>
 
+          <Link
+            to="/"
+            hash="calculator"
+            className="px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Dental Implant Cost Calculator
+          </Link>
+
           <div
             ref={dropdownRef}
             className="relative"
@@ -66,7 +74,7 @@ export function Header() {
               onClick={() => setCalcOpen((v) => !v)}
               className="flex items-center gap-1 px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
-              Dental Implant Cost Calculator
+              Calculators
               <ChevronDown className={`h-4 w-4 transition-transform ${calcOpen ? "rotate-180" : ""}`} />
             </button>
 
@@ -110,7 +118,7 @@ export function Header() {
 
         <div className="hidden lg:block">
           <Button asChild size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
-            <Link to="/cost">Calculate My Cost</Link>
+            <Link to="/" hash="calculator">Calculate My Cost</Link>
           </Button>
         </div>
 
@@ -126,13 +134,17 @@ export function Header() {
               Home
             </Link>
 
+            <Link to="/" hash="calculator" onClick={() => setOpen(false)} className="px-2 py-2 text-sm font-medium">
+              Dental Implant Cost Calculator
+            </Link>
+
             <button
               type="button"
               aria-expanded={mobileCalcOpen}
               onClick={() => setMobileCalcOpen((v) => !v)}
               className="flex items-center justify-between px-2 py-2 text-left text-sm font-medium"
             >
-              Dental Implant Cost Calculator
+              Calculators
               <ChevronDown className={`h-4 w-4 transition-transform ${mobileCalcOpen ? "rotate-180" : ""}`} />
             </button>
             {mobileCalcOpen && (
@@ -157,7 +169,7 @@ export function Header() {
             ))}
 
             <Button asChild className="mt-2 bg-gradient-primary text-primary-foreground">
-              <Link to="/cost" onClick={() => setOpen(false)}>
+              <Link to="/" hash="calculator" onClick={() => setOpen(false)}>
                 Calculate My Cost
               </Link>
             </Button>
