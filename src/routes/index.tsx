@@ -61,11 +61,6 @@ const costRanges = [
 
 const calculators = [
   {
-    to: "/cost", icon: CalcIcon, img: implant3d,
-    title: "Dental Implant Cost Calculator",
-    body: "US pricing for single, multiple and full-arch implants. Includes brand, crown material and add-ons.",
-  },
-  {
     to: "/loan", icon: Wallet, img: loanImg,
     title: "Dental Implant Loan Calculator",
     body: "Plan monthly payments. Adjust cost, down payment, APR and term to see your monthly payment and total interest.",
@@ -127,7 +122,7 @@ function Home() {
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
-                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/" hash="calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
                   <Link to="/loan">Compare Implant Prices</Link>
@@ -381,7 +376,7 @@ function Home() {
               <p className="mt-3 text-primary-foreground/80">Join 240,000+ US patients who used the Dental Implant Cost Calculator to plan their treatment with confidence.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-background text-foreground hover:bg-background/90">
-                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/" hash="calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
                   <Link to="/ratio">How many implants?</Link>

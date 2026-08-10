@@ -40,14 +40,14 @@ Invisalign uses _SmartTrack_ material. It's made for precise tooth movement. Man
 
 #### Treatment Time Expectations
 
-Invisalign has a lot of research backing it. The treatment time depends on your needs. Use a [**dental implant price calculator**](/cost) to see how it fits in your dental budget.
+Invisalign has a lot of research backing it. The treatment time depends on your needs. Use a [**dental implant price calculator**](/) to see how it fits in your dental budget.
 
 | Feature | Spark Aligners | Invisalign |
 | --- | --- | --- |
 | Primary Material | TruGEN | SmartTrack |
 | Design Focus | Scalloped edges | Precision force |
 | Clinical History | Modern innovation | Industry standard |
-| Budget Planning | [**Calculate dental implant fees**](/cost) | [**Calculate dental implant fees**](/cost) |
+| Budget Planning | [**Calculate dental implant fees**](/) | [**Calculate dental implant fees**](/) |
 
 ## Financial Planning and the Dental Implant Cost Calculator
 
@@ -61,7 +61,7 @@ How long your treatment lasts also matters. Longer treatments mean more supplies
 
 ### How to Use a Dental Implant Cost Calculator for Broader Dental Budgeting
 
-When you need restorative work, a [**accurate dental implant cost calculator**](/cost) is key. It shows you the cost of replacing teeth with your orthodontic goals.
+When you need restorative work, a [**accurate dental implant cost calculator**](/) is key. It shows you the cost of replacing teeth with your orthodontic goals.
 
 An _online dental implant cost estimator_ helps plan your spending. It lets you spread out costs over time. This keeps your budget steady, even if your dental needs change.
 
@@ -69,17 +69,17 @@ An _online dental implant cost estimator_ helps plan your spending. It lets you 
 
 #### Why Financial Planning Matters for Dental Procedures
 
-Planning your finances helps you care for your teeth without hurting your lifestyle. Using a [**dental implant price calculator**](/cost) helps talk about payment plans early. This avoids sudden bills.
+Planning your finances helps you care for your teeth without hurting your lifestyle. Using a [**dental implant price calculator**](/) helps talk about payment plans early. This avoids sudden bills.
 
 It also lets you plan for all your dental needs at once. This makes managing your finances easier.
 
 #### Tools for Estimating Total Oral Health Costs
 
-Today, there are many tools to help you plan. Whether you need an _implant cost calculator for dentistry_ or a general [**dental implant cost estimator**](/cost), they give you a starting point.
+Today, there are many tools to help you plan. Whether you need an _implant cost calculator for dentistry_ or a general [**dental implant cost estimator**](/), they give you a starting point.
 
 | Tool Type | Primary Benefit | Best Use Case |
 | --- | --- | --- |
-| [**Dental Implant Cost Calculator**](/cost) | Detailed Estimates | Restorative Planning |
+| [**Dental Implant Cost Calculator**](/) | Detailed Estimates | Restorative Planning |
 | Budgeting Spreadsheet | Long-term Tracking | Monthly Savings |
 | Insurance Portal | Coverage Verification | Reducing Out-of-Pocket |
 
@@ -89,13 +89,13 @@ Remember, these tools are just estimates. Talking to your dentist is the best wa
 
 Choosing the right orthodontic path is important. It must match your personal goals and budget. Spark and Invisalign have their own benefits for your teeth.
 
-Think about what you need in your life. A detailed [**dental implant cost analysis**](/cost) can help you understand your budget better.
+Think about what you need in your life. A detailed [**dental implant cost analysis**](/) can help you understand your budget better.
 
-Good financial planning is key. It lets you afford all the treatments you need. Use a [**dental implant cost calculator**](/cost) to keep track of costs.
+Good financial planning is key. It lets you afford all the treatments you need. Use a [**dental implant cost calculator**](/) to keep track of costs.
 
 This way, you're ready for any dental care you might need. It helps you plan ahead.
 
-An [**online dental implant cost estimator**](/cost) can also help. It lets you compare costs of dental implants and clear aligners. Knowing these costs early makes things easier. If full-mouth work is on the table, read [the typical cost of a full set of dental implants](/blog/typical-cost-full-set-dental-implants).
+An [**online dental implant cost estimator**](/) can also help. It lets you compare costs of dental implants and clear aligners. Knowing these costs early makes things easier. If full-mouth work is on the table, read [the typical cost of a full set of dental implants](/blog/typical-cost-full-set-dental-implants).
 
 Visit a qualified orthodontist to talk about your needs. They can create a plan that fits your health goals. This ensures your smile gets the best care.
 
@@ -111,7 +111,7 @@ Treatment time depends on how complex your case is and how well you wear the ali
 
 ### How can I manage the total cost of orthodontics and restorative dental work?
 
-You might need both aligners and dental work. Use a [**dental implant cost calculator**](/cost) to plan your budget. It helps you see the total cost of your dental care.
+You might need both aligners and dental work. Use a [**dental implant cost calculator**](/) to plan your budget. It helps you see the total cost of your dental care.
 
 ### Is there a price difference between Spark and Invisalign aligners?
 

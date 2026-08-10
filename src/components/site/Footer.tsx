@@ -13,7 +13,7 @@ const legal = [
 ] as const;
 
 const explore = [
-  { to: "/cost", label: "Dental Implant Cost Calculator" },
+  { to: "/", label: "Dental Implant Cost Calculator" },
   { to: "/breast-implant-cost-calculator", label: "Breast Implant Cost Calculator" },
   { to: "/loan", label: "Loan EMI Calculator" },
   { to: "/ratio", label: "Implant Ratio Calculator" },

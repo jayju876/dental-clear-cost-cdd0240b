@@ -40,7 +40,7 @@ const STEPS = [
   { id: "result", label: "Results", icon: Award },
 ] as const;
 
-export function CalculatorPage() {
+export function CalculatorPage({ embedded = false }: { embedded?: boolean } = {}) {
   const [step, setStep] = useState(0);
   const [input, setInput] = useState<CalcInput>({
     country: "US",
@@ -69,7 +69,11 @@ export function CalculatorPage() {
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
             <Sparkles className="h-3.5 w-3.5 text-secondary" /> Instant estimate · 100% free
           </span>
-          <h1 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight">Dental Implant Cost Calculator</h1>
+          {embedded ? (
+            <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight">Dental Implant Cost Calculator</h2>
+          ) : (
+            <h1 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight">Dental Implant Cost Calculator</h1>
+          )}
           <p className="mt-3 text-muted-foreground">Answer a few quick questions to receive a personalized treatment estimate.</p>
         </div>
 
@@ -135,9 +139,11 @@ export function CalculatorPage() {
             Current selection: <span className="font-medium text-foreground">{country.name}</span> · {input.teeth} tooth/teeth · {IMPLANT_TYPES.find((t) => t.id === input.implantType)?.label}
           </div>
         )}
-        <div className="container mx-auto px-4">
-          <InternalLinks heading="Related implant tools & guides" />
-        </div>
+        {!embedded && (
+          <div className="container mx-auto px-4">
+            <InternalLinks heading="Related implant tools & guides" />
+          </div>
+        )}
       </div>
     </div>
   );
