@@ -1,27 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { CalculatorPage } from "./calculator";
-import { CostGuideContent } from "@/components/site/CostGuideContent";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
-// SEO-friendly short URL alias for the cost calculator.
+// The Dental Implant Cost Calculator now lives on the homepage.
+// /cost is permanently redirected (301) to /.
 export const Route = createFileRoute("/cost")({
-  head: () => ({
-    meta: [
-      { title: "Dental Implant Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
-      { name: "description", content: "Use our free dental implant cost calculator to estimate single tooth, All-on-4, and full mouth dental implant costs in the USA. Instant personalized estimates." },
-      { property: "og:title", content: "Dental Implant Cost Calculator (2026) – Instant US Estimate" },
-      { property: "og:description", content: "Estimate single tooth, All-on-4 and full mouth dental implant costs across the United States. Free and instant." },
-    ],
-    links: [{ rel: "canonical", href: "/cost" }],
-  }),
-  component: CostPage,
+  server: {
+    handlers: {
+      GET: async () => new Response(null, { status: 301, headers: { Location: "/" } }),
+    },
+  },
+  beforeLoad: () => {
+    throw redirect({ to: "/", replace: true });
+  },
+  component: () => null,
 });
-
-function CostPage() {
-  return (
-    <>
-      <CalculatorPage />
-      <CostGuideContent />
-    </>
-  );
-}
-
