@@ -176,6 +176,16 @@ function Home() {
         </div>
       </section>
 
+      {/* Interactive calculator */}
+      <section id="calculator" className="scroll-mt-20">
+        <CalculatorPage embedded />
+      </section>
+
+      {/* In-depth cost guide */}
+      <CostGuideContent />
+
+
+
       {/* US average cost ranges */}
       <section className="container mx-auto px-4 py-12 md:py-14">
         <FadeIn className="max-w-2xl">
