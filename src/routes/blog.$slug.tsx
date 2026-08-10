@@ -406,7 +406,7 @@ function InlineCta() {
           </p>
         </div>
         <Button asChild size="lg" className="shrink-0">
-          <Link to="/cost">
+          <Link to="/" hash="calculator">
             Open calculator <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
@@ -672,7 +672,7 @@ function BlogPostPage() {
                   Get an instant estimate for your treatment.
                 </p>
                 <Button asChild size="sm" className="mt-4 w-full">
-                  <Link to="/cost">
+                  <Link to="/" hash="calculator">
                     Try it now <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </Link>
                 </Button>

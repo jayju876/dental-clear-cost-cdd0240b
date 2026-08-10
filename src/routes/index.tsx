@@ -9,8 +9,10 @@ import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FadeIn } from "@/components/site/Section";
 import { CountUp } from "@/components/site/CountUp";
+import { CalculatorPage } from "./calculator";
+import { CostGuideContent } from "@/components/site/CostGuideContent";
+
 import heroImg from "@/assets/hero-clinic.jpg";
-import implant3d from "@/assets/implant-3d.jpg";
 import smilingPatient from "@/assets/smiling-patient.jpg";
 import allOn4 from "@/assets/all-on-4.jpg";
 import loanImg from "@/assets/loan-calc.jpg";
@@ -60,11 +62,6 @@ const costRanges = [
 ];
 
 const calculators = [
-  {
-    to: "/cost", icon: CalcIcon, img: implant3d,
-    title: "Dental Implant Cost Calculator",
-    body: "US pricing for single, multiple and full-arch implants. Includes brand, crown material and add-ons.",
-  },
   {
     to: "/loan", icon: Wallet, img: loanImg,
     title: "Dental Implant Loan Calculator",
@@ -127,7 +124,7 @@ function Home() {
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
-                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/" hash="calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
                   <Link to="/loan">Compare Implant Prices</Link>
@@ -180,6 +177,16 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Interactive calculator */}
+      <section id="calculator" className="scroll-mt-20">
+        <CalculatorPage embedded />
+      </section>
+
+      {/* In-depth cost guide */}
+      <CostGuideContent />
+
+
 
       {/* US average cost ranges */}
       <section className="container mx-auto px-4 py-12 md:py-14">
@@ -381,7 +388,7 @@ function Home() {
               <p className="mt-3 text-primary-foreground/80">Join 240,000+ US patients who used the Dental Implant Cost Calculator to plan their treatment with confidence.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-background text-foreground hover:bg-background/90">
-                  <Link to="/cost">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/" hash="calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
                   <Link to="/ratio">How many implants?</Link>

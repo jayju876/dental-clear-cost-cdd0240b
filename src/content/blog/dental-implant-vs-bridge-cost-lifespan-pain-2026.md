@@ -24,7 +24,7 @@ https://www.youtube.com/watch?v=SyTKys5IkEg
 
 ### How the Dental Implant Cost Calculator Works
 
-A [**dental implant cost calculator**](/cost) gives a first look at costs. It looks at where you live, how many teeth need replacing, and the surgery site's complexity. A **dental implant cost estimator** helps find extra costs like bone grafts or scans. For full-arch cases, try the [All-on-4 Calculator](/all-on-4-calculator) or the [Implant Ratio Calculator](/ratio) to see how many implants you actually need.
+A [**dental implant cost calculator**](/) gives a first look at costs. It looks at where you live, how many teeth need replacing, and the surgery site's complexity. A **dental implant cost estimator** helps find extra costs like bone grafts or scans. For full-arch cases, try the [All-on-4 Calculator](/all-on-4-calculator) or the [Implant Ratio Calculator](/ratio) to see how many implants you actually need.
 
 Remember, an **implant price calculator** is just a guess. Costs can change based on your dentist's skills. Use a **dental implant cost tool** as a starting point for planning, and check the [Implant Loan Calculator](/loan) if you plan to finance treatment.
 
@@ -61,7 +61,7 @@ Dental bridges are a quick fix for missing teeth. They attach a fake tooth to th
 *   **Pros:** They are fast and need fewer dentist visits. They are also cheaper than other options at first.
 *   **Cons:** They don't replace the tooth root, which can cause bone loss. They might also hurt the healthy teeth next to the gap.
 
-Think about using a [dental implant pricing tool](/cost) to compare costs. Bridges might seem cheaper, but you might need to replace them later. See our [implant FAQs](/faq) for how insurance typically handles each option.
+Think about using a [dental implant pricing tool](/) to compare costs. Bridges might seem cheaper, but you might need to replace them later. See our [implant FAQs](/faq) for how insurance typically handles each option.
 
 ### Dental Implants: Pros and Cons
 
@@ -86,9 +86,9 @@ Implants keep your jawbone healthy by making it work. This is key to keeping you
 
 ## Conclusion
 
-Choosing between a dental bridge and an implant is important. It's about your long-term oral health. Our [dental implant cost tool](/cost) helps with planning your budget.
+Choosing between a dental bridge and an implant is important. It's about your long-term oral health. Our [dental implant cost tool](/) helps with planning your budget.
 
-Use an [implant cost calculator online](/cost) to plan better. It helps you organize your budget for your dentist visit. A reliable pricing tool shows the cost of a natural-feeling solution — and the [Implant Loan Calculator](/loan) breaks it down into monthly payments.
+Use an [implant cost calculator online](/) to plan better. It helps you organize your budget for your dentist visit. A reliable pricing tool shows the cost of a natural-feeling solution — and the [Implant Loan Calculator](/loan) breaks it down into monthly payments.
 
 Every patient's needs are different, affecting the total cost. A dentist's consultation gives you a precise estimate. They check your jawbone and anatomy for a custom plan.
 
@@ -98,7 +98,7 @@ Start your dental journey by getting the right info. A confident smile comes fro
 
 ### How can I determine whether a dental implant or a bridge is more affordable for my budget?
 
-Start by using our [dental implant cost calculator](/cost). It gives you a personalized estimate for 2026. A bridge might cost less upfront. But, implants are often cheaper over time. To see monthly costs, try the [Dental Implant Payment Calculator](/dental-implant-payment-calculator).
+Start by using our [dental implant cost calculator](/). It gives you a personalized estimate for 2026. A bridge might cost less upfront. But, implants are often cheaper over time. To see monthly costs, try the [Dental Implant Payment Calculator](/dental-implant-payment-calculator).
 
 Because bridges need to be replaced every 10 to 15 years, their costs add up. High-quality implants from Straumann or Nobel Biocare are a one-time investment.
 

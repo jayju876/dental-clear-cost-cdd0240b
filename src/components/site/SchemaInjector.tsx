@@ -64,16 +64,6 @@ const HOWTO_BY_PATH: Record<string, { name: string; description: string; steps: 
       { name: "Review your personalized estimate", text: "See your total cost range, EMI estimate, treatment breakdown and potential savings." },
     ],
   },
-  "/cost": {
-    name: "How to estimate your dental implant cost",
-    description: "Get an instant 2026 dental implant cost estimate tailored to your country, case and clinic preferences.",
-    steps: [
-      { name: "Select your country", text: "Choose where you'll receive treatment to localize pricing." },
-      { name: "Describe your case", text: "Tell us how many teeth need replacement and which implant type fits." },
-      { name: "Pick materials and brand", text: "Choose a crown material and implant brand." },
-      { name: "Get your estimate", text: "View your personalized cost range with treatment breakdown." },
-    ],
-  },
   "/loan": {
     name: "How to calculate your dental implant loan",
     description: "Model dental implant financing across 12–84 month terms and any interest rate.",

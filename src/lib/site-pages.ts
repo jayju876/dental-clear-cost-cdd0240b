@@ -18,7 +18,6 @@ export const SITE_PAGES: SitePage[] = [
   { path: "/blog", name: "Blog", group: "Content" },
   { path: "/sitemap", name: "Sitemap", group: "Content" },
 
-  { path: "/cost", name: "Dental Implant Cost Calculator", group: "Calculators", navDescription: "Estimate full implant treatment cost by tooth count and materials." },
   { path: "/calculator", name: "Implant Cost Calculator", group: "Calculators", hiddenInNav: true },
   { path: "/loan", name: "Dental Implant Loan Calculator", group: "Calculators", navDescription: "Monthly payments, interest and total cost of implant financing." },
   { path: "/loan-calculator", name: "Loan Calculator", group: "Calculators", hiddenInNav: true },
