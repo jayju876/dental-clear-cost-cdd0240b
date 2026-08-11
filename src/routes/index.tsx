@@ -270,7 +270,7 @@ function Home() {
                   <Link to="/" hash="calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                  <Link to="/ratio">How many implants?</Link>
+                  <Link to="/calculators">Explore all calculators</Link>
                 </Button>
               </div>
             </div>
