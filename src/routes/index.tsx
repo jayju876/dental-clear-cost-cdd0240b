@@ -6,17 +6,14 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FadeIn } from "@/components/site/Section";
 import { CountUp } from "@/components/site/CountUp";
 import { CalculatorPage } from "./calculator";
-import { CostGuideContent } from "@/components/site/CostGuideContent";
 
 import heroImg from "@/assets/hero-clinic.jpg";
 import smilingPatient from "@/assets/smiling-patient.jpg";
 import allOn4 from "@/assets/all-on-4.jpg";
-import loanImg from "@/assets/loan-calc.jpg";
-import jawImg from "@/assets/jaw-diagram.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
