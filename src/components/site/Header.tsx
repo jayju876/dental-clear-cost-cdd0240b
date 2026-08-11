@@ -150,7 +150,11 @@ export function Header() {
             </button>
             {mobileCalcOpen && (
               <div className="ml-2 flex flex-col gap-0.5 border-l border-border pl-3">
+                <Link to="/calculators" onClick={() => setOpen(false)} className="px-2 py-2 text-sm font-medium">
+                  All calculators
+                </Link>
                 {NAV_CALCULATORS.map((c) => (
+
                   <Link
                     key={c.path}
                     to={c.path}
