@@ -16,9 +16,11 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AllOn4CalculatorRouteImport } from './routes/all-on-4-calculator'
 import { Route as BreastImplantCostCalculatorRouteImport } from './routes/breast-implant-cost-calculator'
 import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as CalculatorsRouteImport } from './routes/calculators'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as CostRouteImport } from './routes/cost'
+import { Route as DentalImplantCostGuideRouteImport } from './routes/dental-implant-cost-guide'
 import { Route as DentalImplantFinanceCalculatorRouteImport } from './routes/dental-implant-finance-calculator'
 import { Route as DentalImplantLoanCalculatorRouteImport } from './routes/dental-implant-loan-calculator'
 import { Route as DentalImplantPaymentCalculatorRouteImport } from './routes/dental-implant-payment-calculator'
@@ -85,6 +87,11 @@ const CalculatorRoute = CalculatorRouteImport.update({
   path: '/calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CalculatorsRoute = CalculatorsRouteImport.update({
+  id: '/calculators',
+  path: '/calculators',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -98,6 +105,11 @@ const CookiePolicyRoute = CookiePolicyRouteImport.update({
 const CostRoute = CostRouteImport.update({
   id: '/cost',
   path: '/cost',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentalImplantCostGuideRoute = DentalImplantCostGuideRouteImport.update({
+  id: '/dental-implant-cost-guide',
+  path: '/dental-implant-cost-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DentalImplantFinanceCalculatorRoute =
@@ -259,9 +271,11 @@ export interface FileRoutesByFullPath {
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
+  '/calculators': typeof CalculatorsRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/cost': typeof CostRoute
+  '/dental-implant-cost-guide': typeof DentalImplantCostGuideRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -299,9 +313,11 @@ export interface FileRoutesByTo {
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
+  '/calculators': typeof CalculatorsRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/cost': typeof CostRoute
+  '/dental-implant-cost-guide': typeof DentalImplantCostGuideRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -341,9 +357,11 @@ export interface FileRoutesById {
   '/all-on-4-calculator': typeof AllOn4CalculatorRoute
   '/breast-implant-cost-calculator': typeof BreastImplantCostCalculatorRoute
   '/calculator': typeof CalculatorRoute
+  '/calculators': typeof CalculatorsRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/cost': typeof CostRoute
+  '/dental-implant-cost-guide': typeof DentalImplantCostGuideRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -384,9 +402,11 @@ export interface FileRouteTypes {
     | '/all-on-4-calculator'
     | '/breast-implant-cost-calculator'
     | '/calculator'
+    | '/calculators'
     | '/contact'
     | '/cookie-policy'
     | '/cost'
+    | '/dental-implant-cost-guide'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -424,9 +444,11 @@ export interface FileRouteTypes {
     | '/all-on-4-calculator'
     | '/breast-implant-cost-calculator'
     | '/calculator'
+    | '/calculators'
     | '/contact'
     | '/cookie-policy'
     | '/cost'
+    | '/dental-implant-cost-guide'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -465,9 +487,11 @@ export interface FileRouteTypes {
     | '/all-on-4-calculator'
     | '/breast-implant-cost-calculator'
     | '/calculator'
+    | '/calculators'
     | '/contact'
     | '/cookie-policy'
     | '/cost'
+    | '/dental-implant-cost-guide'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -507,9 +531,11 @@ export interface RootRouteChildren {
   AllOn4CalculatorRoute: typeof AllOn4CalculatorRoute
   BreastImplantCostCalculatorRoute: typeof BreastImplantCostCalculatorRoute
   CalculatorRoute: typeof CalculatorRoute
+  CalculatorsRoute: typeof CalculatorsRoute
   ContactRoute: typeof ContactRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
   CostRoute: typeof CostRoute
+  DentalImplantCostGuideRoute: typeof DentalImplantCostGuideRoute
   DentalImplantFinanceCalculatorRoute: typeof DentalImplantFinanceCalculatorRoute
   DentalImplantLoanCalculatorRoute: typeof DentalImplantLoanCalculatorRoute
   DentalImplantPaymentCalculatorRoute: typeof DentalImplantPaymentCalculatorRoute
@@ -583,6 +609,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/calculators': {
+      id: '/calculators'
+      path: '/calculators'
+      fullPath: '/calculators'
+      preLoaderRoute: typeof CalculatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -602,6 +635,13 @@ declare module '@tanstack/react-router' {
       path: '/cost'
       fullPath: '/cost'
       preLoaderRoute: typeof CostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-implant-cost-guide': {
+      id: '/dental-implant-cost-guide'
+      path: '/dental-implant-cost-guide'
+      fullPath: '/dental-implant-cost-guide'
+      preLoaderRoute: typeof DentalImplantCostGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dental-implant-finance-calculator': {
@@ -854,9 +894,11 @@ const rootRouteChildren: RootRouteChildren = {
   AllOn4CalculatorRoute: AllOn4CalculatorRoute,
   BreastImplantCostCalculatorRoute: BreastImplantCostCalculatorRoute,
   CalculatorRoute: CalculatorRoute,
+  CalculatorsRoute: CalculatorsRoute,
   ContactRoute: ContactRoute,
   CookiePolicyRoute: CookiePolicyRoute,
   CostRoute: CostRoute,
+  DentalImplantCostGuideRoute: DentalImplantCostGuideRoute,
   DentalImplantFinanceCalculatorRoute: DentalImplantFinanceCalculatorRoute,
   DentalImplantLoanCalculatorRoute: DentalImplantLoanCalculatorRoute,
   DentalImplantPaymentCalculatorRoute: DentalImplantPaymentCalculatorRoute,
