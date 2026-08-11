@@ -67,16 +67,17 @@ export function Header() {
             onMouseEnter={() => setCalcOpen(true)}
             onMouseLeave={() => setCalcOpen(false)}
           >
-            <button
-              type="button"
+            <Link
+              to="/calculators"
               aria-expanded={calcOpen}
-              aria-haspopup="true"
-              onClick={() => setCalcOpen((v) => !v)}
+              onClick={() => setCalcOpen(false)}
               className="flex items-center gap-1 px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{ className: "flex items-center gap-1 px-2.5 py-2 text-sm font-semibold text-foreground" }}
             >
               Calculators
               <ChevronDown className={`h-4 w-4 transition-transform ${calcOpen ? "rotate-180" : ""}`} />
-            </button>
+            </Link>
+
 
             {calcOpen && (
               <div className="absolute left-1/2 top-full z-50 w-[34rem] -translate-x-1/2 pt-2">
