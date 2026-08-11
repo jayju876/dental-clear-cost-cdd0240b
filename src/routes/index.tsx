@@ -98,7 +98,7 @@ function Home() {
                   <Link to="/" hash="calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link to="/loan">Compare Implant Prices</Link>
+                  <Link to="/calculators">See all calculators</Link>
                 </Button>
               </div>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
