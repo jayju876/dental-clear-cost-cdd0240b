@@ -20,6 +20,7 @@ import { Route as CalculatorsRouteImport } from './routes/calculators'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as CostRouteImport } from './routes/cost'
+import { Route as DentalImplantCostGuideRouteImport } from './routes/dental-implant-cost-guide'
 import { Route as DentalImplantFinanceCalculatorRouteImport } from './routes/dental-implant-finance-calculator'
 import { Route as DentalImplantLoanCalculatorRouteImport } from './routes/dental-implant-loan-calculator'
 import { Route as DentalImplantPaymentCalculatorRouteImport } from './routes/dental-implant-payment-calculator'
@@ -104,6 +105,11 @@ const CookiePolicyRoute = CookiePolicyRouteImport.update({
 const CostRoute = CostRouteImport.update({
   id: '/cost',
   path: '/cost',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentalImplantCostGuideRoute = DentalImplantCostGuideRouteImport.update({
+  id: '/dental-implant-cost-guide',
+  path: '/dental-implant-cost-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DentalImplantFinanceCalculatorRoute =
@@ -269,6 +275,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/cost': typeof CostRoute
+  '/dental-implant-cost-guide': typeof DentalImplantCostGuideRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -310,6 +317,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/cost': typeof CostRoute
+  '/dental-implant-cost-guide': typeof DentalImplantCostGuideRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -353,6 +361,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/cost': typeof CostRoute
+  '/dental-implant-cost-guide': typeof DentalImplantCostGuideRoute
   '/dental-implant-finance-calculator': typeof DentalImplantFinanceCalculatorRoute
   '/dental-implant-loan-calculator': typeof DentalImplantLoanCalculatorRoute
   '/dental-implant-payment-calculator': typeof DentalImplantPaymentCalculatorRoute
@@ -397,6 +406,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookie-policy'
     | '/cost'
+    | '/dental-implant-cost-guide'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -438,6 +448,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookie-policy'
     | '/cost'
+    | '/dental-implant-cost-guide'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -480,6 +491,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookie-policy'
     | '/cost'
+    | '/dental-implant-cost-guide'
     | '/dental-implant-finance-calculator'
     | '/dental-implant-loan-calculator'
     | '/dental-implant-payment-calculator'
@@ -523,6 +535,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
   CostRoute: typeof CostRoute
+  DentalImplantCostGuideRoute: typeof DentalImplantCostGuideRoute
   DentalImplantFinanceCalculatorRoute: typeof DentalImplantFinanceCalculatorRoute
   DentalImplantLoanCalculatorRoute: typeof DentalImplantLoanCalculatorRoute
   DentalImplantPaymentCalculatorRoute: typeof DentalImplantPaymentCalculatorRoute
@@ -622,6 +635,13 @@ declare module '@tanstack/react-router' {
       path: '/cost'
       fullPath: '/cost'
       preLoaderRoute: typeof CostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-implant-cost-guide': {
+      id: '/dental-implant-cost-guide'
+      path: '/dental-implant-cost-guide'
+      fullPath: '/dental-implant-cost-guide'
+      preLoaderRoute: typeof DentalImplantCostGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dental-implant-finance-calculator': {
@@ -878,6 +898,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CookiePolicyRoute: CookiePolicyRoute,
   CostRoute: CostRoute,
+  DentalImplantCostGuideRoute: DentalImplantCostGuideRoute,
   DentalImplantFinanceCalculatorRoute: DentalImplantFinanceCalculatorRoute,
   DentalImplantLoanCalculatorRoute: DentalImplantLoanCalculatorRoute,
   DentalImplantPaymentCalculatorRoute: DentalImplantPaymentCalculatorRoute,
@@ -902,13 +923,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

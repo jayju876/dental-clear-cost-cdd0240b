@@ -183,75 +183,45 @@ function Home() {
         <CalculatorPage embedded />
       </section>
 
-      {/* In-depth cost guide */}
-      <CostGuideContent />
-
-
-
-      {/* US average cost ranges */}
-      <section className="container mx-auto px-4 py-12 md:py-14">
-        <FadeIn className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Average US implant costs · 2026</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator ranges for the USA</h2>
-          <p className="mt-3 text-muted-foreground">Aggregated from a verified dental procedures cost list covering New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix — useful as a dental procedure cost estimator before your consultation.</p>
-        </FadeIn>
-        <div className="mt-8 grid md:grid-cols-3 gap-5">
-          {costRanges.map((r, i) => (
-            <FadeIn key={r.label} delay={i * 0.05}>
-              <Card className="p-6 h-full border-border/70 card-lift hover:shadow-elegant">
-                <p className="text-xs font-semibold uppercase tracking-wider text-secondary">{r.label}</p>
-                <p className="mt-3 text-3xl font-bold tracking-tight">{r.range}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
-              </Card>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
-      {/* Calculator suite */}
+      {/* Key benefits */}
       <section className="container mx-auto px-4 py-14 md:py-16">
         <FadeIn className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Free calculator suite</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator tools — three, all free</h2>
-          <p className="mt-3 text-muted-foreground">From estimating treatment cost to planning EMI and matching the right implant count — everything you need before your consultation.</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Why use it</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Why patients trust this Dental Implant Cost Calculator</h2>
         </FadeIn>
-        <div className="mt-8 grid md:grid-cols-3 gap-5">
-          {calculators.map((c, i) => (
-            <FadeIn key={c.to} delay={i * 0.06}>
-              <Card className="overflow-hidden h-full border-border/70 card-lift hover:shadow-elegant group">
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img src={c.img} alt={c.title} width={1400} height={1000} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-background/95 text-secondary shadow-md">
-                    <c.icon className="h-5 w-5" />
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold">{c.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{c.body}</p>
-                  <Link to={c.to} className="mt-3 inline-flex items-center text-sm font-semibold text-secondary">
-                    Open calculator <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </Card>
+        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {benefits.map((b, i) => (
+            <FadeIn key={b.title} delay={i * 0.05}>
+              <div className="p-5 rounded-xl border border-border bg-card h-full card-lift hover:shadow-elegant">
+                <b.icon className="h-5 w-5 text-secondary" />
+                <h3 className="mt-3 font-semibold">{b.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{b.body}</p>
+              </div>
             </FadeIn>
           ))}
         </div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button asChild variant="outline">
+            <Link to="/calculators">Explore all calculators</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link to="/dental-implant-cost-guide">Read the 2026 cost guide</Link>
+          </Button>
+        </div>
       </section>
 
-      {/* How it works + image */}
+      {/* Short how it works */}
       <section className="bg-card border-y border-border">
         <div className="container mx-auto px-4 py-14 md:py-16">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <FadeIn>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">How it works</p>
-              <h2 className="mt-2 text-3xl md:text-4xl font-bold">How the Dental Implant Cost Calculator works in 60 seconds</h2>
-              <p className="mt-3 text-muted-foreground">Answer a few questions about your case and location. We model 2026 pricing data from verified clinics to produce a realistic range — broken down by component.</p>
+              <h2 className="mt-2 text-3xl md:text-4xl font-bold">Your estimate in three steps</h2>
               <div className="mt-6 space-y-3">
                 {[
-                  { icon: Globe2, title: "Pick your country", body: "Local clinic data and currency built in." },
-                  { icon: Activity, title: "Describe your case", body: "Teeth count, bone graft, sinus lift, material preferences." },
-                  { icon: Award, title: "Receive a breakdown", body: "Range, EMI, savings vs. home country and recommended treatment." },
+                  { icon: Globe2, title: "Pick your location", body: "Local US clinic pricing built in." },
+                  { icon: Activity, title: "Describe your case", body: "Teeth count, bone graft, sinus lift, materials." },
+                  { icon: Award, title: "Get a breakdown", body: "Range, monthly payment and insurance view." },
                 ].map((step) => (
                   <div key={step.title} className="flex items-start gap-3">
                     <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground shrink-0">
@@ -266,51 +236,12 @@ function Home() {
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <div className="relative">
-                <img src={allOn4} alt="All-on-4 full-arch dental implant illustration" width={1400} height={1000} loading="lazy" className="w-full rounded-2xl shadow-elegant border border-border/60 object-cover aspect-[4/3]" />
-              </div>
+              <img src={allOn4} alt="All-on-4 full-arch dental implant illustration" width={1400} height={1000} loading="lazy" className="w-full rounded-2xl shadow-elegant border border-border/60 object-cover aspect-[4/3]" />
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Education */}
-      <section className="container mx-auto px-4 py-14 md:py-16">
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold max-w-2xl">What the Dental Implant Cost Calculator factors in</h2>
-        </FadeIn>
-        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {educational.map((e, i) => (
-            <FadeIn key={e.title} delay={i * 0.05}>
-              <div className="p-5 rounded-xl border border-border bg-card h-full card-lift hover:shadow-elegant">
-                <h3 className="font-semibold">{e.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
-      {/* Insurance & cost-transparency section */}
-      <section className="container mx-auto px-4 py-12 md:py-14">
-        <FadeIn className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Insurance & transparency</p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator: with insurance and without</h2>
-          <p className="mt-3 text-muted-foreground">
-            Use our dental implant cost calculator in USA with insurance to see your out-of-pocket after PPO benefits, then flip to the uninsured view to compare the cost of dental procedures without insurance. It works as a broader dental procedure cost estimator too — a plain-English alternative to the Delta Dental cost estimator with insurance and the Delta Dental procedures cost list — covering every US insurer, state and clinic tier, including the dental implant cost with insurance in California.
-          </p>
-          <div className="mt-6 grid sm:grid-cols-2 gap-4">
-            <div className="p-5 rounded-xl border border-border bg-card">
-              <h3 className="font-semibold">Dental cost with insurance</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Most PPO plans cover 10–50% of implant treatment, capped by an annual maximum. Our estimator applies your coverage tier to a real US dental procedures cost list.</p>
-            </div>
-            <div className="p-5 rounded-xl border border-border bg-card">
-              <h3 className="font-semibold">Dental cost without insurance</h3>
-              <p className="mt-2 text-sm text-muted-foreground">For uninsured patients we surface the cheapest tooth implant cost tiers — dental schools, community clinics and in-house membership plans — alongside standard private pricing.</p>
-            </div>
-          </div>
-        </FadeIn>
-      </section>
 
 
 
