@@ -17,6 +17,9 @@ export const SITE_PAGES: SitePage[] = [
   { path: "/faq", name: "FAQ", group: "Core" },
   { path: "/blog", name: "Blog", group: "Content" },
   { path: "/sitemap", name: "Sitemap", group: "Content" },
+  { path: "/calculators", name: "Calculators", group: "Core" },
+  { path: "/dental-implant-cost-guide", name: "Dental Implant Cost Guide", group: "Content" },
+
 
   { path: "/calculator", name: "Implant Cost Calculator", group: "Calculators", hiddenInNav: true },
   { path: "/loan", name: "Dental Implant Loan Calculator", group: "Calculators", navDescription: "Monthly payments, interest and total cost of implant financing." },
