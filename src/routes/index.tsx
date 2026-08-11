@@ -284,29 +284,6 @@ function Home() {
       </section>
 
 
-      {/* FAQ */}
-      <section className="bg-card border-y border-border">
-        <div className="container mx-auto px-4 py-14 md:py-16">
-          <div className="grid md:grid-cols-3 gap-10">
-            <FadeIn className="md:col-span-1">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">FAQ</p>
-              <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator — common questions</h2>
-              <p className="mt-3 text-muted-foreground">Everything you need to know before getting your estimate.</p>
-              <Button asChild className="mt-5 bg-gradient-primary text-primary-foreground"><Link to="/faq">All FAQs</Link></Button>
-            </FadeIn>
-            <div className="md:col-span-2">
-              <Accordion type="single" collapsible className="w-full">
-                {faqs.map((f, i) => (
-                  <AccordionItem key={i} value={`f-${i}`}>
-                    <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="container mx-auto px-4 py-14 md:py-16">
