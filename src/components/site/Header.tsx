@@ -55,7 +55,7 @@ export function Header() {
 
           <Link
             to="/"
-            hash="calculator"
+
             className="px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             Dental Implant Cost Calculator
@@ -119,7 +119,7 @@ export function Header() {
 
         <div className="hidden lg:block">
           <Button asChild size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
-            <Link to="/" hash="calculator">Calculate My Cost</Link>
+            <Link to="/">Calculate My Cost</Link>
           </Button>
         </div>
 
@@ -135,7 +135,7 @@ export function Header() {
               Home
             </Link>
 
-            <Link to="/" hash="calculator" onClick={() => setOpen(false)} className="px-2 py-2 text-sm font-medium">
+            <Link to="/" onClick={() => setOpen(false)} className="px-2 py-2 text-sm font-medium">
               Dental Implant Cost Calculator
             </Link>
 
@@ -174,7 +174,7 @@ export function Header() {
             ))}
 
             <Button asChild className="mt-2 bg-gradient-primary text-primary-foreground">
-              <Link to="/" hash="calculator" onClick={() => setOpen(false)}>
+              <Link to="/" onClick={() => setOpen(false)}>
                 Calculate My Cost
               </Link>
             </Button>

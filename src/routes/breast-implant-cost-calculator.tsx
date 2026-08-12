@@ -169,7 +169,7 @@ function BreastImplantCalculatorPage() {
         <Card className="p-6">
           <h2 className="text-xl font-semibold">Related calculators</h2>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><Link to="/" hash="calculator" className="hover:text-secondary font-medium">Dental Implant Cost Calculator →</Link></li>
+            <li><Link to="/" className="hover:text-secondary font-medium">Dental Implant Cost Calculator →</Link></li>
             <li><Link to="/loan" className="hover:text-secondary font-medium">Implant Loan / EMI Calculator →</Link></li>
             <li><Link to="/dental-implant-finance-calculator" className="hover:text-secondary font-medium">Implant Finance Calculator →</Link></li>
             <li><Link to="/all-on-4-calculator" className="hover:text-secondary font-medium">All-on-4 Calculator →</Link></li>

@@ -52,7 +52,7 @@ function CalculatorsPage() {
           Start with the Dental Implant Cost Calculator on the homepage, then use these tools to plan payments and implant count.
         </p>
         <Button asChild className="mt-5 bg-gradient-primary text-primary-foreground">
-          <Link to="/" hash="calculator">Open the Dental Implant Cost Calculator</Link>
+          <Link to="/">Open the Dental Implant Cost Calculator</Link>
         </Button>
       </div>
     </PageShell>

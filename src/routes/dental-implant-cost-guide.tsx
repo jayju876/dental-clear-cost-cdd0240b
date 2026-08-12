@@ -42,7 +42,7 @@ function CostGuide() {
           <h1 className="mt-2 text-4xl md:text-5xl font-bold tracking-tight">Dental Implant Cost Calculator ranges for the USA</h1>
           <p className="mt-4 text-lg text-muted-foreground">Aggregated from a verified dental procedures cost list covering New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix — useful as a dental procedure cost estimator before your consultation.</p>
           <Button asChild className="mt-6 bg-gradient-primary text-primary-foreground">
-            <Link to="/" hash="calculator">Get your personalized estimate</Link>
+            <Link to="/">Get your personalized estimate</Link>
           </Button>
         </FadeIn>
         <div className="mt-8 grid md:grid-cols-3 gap-5">
