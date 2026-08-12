@@ -8,7 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FadeIn } from "@/components/site/Section";
 import { CountUp } from "@/components/site/CountUp";
+import { CostGuideContent } from "@/components/site/CostGuideContent";
 import { CalculatorPage } from "./calculator";
+
 
 import heroImg from "@/assets/hero-clinic.jpg";
 import smilingPatient from "@/assets/smiling-patient.jpg";
@@ -65,6 +67,20 @@ const testimonials = [
   { name: "Mark D.", country: "Dallas, TX", quote: "Finally a calculator that breaks down crown material, brand and bone graft costs clearly for US pricing." },
   { name: "Sarah K.", country: "Miami, FL", quote: "The financing estimator helped me budget my All-on-4 treatment without surprises." },
   { name: "James R.", country: "Seattle, WA", quote: "Estimate was within $400 of my final invoice. Insurance estimator was a bonus." },
+];
+
+
+const costRanges = [
+  { label: "Single Tooth Implant Cost", range: "$3,500 – $6,000", body: "Implant + abutment + crown per tooth. The cheapest tooth implant cost in the USA typically starts near $1,800 at dental schools and community clinics." },
+  { label: "All-on-4 (Full Arch)", range: "$20,000 – $30,000", body: "Four implants supporting a full-arch prosthesis — a popular permanent dental implant option in the USA." },
+  { label: "Full Mouth Dental Implants", range: "$40,000 – $90,000", body: "Both arches with premium materials. Use the calculator above for a personalized full mouth range." },
+];
+
+const educational = [
+  { title: "Single Tooth Implant Cost", body: "One missing tooth replaced with a titanium post, abutment and crown — typically $3,500–$6,000 in the US, or as low as ~$1,800 at the cheapest tooth implant clinics." },
+  { title: "Full Mouth & All-on-4", body: "Full-arch restoration on 4 or 6 implants, broken down by state and clinic tier." },
+  { title: "Permanent Implants in the USA", body: "Zirconia bridges and screw-retained prosthetics designed to last 20+ years." },
+  { title: "Cost With & Without Insurance", body: "Compare the cost of dental procedures without insurance to your dental cost with insurance — most PPO plans cover 10–50% of implant treatment." },
 ];
 
 
@@ -183,11 +199,70 @@ function Home() {
           <Button asChild variant="outline">
             <Link to="/calculators">Explore all calculators</Link>
           </Button>
-          <Button asChild variant="outline">
-            <Link to="/dental-implant-cost-guide">Read the 2026 cost guide</Link>
-          </Button>
         </div>
       </section>
+
+      {/* Average US implant costs */}
+      <section className="bg-gradient-soft border-y border-border">
+        <div className="container mx-auto px-4 py-14 md:py-16">
+          <FadeIn className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Average US implant costs · 2026</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator ranges for the USA</h2>
+            <p className="mt-3 text-muted-foreground">
+              Aggregated from a verified dental procedures cost list covering New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix.
+            </p>
+          </FadeIn>
+          <div className="mt-8 grid md:grid-cols-3 gap-5">
+            {costRanges.map((r, i) => (
+              <FadeIn key={r.label} delay={i * 0.05}>
+                <Card className="p-6 h-full border-border/70 card-lift hover:shadow-elegant">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-secondary">{r.label}</p>
+                  <p className="mt-3 text-3xl font-bold tracking-tight">{r.range}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn className="mt-12 max-w-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold">What the Dental Implant Cost Calculator factors in</h2>
+          </FadeIn>
+          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {educational.map((e, i) => (
+              <FadeIn key={e.title} delay={i * 0.05}>
+                <div className="p-5 rounded-xl border border-border bg-card h-full card-lift hover:shadow-elegant">
+                  <h3 className="font-semibold">{e.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Insurance & transparency */}
+      <section className="container mx-auto px-4 py-14 md:py-16">
+        <FadeIn className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Insurance & transparency</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator: with insurance and without</h2>
+          <p className="mt-3 text-muted-foreground">
+            See your out-of-pocket after PPO benefits, then flip to the uninsured view to compare the cost of dental procedures without insurance — covering every US insurer, state and clinic tier, including the dental implant cost with insurance in California.
+          </p>
+          <div className="mt-6 grid sm:grid-cols-2 gap-4">
+            <div className="p-5 rounded-xl border border-border bg-card card-lift hover:shadow-elegant">
+              <h3 className="font-semibold">Dental cost with insurance</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Most PPO plans cover 10–50% of implant treatment, capped by an annual maximum. Our estimator applies your coverage tier to a real US dental procedures cost list.</p>
+            </div>
+            <div className="p-5 rounded-xl border border-border bg-card card-lift hover:shadow-elegant">
+              <h3 className="font-semibold">Dental cost without insurance</h3>
+              <p className="mt-2 text-sm text-muted-foreground">For uninsured patients we surface the cheapest tooth implant cost tiers — dental schools, community clinics and in-house membership plans — alongside standard private pricing.</p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <CostGuideContent />
+
 
       {/* Short how it works */}
       <section className="bg-card border-y border-border">

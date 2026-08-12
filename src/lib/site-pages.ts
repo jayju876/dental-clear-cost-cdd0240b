@@ -18,7 +18,7 @@ export const SITE_PAGES: SitePage[] = [
   { path: "/blog", name: "Blog", group: "Content" },
   { path: "/sitemap", name: "Sitemap", group: "Content" },
   { path: "/calculators", name: "Calculators", group: "Core" },
-  { path: "/dental-implant-cost-guide", name: "Dental Implant Cost Guide", group: "Content" },
+  
 
 
   { path: "/calculator", name: "Implant Cost Calculator", group: "Calculators", hiddenInNav: true },
