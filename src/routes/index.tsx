@@ -183,11 +183,70 @@ function Home() {
           <Button asChild variant="outline">
             <Link to="/calculators">Explore all calculators</Link>
           </Button>
-          <Button asChild variant="outline">
-            <Link to="/dental-implant-cost-guide">Read the 2026 cost guide</Link>
-          </Button>
         </div>
       </section>
+
+      {/* Average US implant costs */}
+      <section className="bg-gradient-soft border-y border-border">
+        <div className="container mx-auto px-4 py-14 md:py-16">
+          <FadeIn className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Average US implant costs · 2026</p>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator ranges for the USA</h2>
+            <p className="mt-3 text-muted-foreground">
+              Aggregated from a verified dental procedures cost list covering New York, Los Angeles, Chicago, Houston, Miami, Dallas, San Diego, Atlanta, Seattle and Phoenix.
+            </p>
+          </FadeIn>
+          <div className="mt-8 grid md:grid-cols-3 gap-5">
+            {costRanges.map((r, i) => (
+              <FadeIn key={r.label} delay={i * 0.05}>
+                <Card className="p-6 h-full border-border/70 card-lift hover:shadow-elegant">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-secondary">{r.label}</p>
+                  <p className="mt-3 text-3xl font-bold tracking-tight">{r.range}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn className="mt-12 max-w-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold">What the Dental Implant Cost Calculator factors in</h2>
+          </FadeIn>
+          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {educational.map((e, i) => (
+              <FadeIn key={e.title} delay={i * 0.05}>
+                <div className="p-5 rounded-xl border border-border bg-card h-full card-lift hover:shadow-elegant">
+                  <h3 className="font-semibold">{e.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Insurance & transparency */}
+      <section className="container mx-auto px-4 py-14 md:py-16">
+        <FadeIn className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Insurance & transparency</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator: with insurance and without</h2>
+          <p className="mt-3 text-muted-foreground">
+            See your out-of-pocket after PPO benefits, then flip to the uninsured view to compare the cost of dental procedures without insurance — covering every US insurer, state and clinic tier, including the dental implant cost with insurance in California.
+          </p>
+          <div className="mt-6 grid sm:grid-cols-2 gap-4">
+            <div className="p-5 rounded-xl border border-border bg-card card-lift hover:shadow-elegant">
+              <h3 className="font-semibold">Dental cost with insurance</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Most PPO plans cover 10–50% of implant treatment, capped by an annual maximum. Our estimator applies your coverage tier to a real US dental procedures cost list.</p>
+            </div>
+            <div className="p-5 rounded-xl border border-border bg-card card-lift hover:shadow-elegant">
+              <h3 className="font-semibold">Dental cost without insurance</h3>
+              <p className="mt-2 text-sm text-muted-foreground">For uninsured patients we surface the cheapest tooth implant cost tiers — dental schools, community clinics and in-house membership plans — alongside standard private pricing.</p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <CostGuideContent />
+
 
       {/* Short how it works */}
       <section className="bg-card border-y border-border">
