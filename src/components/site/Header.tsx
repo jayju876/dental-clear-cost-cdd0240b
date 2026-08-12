@@ -53,13 +53,6 @@ export function Header() {
             Home
           </Link>
 
-          <Link
-            to="/"
-
-            className="px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Dental Implant Cost Calculator
-          </Link>
 
           <div
             ref={dropdownRef}
@@ -135,9 +128,6 @@ export function Header() {
               Home
             </Link>
 
-            <Link to="/" onClick={() => setOpen(false)} className="px-2 py-2 text-sm font-medium">
-              Dental Implant Cost Calculator
-            </Link>
 
             <button
               type="button"
