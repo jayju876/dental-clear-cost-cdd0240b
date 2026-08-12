@@ -8,7 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FadeIn } from "@/components/site/Section";
 import { CountUp } from "@/components/site/CountUp";
+import { CostGuideContent } from "@/components/site/CostGuideContent";
 import { CalculatorPage } from "./calculator";
+
 
 import heroImg from "@/assets/hero-clinic.jpg";
 import smilingPatient from "@/assets/smiling-patient.jpg";
