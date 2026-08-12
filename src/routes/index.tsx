@@ -150,9 +150,17 @@ function Home() {
       </section>
 
       {/* Interactive calculator */}
-      <section id="calculator" className="scroll-mt-20">
+      <section>
+        <div className="container mx-auto px-4 pt-12 md:pt-14 text-center max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">Free tool</p>
+          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Dental Implant Cost Calculator</h2>
+          <p className="mt-3 text-muted-foreground">
+            Answer a few quick questions about your location, number of teeth, implant brand, crown material and any bone graft or sinus lift needs. The Dental Implant Cost Calculator instantly returns an itemized 2026 US price range, your estimated cost with insurance, and an optional monthly payment — free, private and with no signup.
+          </p>
+        </div>
         <CalculatorPage embedded />
       </section>
+
 
       {/* Key benefits */}
       <section className="container mx-auto px-4 py-14 md:py-16">
