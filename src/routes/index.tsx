@@ -95,7 +95,7 @@ function Home() {
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-gradient-primary text-primary-foreground hover:opacity-95 shadow-elegant">
-                  <Link to="/" hash="calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
                   <Link to="/calculators">See all calculators</Link>
@@ -267,7 +267,7 @@ function Home() {
               <p className="mt-3 text-primary-foreground/80">Join 240,000+ US patients who used the Dental Implant Cost Calculator to plan their treatment with confidence.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="shimmer-btn bg-background text-foreground hover:bg-background/90">
-                  <Link to="/" hash="calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link to="/">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
                   <Link to="/calculators">Explore all calculators</Link>

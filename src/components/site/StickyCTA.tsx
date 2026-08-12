@@ -15,7 +15,7 @@ export function StickyCTA() {
       >
         <Link
           to="/"
-          hash="calculator"
+
           className="flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-elegant hover:opacity-95"
         >
           <Calculator className="h-4 w-4" />
