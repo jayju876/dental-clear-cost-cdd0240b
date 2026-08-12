@@ -70,6 +70,20 @@ const testimonials = [
 ];
 
 
+const costRanges = [
+  { label: "Single Tooth Implant Cost", range: "$3,500 – $6,000", body: "Implant + abutment + crown per tooth. The cheapest tooth implant cost in the USA typically starts near $1,800 at dental schools and community clinics." },
+  { label: "All-on-4 (Full Arch)", range: "$20,000 – $30,000", body: "Four implants supporting a full-arch prosthesis — a popular permanent dental implant option in the USA." },
+  { label: "Full Mouth Dental Implants", range: "$40,000 – $90,000", body: "Both arches with premium materials. Use the calculator above for a personalized full mouth range." },
+];
+
+const educational = [
+  { title: "Single Tooth Implant Cost", body: "One missing tooth replaced with a titanium post, abutment and crown — typically $3,500–$6,000 in the US, or as low as ~$1,800 at the cheapest tooth implant clinics." },
+  { title: "Full Mouth & All-on-4", body: "Full-arch restoration on 4 or 6 implants, broken down by state and clinic tier." },
+  { title: "Permanent Implants in the USA", body: "Zirconia bridges and screw-retained prosthetics designed to last 20+ years." },
+  { title: "Cost With & Without Insurance", body: "Compare the cost of dental procedures without insurance to your dental cost with insurance — most PPO plans cover 10–50% of implant treatment." },
+];
+
+
 function Home() {
   return (
     <>
