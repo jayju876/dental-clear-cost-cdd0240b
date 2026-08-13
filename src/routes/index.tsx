@@ -97,6 +97,9 @@ function Home() {
   return (
     <div className="bg-background">
       <section id="calculator" className="scroll-mt-20">
+        <div className="container mx-auto px-4 pt-8 text-center md:pt-10">
+          <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Dental Implant Cost Calculator</h1>
+        </div>
         <CalculatorPage embedded />
       </section>
 
@@ -115,7 +118,7 @@ function Home() {
 
       <main>
         <section id="about-calculator" className="container mx-auto scroll-mt-20 px-4 py-12 md:py-14">
-          <SectionHeading eyebrow="About the calculator" title="What Is a Dental Implant Cost Calculator and Why Do You Need One?" />
+          <SectionHeading eyebrow="About the calculator" title="About the tool and your estimate" />
           <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
             <div className="space-y-4 text-foreground/85 leading-7">
               <p>A <a className="font-semibold text-secondary hover:underline" href="/calculator">dental implant cost calculator</a> is a free, necessary tool that estimates the cost of what you will actually pay for implant treatment before you ever go to the dentist.</p>
@@ -130,7 +133,7 @@ function Home() {
 
         <section id="how-it-works" className="scroll-mt-20 border-y border-border bg-card">
           <div className="container mx-auto px-4 py-12 md:py-14">
-            <SectionHeading eyebrow="How it works" title="Your estimate in three steps" />
+            <SectionHeading eyebrow="How it works" title="How It Works" />
             <div className="mt-7 grid gap-4 md:grid-cols-3">
               {howItWorks.map((step, i) => (
                 <FadeIn key={step.title} delay={i * 0.05}>
@@ -146,7 +149,7 @@ function Home() {
         </section>
 
         <section id="why-use-it" className="container mx-auto scroll-mt-20 px-4 py-12 md:py-14">
-          <SectionHeading eyebrow="Why use it" title="Why patients trust this Dental Implant Cost Calculator" />
+          <SectionHeading eyebrow="Why use it" title="Why Trust This Calculator" />
           <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((benefit, i) => (
               <FadeIn key={benefit.title} delay={i * 0.04}>
@@ -165,7 +168,7 @@ function Home() {
             <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:items-center">
               <img src={smilingPatient} alt="Smiling patient after dental implant treatment" width={1200} height={1400} loading="lazy" className="mx-auto aspect-[4/5] w-full max-w-xs rounded-2xl border border-border/60 object-cover shadow-sm" />
               <div>
-                <SectionHeading eyebrow="Reviews / testimonials" title="Dental Implant Cost Calculator trusted across the United States" body="Real stories from US patients who used ImplantCost to plan their treatment." />
+                <SectionHeading eyebrow="Reviews / testimonials" title="What patients say" body="Real stories from US patients who used ImplantCost to plan their treatment." />
                 <div className="mt-6 grid gap-4 sm:grid-cols-3">
                   {testimonials.map((testimonial) => (
                     <Card key={testimonial.name} className="h-full border-border/70 p-5 shadow-sm">
@@ -182,7 +185,7 @@ function Home() {
         </section>
 
         <section id="trust" className="container mx-auto scroll-mt-20 px-4 py-12 md:py-14">
-          <SectionHeading eyebrow="Why people trust us" title="Helping patients make confident implant decisions" body="ImplantCost is an independent, medically reviewed platform that demystifies dental implant pricing for patients across the world." />
+          <SectionHeading eyebrow="Why people trust us" title="How We Build Our Estimates" body="ImplantCost is an independent, medically reviewed platform that demystifies dental implant pricing for patients across the world." />
           <div className="mt-7 grid gap-4 md:grid-cols-3">
             {trustItems.map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.05}>
@@ -198,7 +201,7 @@ function Home() {
 
         <section id="faq" className="scroll-mt-20 border-y border-border bg-card">
           <div className="container mx-auto px-4 py-12 md:py-14">
-            <SectionHeading eyebrow="FAQ" title="Dental implant questions, answered" body="Reviewed by our clinical team. If your question isn't here, contact us." />
+            <SectionHeading eyebrow="FAQ" title="Frequently Asked Questions" body="Reviewed by our clinical team. If your question isn't here, contact us." />
             <Accordion type="single" collapsible className="mt-6 max-w-4xl">
               {faqItems.map((faq, i) => (
                 <AccordionItem key={faq.q} value={`faq-${i}`}>
@@ -214,10 +217,10 @@ function Home() {
           <FadeIn>
             <div className="relative overflow-hidden rounded-2xl bg-gradient-primary p-7 text-primary-foreground shadow-elegant md:p-10">
               <div className="relative z-10 max-w-2xl">
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Plan with the Dental Implant Cost Calculator with confidence</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Ready to estimate your treatment cost?</h2>
                 <p className="mt-3 text-primary-foreground/80">Join 240,000+ US patients who used the Dental Implant Cost Calculator to plan their treatment with confidence.</p>
                 <Button asChild size="lg" className="mt-6 bg-background text-foreground hover:bg-background/90">
-                  <Link to="#calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <a href="#calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></a>
                 </Button>
               </div>
             </div>

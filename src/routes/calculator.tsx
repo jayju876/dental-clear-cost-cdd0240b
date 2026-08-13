@@ -70,7 +70,7 @@ export function CalculatorPage({ embedded = false }: { embedded?: boolean } = {}
             <Sparkles className="h-3.5 w-3.5 text-secondary" /> Instant estimate · 100% free
           </span>
           {embedded ? (
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight">Dental Implant Cost Calculator</h2>
+            <p className="mt-4 text-3xl md:text-5xl font-bold tracking-tight" aria-hidden="true">Dental Implant Cost Calculator</p>
           ) : (
             <h1 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight">Dental Implant Cost Calculator</h1>
           )}
