@@ -69,9 +69,7 @@ export function CalculatorPage({ embedded = false }: { embedded?: boolean } = {}
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
             <Sparkles className="h-3.5 w-3.5 text-secondary" /> Instant estimate · 100% free
           </span>
-          {embedded ? (
-            <p className="mt-4 text-3xl md:text-5xl font-bold tracking-tight" aria-hidden="true">Dental Implant Cost Calculator</p>
-          ) : (
+          {!embedded && (
             <h1 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight">Dental Implant Cost Calculator</h1>
           )}
           <p className="mt-3 text-muted-foreground">Answer a few quick questions to receive a personalized treatment estimate.</p>
