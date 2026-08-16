@@ -453,6 +453,23 @@ function BlogPostPage() {
 }
 
 function CmsBlogPost({ post }: { post: CmsPublicPost }) {
+  const effectiveTitle = post.meta_title?.trim() || `${post.title} | ImplantCost`;
+  const effectiveDescription = post.meta_description?.trim() || post.excerpt?.trim() || "Expert-reviewed dental implant cost guides, procedure explainers, and treatment planning resources.";
+  useEffect(() => {
+    document.title = effectiveTitle;
+    const description = document.head.querySelector<HTMLMetaElement>('meta[name="description"]') ?? document.createElement("meta");
+    description.name = "description";
+    description.content = effectiveDescription;
+    if (!description.parentNode) document.head.appendChild(description);
+    const ogTitle = document.head.querySelector<HTMLMetaElement>('meta[property="og:title"]') ?? document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    ogTitle.content = effectiveTitle;
+    if (!ogTitle.parentNode) document.head.appendChild(ogTitle);
+    const ogDescription = document.head.querySelector<HTMLMetaElement>('meta[property="og:description"]') ?? document.createElement("meta");
+    ogDescription.setAttribute("property", "og:description");
+    ogDescription.content = effectiveDescription;
+    if (!ogDescription.parentNode) document.head.appendChild(ogDescription);
+  }, [effectiveDescription, effectiveTitle]);
   const sanitized = DOMPurify.sanitize(normalizeBlogContent(post.content_md), {
     USE_PROFILES: { html: true },
     ADD_TAGS: ["figure", "figcaption", "table", "thead", "tbody", "tfoot", "tr", "th", "td", "colgroup", "col", "ul", "ol", "li"],
