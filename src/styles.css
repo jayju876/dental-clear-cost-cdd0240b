@@ -249,14 +249,19 @@
 .cms-prose a { color: hsl(var(--secondary)); font-weight: 650; text-decoration: underline; text-decoration-color: hsl(var(--secondary) / 0.35); text-underline-offset: 0.2em; }
 .cms-prose strong { color: hsl(var(--foreground)); font-weight: 750; }
 .cms-prose ul, .cms-prose ol { margin: 1rem 0; padding-left: 1.5rem; }
-.cms-prose li { margin: 0.35rem 0; padding-left: 0.2rem; }
+.cms-prose ul { list-style-type: disc; }
+.cms-prose ol { list-style-type: decimal; }
+.cms-prose ul ul { list-style-type: circle; margin-top: 0.35rem; margin-bottom: 0.35rem; }
+.cms-prose ol ol { list-style-type: lower-alpha; margin-top: 0.35rem; margin-bottom: 0.35rem; }
+.cms-prose li { display: list-item; margin: 0.35rem 0; padding-left: 0.2rem; }
 .cms-prose blockquote { margin: 1.5rem 0; border-left: 3px solid hsl(var(--secondary)); border-radius: 0.75rem; background: hsl(var(--secondary) / 0.07); padding: 1rem 1.25rem; color: hsl(var(--muted-foreground)); }
 .cms-prose hr { margin: 2.5rem 0; border-color: hsl(var(--border)); }
 .cms-prose figure { margin: 2rem 0; }
 .cms-prose img { display: block; max-width: 100%; height: auto; margin: 2rem auto; border-radius: 1rem; border: 1px solid hsl(var(--border) / 0.7); box-shadow: 0 12px 30px hsl(220 40% 10% / 0.08); }
 .cms-prose figcaption { margin-top: -1.25rem; text-align: center; color: hsl(var(--muted-foreground)); font-size: 0.8rem; }
 .cms-prose table { width: 100%; min-width: 520px; border-collapse: collapse; margin: 1.75rem 0; font-size: 0.92rem; }
-.cms-prose figure.table { overflow-x: auto; margin: 1.75rem 0; }
+.cms-prose figure.table { display: block; width: 100%; overflow-x: auto; margin: 1.75rem 0; }
+.cms-prose figure.table > table { margin: 0; }
 .cms-prose th { background: hsl(var(--muted)); color: hsl(var(--foreground)); font-weight: 700; text-align: left; }
 .cms-prose th, .cms-prose td { border: 1px solid hsl(var(--border)); padding: 0.7rem 0.8rem; vertical-align: top; }
 .cms-prose code { border-radius: 0.35rem; background: hsl(var(--muted)); padding: 0.15rem 0.35rem; font-size: 0.9em; }

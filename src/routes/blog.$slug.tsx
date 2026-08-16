@@ -450,7 +450,11 @@ function BlogPostPage() {
 }
 
 function CmsBlogPost({ post }: { post: CmsPublicPost }) {
-  const sanitized = DOMPurify.sanitize(post.content_md ?? "", { USE_PROFILES: { html: true } });
+  const sanitized = DOMPurify.sanitize(post.content_md ?? "", {
+    USE_PROFILES: { html: true },
+    ADD_TAGS: ["figure", "figcaption", "table", "thead", "tbody", "tfoot", "tr", "th", "td", "colgroup", "col", "ul", "ol", "li"],
+    ADD_ATTR: ["class", "colspan", "rowspan", "scope"],
+  });
   const html = addCmsHeadingIds(sanitized);
   const toc = extractCmsToc(html);
   return <>
