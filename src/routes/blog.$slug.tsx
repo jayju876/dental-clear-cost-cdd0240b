@@ -1,7 +1,10 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useMemo, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import DOMPurify from "isomorphic-dompurify";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -88,11 +91,7 @@ export const Route = createFileRoute("/blog/$slug")({
         : undefined,
     };
   },
-  loader: ({ params }) => {
-    const post = getPost(params.slug);
-    if (!post) throw notFound();
-    return { post };
-  },
+  loader: ({ params }) => ({ post: getPost(params.slug) ?? null, slug: params.slug }),
   errorComponent: () => (
     <div className="container mx-auto px-4 py-24 text-center">
       <h1 className="text-3xl font-bold">Something went wrong</h1>
@@ -417,8 +416,48 @@ function InlineCta() {
 
 /* ---------- main page ---------- */
 
+type CmsPublicPost = {
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  content_md: string | null;
+  categories: string[] | null;
+  tags: string[] | null;
+  published_at: string | null;
+  reading_time: number | null;
+  featured_image: string | null;
+  meta_title: string | null;
+  meta_description: string | null;
+};
+
 function BlogPostPage() {
-  const { post } = Route.useLoaderData() as { post: BlogPost };
+  const { post, slug } = Route.useLoaderData() as { post: BlogPost | null; slug: string };
+  const { data: cmsPost, isLoading } = useQuery({
+    queryKey: ["public-blog-post", slug],
+    enabled: !post,
+    queryFn: async () => {
+      const { data, error } = await supabase.from("blog_posts").select("slug,title,excerpt,content_md,categories,tags,published_at,reading_time,featured_image,meta_title,meta_description").eq("slug", slug).eq("status", "published").or("published_at.is.null,published_at.lte." + new Date().toISOString()).maybeSingle();
+      if (error) throw error;
+      return data as CmsPublicPost | null;
+    },
+  });
+  if (!post) {
+    if (isLoading) return <div className="container mx-auto px-4 py-24 text-center text-muted-foreground">Loading article…</div>;
+    if (!cmsPost) return <div className="container mx-auto px-4 py-24 text-center"><h1 className="text-3xl font-bold">Article not found</h1><Link to="/blog" className="mt-4 inline-block text-secondary font-semibold">Back to the blog</Link></div>;
+    return <CmsBlogPost post={cmsPost} />;
+  }
+  return <StaticBlogPostPage post={post} />;
+}
+
+function CmsBlogPost({ post }: { post: CmsPublicPost }) {
+  const html = DOMPurify.sanitize(post.content_md ?? "", { USE_PROFILES: { html: true } });
+  return <>
+    <header className="border-b border-border/60 bg-gradient-to-b from-secondary/5 via-background to-background"><div className="container mx-auto px-4 pt-8 pb-12 sm:pt-12"><nav className="text-xs text-muted-foreground"><Link to="/">Home</Link> <span className="px-2">/</span> <Link to="/blog">Blog</Link></nav><div className="mt-6 max-w-4xl"><Badge className="bg-secondary text-secondary-foreground border-0">{post.categories?.[0] ?? post.tags?.[0] ?? "Editorial"}</Badge><h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{post.title}</h1>{post.excerpt && <p className="mt-4 max-w-3xl text-lg text-muted-foreground">{post.excerpt}</p>}<div className="mt-5 text-sm text-muted-foreground">{post.reading_time ?? 5} min read · {post.published_at ? formatDate(post.published_at) : "Recently published"}</div></div></div></header>
+    <main className="container mx-auto max-w-4xl px-4 py-10"><article className="cms-prose prose prose-slate max-w-none break-words" dangerouslySetInnerHTML={{ __html: html }} /><div className="mt-10"><InlineCta /></div></main>
+  </>;
+}
+
+function StaticBlogPostPage({ post }: { post: BlogPost }) {
   const author = getAuthor(post.authorSlug)!;
   const reviewer = post.reviewerSlug ? getAuthor(post.reviewerSlug) : undefined;
   const rawMarkdown = POST_MARKDOWN[post.slug] ?? "";

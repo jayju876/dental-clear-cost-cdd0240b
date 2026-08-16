@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PageShell, FadeIn } from "@/components/site/Section";
@@ -28,9 +30,33 @@ export const Route = createFileRoute("/blog/")({
 });
 
 function BlogIndex() {
-  const posts = [...POSTS].sort(
-    (a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
-  );
+  const { data: cmsPosts = [] } = useQuery({
+    queryKey: ["public-blog-posts"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("slug,title,excerpt,categories,tags,published_at,reading_time,featured_image")
+        .eq("status", "published")
+        .or("published_at.is.null,published_at.lte." + new Date().toISOString())
+        .order("published_at", { ascending: false });
+      if (error) throw error;
+      return data ?? [];
+    },
+  });
+  const cmsAsPosts = cmsPosts.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt ?? "",
+    tag: post.categories?.[0] ?? post.tags?.[0] ?? "Editorial",
+    read: `${post.reading_time ?? 5} min`,
+    publishedAt: post.published_at ?? new Date().toISOString(),
+    authorSlug: "dr-michael-carter",
+    reviewerSlug: "dr-michael-carter",
+    featuredImage: post.featured_image ?? undefined,
+  } as any));
+  const posts = [...POSTS, ...cmsAsPosts]
+    .filter((post, index, all) => all.findIndex((candidate) => candidate.slug === post.slug) === index)
+    .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
   return (
     <PageShell
       eyebrow="Editorial"

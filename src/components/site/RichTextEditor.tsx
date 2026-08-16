@@ -18,6 +18,7 @@ import {
   Link,
   List,
   Paragraph,
+  PasteFromOffice,
   RemoveFormat,
   Strikethrough,
   Table,
@@ -26,6 +27,7 @@ import {
   Undo,
 } from "ckeditor5";
 import "ckeditor5/ckeditor5.css";
+import { supabase } from "@/integrations/supabase/client";
 
 type EditorTheme = "light" | "dark" | "system";
 
@@ -38,7 +40,7 @@ type UploadAdapter = {
   abort: () => void;
 };
 
-class PlaceholderUploadAdapter implements UploadAdapter {
+class SupabaseUploadAdapter implements UploadAdapter {
   private readonly loader: UploadLoader;
 
   constructor(loader: UploadLoader) {
@@ -46,17 +48,26 @@ class PlaceholderUploadAdapter implements UploadAdapter {
   }
 
   async upload(): Promise<{ default: string }> {
-    await this.loader.file;
-    return Promise.reject(new Error("Image upload is not connected yet. Add a backend upload adapter to enable it."));
+    const file = await this.loader.file;
+    if (!file.type.startsWith("image/")) throw new Error("Only image files can be uploaded.");
+    if (file.size > 8 * 1024 * 1024) throw new Error("Images must be smaller than 8 MB.");
+    const extension = file.name.split(".").pop()?.toLowerCase() || "jpg";
+    const path = `editor/${crypto.randomUUID()}.${extension}`;
+    const { error } = await supabase.storage.from("cms-media").upload(path, file, { upsert: false, contentType: file.type });
+    if (error) throw new Error(error.message);
+    const { data } = supabase.storage.from("cms-media").getPublicUrl(path);
+    const { data: userData } = await supabase.auth.getUser();
+    await (supabase.from("media_assets").insert({ filename: file.name, storage_path: path, public_url: data.publicUrl, mime_type: file.type, size_bytes: file.size, uploaded_by: userData.user?.id ?? null }) as any);
+    return { default: data.publicUrl };
   }
 
   abort() {
-    // The future backend adapter can cancel the active request here.
+    // Supabase Storage uploads are not cancellable through this adapter yet.
   }
 }
 
 function addPlaceholderUploadAdapter(editor: any) {
-  editor.plugins.get("FileRepository").createUploadAdapter = (loader: UploadLoader) => new PlaceholderUploadAdapter(loader);
+  editor.plugins.get("FileRepository").createUploadAdapter = (loader: UploadLoader) => new SupabaseUploadAdapter(loader);
 }
 
 export type RichTextEditorProps = {
@@ -95,6 +106,7 @@ export function RichTextEditor({
     licenseKey: "GPL",
     plugins: [
       Essentials,
+      PasteFromOffice,
       Undo,
       Paragraph,
       Heading,

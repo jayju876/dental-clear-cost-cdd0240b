@@ -134,6 +134,9 @@
 
 /* CKEditor 5 workspace styles */
 .rich-text-editor {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
   --ck-color-base-background: hsl(var(--background));
   --ck-color-base-border: hsl(var(--border));
   --ck-color-toolbar-background: hsl(var(--muted));
@@ -148,7 +151,33 @@
 
 .rich-text-editor .ck-editor__editable_inline {
   min-height: 280px;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-wrap: anywhere;
   padding: 1rem 1.25rem;
+}
+
+.rich-text-editor .ck-toolbar__items {
+  flex-wrap: wrap;
+}
+
+.rich-text-editor .ck-content {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.rich-text-editor .ck-content figure.table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.rich-text-editor .ck-content table {
+  min-width: 520px;
+}
+
+.rich-text-editor .ck-content img {
+  max-width: 100%;
+  height: auto;
 }
 
 .rich-text-editor .ck-toolbar {
