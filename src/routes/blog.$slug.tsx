@@ -450,11 +450,51 @@ function BlogPostPage() {
 }
 
 function CmsBlogPost({ post }: { post: CmsPublicPost }) {
-  const html = DOMPurify.sanitize(post.content_md ?? "", { USE_PROFILES: { html: true } });
+  const sanitized = DOMPurify.sanitize(post.content_md ?? "", { USE_PROFILES: { html: true } });
+  const html = addCmsHeadingIds(sanitized);
+  const toc = extractCmsToc(html);
   return <>
-    <header className="border-b border-border/60 bg-gradient-to-b from-secondary/5 via-background to-background"><div className="container mx-auto px-4 pt-8 pb-12 sm:pt-12"><nav className="text-xs text-muted-foreground"><Link to="/">Home</Link> <span className="px-2">/</span> <Link to="/blog">Blog</Link></nav><div className="mt-6 max-w-4xl"><Badge className="bg-secondary text-secondary-foreground border-0">{post.categories?.[0] ?? post.tags?.[0] ?? "Editorial"}</Badge><h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{post.title}</h1>{post.excerpt && <p className="mt-4 max-w-3xl text-lg text-muted-foreground">{post.excerpt}</p>}<div className="mt-5 text-sm text-muted-foreground">{post.reading_time ?? 5} min read · {post.published_at ? formatDate(post.published_at) : "Recently published"}</div></div></div></header>
-    <main className="container mx-auto max-w-4xl px-4 py-10"><article className="cms-prose prose prose-slate max-w-none break-words" dangerouslySetInnerHTML={{ __html: html }} /><div className="mt-10"><InlineCta /></div></main>
+    <ReadingProgress />
+    <header className="border-b border-border/60 bg-gradient-to-b from-secondary/5 via-background to-background">
+      <div className="container mx-auto px-4 pt-8 pb-10 sm:pt-12 sm:pb-14">
+        <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground"><Link to="/" className="hover:text-secondary">Home</Link><span className="px-2">/</span><Link to="/blog" className="hover:text-secondary">Blog</Link></nav>
+        <div className="mt-6 max-w-4xl">
+          <Badge className="bg-secondary text-secondary-foreground border-0">{post.categories?.[0] ?? post.tags?.[0] ?? "Editorial"}</Badge>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl md:leading-[1.1]">{post.title}</h1>
+          {post.excerpt && <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">{post.excerpt}</p>}
+          <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted-foreground"><span>{post.reading_time ?? 5} min read</span><span aria-hidden="true">·</span><span>{post.published_at ? formatDate(post.published_at) : "Recently published"}</span></div>
+        </div>
+      </div>
+    </header>
+    <div className="container mx-auto grid min-w-0 max-w-6xl gap-10 px-4 py-10 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-14">
+      <main className="min-w-0">
+        <article className="cms-prose min-w-0 overflow-hidden break-words">
+          {post.featured_image && <img src={post.featured_image} alt="" className="mb-8 aspect-[16/9] w-full rounded-2xl border border-border/60 object-cover shadow-sm" />}
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </article>
+        <InlineCta />
+      </main>
+      <aside className="hidden lg:block"><div className="sticky top-24 space-y-8"><TableOfContents items={toc} /><Card className="border-secondary/30 bg-gradient-to-br from-secondary/10 to-background p-5"><p className="text-xs font-semibold uppercase tracking-wider text-secondary">Free tool</p><p className="mt-2 text-sm font-semibold leading-snug">Dental Implant Cost Calculator</p><p className="mt-1 text-xs text-muted-foreground">Get an instant estimate for your treatment.</p><Button asChild size="sm" className="mt-4 w-full"><Link to="/">Try it now <ArrowRight className="ml-1.5 h-3.5 w-3.5" /></Link></Button></Card></div></aside>
+    </div>
   </>;
+}
+
+function stripCmsTags(value: string) {
+  return value.replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+}
+function addCmsHeadingIds(html: string) {
+  return html.replace(/<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi, (_, level: string, attrs: string, inner: string) => {
+    const id = slugify(stripCmsTags(inner));
+    return `<h${level}${attrs} id="${id}">${inner}</h${level}>`;
+  });
+}
+function extractCmsToc(html: string) {
+  const items: { level: 2 | 3; text: string; id: string }[] = [];
+  html.replace(/<h([23])[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/gi, (_, level: string, id: string, inner: string) => {
+    items.push({ level: Number(level) as 2 | 3, id, text: stripCmsTags(inner) });
+    return "";
+  });
+  return items;
 }
 
 function StaticBlogPostPage({ post }: { post: BlogPost }) {

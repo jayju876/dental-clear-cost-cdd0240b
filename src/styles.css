@@ -220,3 +220,50 @@
     padding: 0.875rem;
   }
 }
+
+/* Shared public CMS article template */
+.cms-prose {
+  color: hsl(var(--foreground));
+  font-size: 1rem;
+  line-height: 1.85;
+}
+.cms-prose > div > *:first-child { margin-top: 0; }
+.cms-prose h2 {
+  scroll-margin-top: 6rem;
+  margin: 2.6rem 0 0.75rem;
+  color: hsl(var(--foreground));
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.25;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+.cms-prose h3 {
+  scroll-margin-top: 6rem;
+  margin: 2rem 0 0.55rem;
+  color: hsl(var(--foreground));
+  font-size: 1.12rem;
+  line-height: 1.35;
+  font-weight: 700;
+}
+.cms-prose p { margin: 0.9rem 0; }
+.cms-prose a { color: hsl(var(--secondary)); font-weight: 650; text-decoration: underline; text-decoration-color: hsl(var(--secondary) / 0.35); text-underline-offset: 0.2em; }
+.cms-prose strong { color: hsl(var(--foreground)); font-weight: 750; }
+.cms-prose ul, .cms-prose ol { margin: 1rem 0; padding-left: 1.5rem; }
+.cms-prose li { margin: 0.35rem 0; padding-left: 0.2rem; }
+.cms-prose blockquote { margin: 1.5rem 0; border-left: 3px solid hsl(var(--secondary)); border-radius: 0.75rem; background: hsl(var(--secondary) / 0.07); padding: 1rem 1.25rem; color: hsl(var(--muted-foreground)); }
+.cms-prose hr { margin: 2.5rem 0; border-color: hsl(var(--border)); }
+.cms-prose figure { margin: 2rem 0; }
+.cms-prose img { display: block; max-width: 100%; height: auto; margin: 2rem auto; border-radius: 1rem; border: 1px solid hsl(var(--border) / 0.7); box-shadow: 0 12px 30px hsl(220 40% 10% / 0.08); }
+.cms-prose figcaption { margin-top: -1.25rem; text-align: center; color: hsl(var(--muted-foreground)); font-size: 0.8rem; }
+.cms-prose table { width: 100%; min-width: 520px; border-collapse: collapse; margin: 1.75rem 0; font-size: 0.92rem; }
+.cms-prose figure.table { overflow-x: auto; margin: 1.75rem 0; }
+.cms-prose th { background: hsl(var(--muted)); color: hsl(var(--foreground)); font-weight: 700; text-align: left; }
+.cms-prose th, .cms-prose td { border: 1px solid hsl(var(--border)); padding: 0.7rem 0.8rem; vertical-align: top; }
+.cms-prose code { border-radius: 0.35rem; background: hsl(var(--muted)); padding: 0.15rem 0.35rem; font-size: 0.9em; }
+.cms-prose pre { overflow-x: auto; border-radius: 0.75rem; background: #0f172a; padding: 1rem; color: #e2e8f0; }
+@media (max-width: 640px) {
+  .cms-prose { font-size: 0.96rem; line-height: 1.75; }
+  .cms-prose h2 { margin-top: 2rem; }
+  .cms-prose h3 { margin-top: 1.5rem; }
+  .cms-prose table { min-width: 460px; }
+}
