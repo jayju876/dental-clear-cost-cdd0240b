@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useMemo, useState } from "react";
+import { normalizeBlogContent } from "@/lib/richText";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import DOMPurify from "isomorphic-dompurify";
@@ -450,7 +451,7 @@ function BlogPostPage() {
 }
 
 function CmsBlogPost({ post }: { post: CmsPublicPost }) {
-  const sanitized = DOMPurify.sanitize(post.content_md ?? "", {
+  const sanitized = DOMPurify.sanitize(normalizeBlogContent(post.content_md), {
     USE_PROFILES: { html: true },
     ADD_TAGS: ["figure", "figcaption", "table", "thead", "tbody", "tfoot", "tr", "th", "td", "colgroup", "col", "ul", "ol", "li"],
     ADD_ATTR: ["class", "colspan", "rowspan", "scope"],
