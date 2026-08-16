@@ -14,11 +14,16 @@ export const submitContactForm = createServerFn({ method: "POST" })
     // Uses the publishable key (public insert policy) so this works in every
     // deployment environment, even where the service-role key isn't present.
     const { createClient } = await import("@supabase/supabase-js");
-    const supabaseUrl = process.env['SUPABASE_URL'] ?? process.env['VITE_SUPABASE_URL'];
+    const viteEnv = (import.meta as ImportMeta & { env?: Record<string, string | undefined> }).env ?? {};
+    const supabaseUrl =
+      process.env['SUPABASE_URL'] ??
+      process.env['VITE_SUPABASE_URL'] ??
+      viteEnv.VITE_SUPABASE_URL;
     const supabaseKey =
       process.env['SUPABASE_PUBLISHABLE_KEY'] ??
       process.env['VITE_SUPABASE_PUBLISHABLE_KEY'] ??
-      process.env['SUPABASE_ANON_KEY'];
+      process.env['SUPABASE_ANON_KEY'] ??
+      viteEnv.VITE_SUPABASE_PUBLISHABLE_KEY;
     if (!supabaseUrl || !supabaseKey) {
       console.error("Missing Supabase env vars for lead insert");
       throw new Error("Failed to save submission");
@@ -45,7 +50,12 @@ export const submitContactForm = createServerFn({ method: "POST" })
       source: "contact_form",
     });
     if (dbError) {
-      console.error("Lead insert failed:", dbError.message);
+      console.error("Lead insert failed:", {
+        message: dbError.message,
+        code: dbError.code,
+        details: dbError.details,
+        hint: dbError.hint,
+      });
       throw new Error("Failed to save submission");
     }
 
