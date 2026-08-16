@@ -65,15 +65,15 @@ export function CalculatorPage({ embedded = false }: { embedded?: boolean } = {}
   return (
     <div className="bg-gradient-soft border-b border-border min-h-[80vh]">
       <div className="container mx-auto px-4 py-10 md:py-14">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-            <Sparkles className="h-3.5 w-3.5 text-secondary" /> Instant estimate · 100% free
-          </span>
-          {!embedded && (
+        {!embedded && (
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
+              <Sparkles className="h-3.5 w-3.5 text-secondary" /> Instant estimate · 100% free
+            </span>
             <h1 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight">Dental Implant Cost Calculator</h1>
-          )}
-          <p className="mt-3 text-muted-foreground">Answer a few quick questions to receive a personalized treatment estimate.</p>
-        </div>
+            <p className="mt-3 text-muted-foreground">Answer a few quick questions to receive a personalized treatment estimate.</p>
+          </div>
+        )}
 
         {/* Progress */}
         <div className="mt-10 max-w-4xl mx-auto">
