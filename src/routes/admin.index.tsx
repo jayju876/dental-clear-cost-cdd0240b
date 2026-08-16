@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { UserCog, Image as ImageIcon, Activity } from "lucide-react";
+import { FileText, Image as ImageIcon, Activity, Inbox, LayoutDashboard, Users } from "lucide-react";
 import { formatDistanceToNow } from "@/lib/admin-utils";
 
 export const Route = createFileRoute("/admin/")({ component: Dashboard });
@@ -11,11 +11,16 @@ function Dashboard() {
   const { data: stats } = useQuery({
     queryKey: ["admin", "stats"],
     queryFn: async () => {
-      const [authors, media] = await Promise.all([
-        supabase.from("cms_authors").select("id", { count: "exact", head: true }),
+      const [pages, posts, drafts, published, leads, users, media] = await Promise.all([
+        (supabase.from("cms_pages" as any).select("id", { count: "exact", head: true }) as any),
+        supabase.from("blog_posts").select("id", { count: "exact", head: true }),
+        supabase.from("blog_posts").select("id", { count: "exact", head: true }).eq("status", "draft"),
+        supabase.from("blog_posts").select("id", { count: "exact", head: true }).eq("status", "published"),
+        supabase.from("leads").select("id", { count: "exact", head: true }),
+        supabase.from("profiles").select("id", { count: "exact", head: true }),
         supabase.from("media_assets").select("id", { count: "exact", head: true }),
       ]);
-      return { authors: authors.count ?? 0, media: media.count ?? 0 };
+      return { pages: pages.count ?? 0, posts: posts.count ?? 0, drafts: drafts.count ?? 0, published: published.count ?? 0, leads: leads.count ?? 0, users: users.count ?? 0, media: media.count ?? 0 };
     },
   });
 
@@ -28,7 +33,12 @@ function Dashboard() {
   });
 
   const cards = [
-    { label: "Authors", value: stats?.authors ?? "—", icon: UserCog, color: "text-emerald-600" },
+    { label: "Total Pages", value: stats?.pages ?? "—", icon: FileText, color: "text-blue-600" },
+    { label: "Blog Posts", value: stats?.posts ?? "—", icon: LayoutDashboard, color: "text-violet-600" },
+    { label: "Draft Posts", value: stats?.drafts ?? "—", icon: FileText, color: "text-amber-600" },
+    { label: "Published Posts", value: stats?.published ?? "—", icon: FileText, color: "text-emerald-600" },
+    { label: "Contact Leads", value: stats?.leads ?? "—", icon: Inbox, color: "text-rose-600" },
+    { label: "Users", value: stats?.users ?? "—", icon: Users, color: "text-cyan-600" },
     { label: "Media Files", value: stats?.media ?? "—", icon: ImageIcon, color: "text-purple-600" },
   ];
 
@@ -36,7 +46,7 @@ function Dashboard() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-        <p className="text-sm text-muted-foreground">Overview of your content and activity</p>
+        <p className="text-sm text-muted-foreground">Overview of your content, leads, users, and recent activity.</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">

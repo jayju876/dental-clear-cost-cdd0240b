@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { LayoutDashboard, Users, Image as ImageIcon, Search, Settings, Activity, LogOut, ShieldCheck, UserCog, Loader2, Inbox } from "lucide-react";
+import { LayoutDashboard, Users, Image as ImageIcon, Search, Settings, Activity, LogOut, ShieldCheck, UserCog, Loader2, Inbox, FileText, BookOpen, Bell } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin")({
@@ -16,6 +16,9 @@ export const Route = createFileRoute("/admin")({
 const NAV = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { to: "/admin/leads", label: "Leads", icon: Inbox },
+  { to: "/admin/pages", label: "Pages", icon: FileText },
+  { to: "/admin/blog", label: "Blog", icon: BookOpen },
+  { to: "/admin/notifications", label: "Notifications", icon: Bell },
   { to: "/admin/seo", label: "Pages SEO", icon: Search },
 
   { to: "/admin/authors", label: "Authors", icon: UserCog },
