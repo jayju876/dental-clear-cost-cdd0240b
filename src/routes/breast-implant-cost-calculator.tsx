@@ -57,6 +57,25 @@ const PLACEMENT = [
   { id: "dual-plane", label: "Dual Plane", mult: 1.08 },
 ];
 
+const estimateIncludes = [
+  "The surgeon's fee",
+  "The implants (silicone or saline)",
+  "Operating room and hospital facility costs",
+  "Anesthesia",
+  "A pre-op consultation",
+  "Standard follow-up appointments after surgery",
+  "Basic surgical supplies",
+];
+
+const estimateMayExclude = [
+  "Prescription medications",
+  "Compression garments or post-surgery bras",
+  "Lab work or imaging before the procedure",
+  "Travel and accommodation if you're going abroad for surgery",
+  "Any costs tied to managing complications",
+  "Follow-up care beyond the basics",
+];
+
 function fmt(usd: number, c: Country) {
   return `${c.symbol}${Math.round(usd * c.rate).toLocaleString()}`;
 }
@@ -155,17 +174,43 @@ function BreastImplantCalculatorPage() {
         </Card>
       </div>
 
+      <section className="mt-14 max-w-3xl space-y-5">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">About the Breast Implant Cost Calculator</h2>
+        <p className="text-muted-foreground leading-7">A breast implant cost calculator is an online tool that gives you a rough idea of what breast augmentation surgery might cost based on the choices you're considering. Rather than calling clinic after clinic for quotes, you can select things like the type of implant, where it would be placed, and what country you're in — and get a ballpark figure on the spot. It won't replace a real conversation with a surgeon, but it's a practical way to start thinking about budgets and comparing your options before you book anything.</p>
+
+        <h2 className="pt-5 text-2xl md:text-3xl font-bold tracking-tight">How Does It Work?</h2>
+        <p className="text-muted-foreground leading-7">The calculator pulls together the main factors that affect pricing and updates its estimate each time you change a selection. That way, you can play around with different combinations — say, switching from silicone to saline, or comparing costs in different countries — and get a real sense of how each choice moves the needle on price.</p>
+        <p className="text-muted-foreground">Here's what it typically weighs:</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <InfoCard title="Country" body="Where you have surgery makes a big difference. Surgeon fees, hospital overhead, and general healthcare costs vary widely from one country to the next." />
+          <InfoCard title="Implant type" body="Silicone gel implants tend to cost more than saline ones, partly because of the materials involved and partly because of how they look and feel." />
+          <InfoCard title="Implant profile" body="Whether you go with a low, moderate, or high profile can affect pricing depending on the brand and what the procedure involves." />
+          <InfoCard title="Placement" body="Surgery under the muscle (submuscular) and above the muscle (subglandular) are two different techniques, and the surgical complexity of each can influence what you pay." />
+          <InfoCard title="Add-on procedures" body="If you're also considering a breast lift, a revision, or replacing existing implants, those get factored in too." />
+          <InfoCard title="Hospital and anesthesia fees" body="Operating room time, the anesthesiologist, and facility costs are included where the data allows for it." />
+        </div>
+
+        <h2 className="pt-5 text-2xl md:text-3xl font-bold tracking-tight">What's Usually Covered in the Estimate?</h2>
+        <p className="text-muted-foreground leading-7">Most calculators try to give you a picture of the full cost, not just the sticker price of the implant itself. You can generally expect the estimate to account for:</p>
+        <ul className="list-disc space-y-1.5 pl-5 text-muted-foreground">
+          {estimateIncludes.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+
+        <h2 className="pt-5 text-2xl md:text-3xl font-bold tracking-tight">What Might Not Be Included?</h2>
+        <p className="text-muted-foreground leading-7">Some costs are harder to predict upfront and won't always show up in the estimate:</p>
+        <ul className="list-disc space-y-1.5 pl-5 text-muted-foreground">
+          {estimateMayExclude.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+
+        <h2 className="pt-5 text-2xl md:text-3xl font-bold tracking-tight">Why Use One?</h2>
+        <p className="text-muted-foreground leading-7">The main appeal is speed and clarity. Instead of spending time chasing quotes from multiple clinics, you can get a working figure in seconds and actually understand what's driving the cost. It makes it easier to compare options side by side — silicone versus saline, one country versus another — before you've committed to anything.</p>
+        <p className="text-muted-foreground leading-7">It's also useful for budgeting. Whether you're planning to pay out of pocket or want to know if financing might make sense, having an estimate in hand gives you somewhere to start.</p>
+
+        <h2 className="pt-5 text-2xl md:text-3xl font-bold tracking-tight">One Thing Worth Keeping in Mind</h2>
+        <p className="text-muted-foreground leading-7">Whatever number the calculator gives you, treat it as a starting point rather than a final quote. Your actual cost will depend on things no calculator can know — your anatomy, your medical history, the specific surgeon you choose, which hospital or clinic you go to, and the exact implant brand used. A proper consultation with a plastic surgeon is the only way to get a number that's actually tailored to your situation.</p>
+      </section>
+
       <section className="mt-14 grid md:grid-cols-2 gap-8">
-        <Card className="p-6">
-          <h2 className="text-xl font-semibold">What's included in the estimate</h2>
-          <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1.5">
-            <li>Board-certified plastic surgeon fee</li>
-            <li>FDA-cleared implants (saline, silicone or cohesive gel)</li>
-            <li>Operating room and standard facility fees</li>
-            <li>Pre-op consultation and post-op follow-ups</li>
-            <li>Optional: lift, revision, anesthesia upgrades</li>
-          </ul>
-        </Card>
         <Card className="p-6">
           <h2 className="text-xl font-semibold">Related calculators</h2>
           <ul className="mt-3 space-y-2 text-sm">
@@ -179,6 +224,15 @@ function BreastImplantCalculatorPage() {
 
       <InternalLinks heading="Explore more on ImplantCost" />
     </PageShell>
+  );
+}
+
+function InfoCard({ title, body }: { title: string; body: string }) {
+  return (
+    <Card className="border-border/70 p-4 shadow-sm">
+      <h3 className="font-semibold">{title}</h3>
+      <p className="mt-2 text-sm leading-6 text-muted-foreground">{body}</p>
+    </Card>
   );
 }
 
