@@ -131,3 +131,63 @@
   .card-lift { transition: transform 0.35s ease, box-shadow 0.35s ease; will-change: transform; }
   .card-lift:hover { transform: translateY(-4px); }
 }
+
+/* CKEditor 5 workspace styles */
+.rich-text-editor {
+  --ck-color-base-background: hsl(var(--background));
+  --ck-color-base-border: hsl(var(--border));
+  --ck-color-toolbar-background: hsl(var(--muted));
+  --ck-color-text: hsl(var(--foreground));
+  --ck-color-base-foreground: hsl(var(--background));
+  --ck-color-button-default-hover-background: hsl(var(--accent));
+  --ck-color-button-default-active-background: hsl(var(--accent));
+  --ck-color-button-on-background: hsl(var(--accent));
+  --ck-color-button-on-color: hsl(var(--foreground));
+  --ck-color-focus-border: hsl(var(--ring));
+}
+
+.rich-text-editor .ck-editor__editable_inline {
+  min-height: 280px;
+  padding: 1rem 1.25rem;
+}
+
+.rich-text-editor .ck-toolbar {
+  border-color: hsl(var(--border));
+  flex-wrap: wrap;
+}
+
+.rich-text-editor--dark {
+  --ck-color-base-background: #0f172a;
+  --ck-color-base-border: #334155;
+  --ck-color-toolbar-background: #1e293b;
+  --ck-color-text: #e2e8f0;
+  --ck-color-base-foreground: #0f172a;
+  --ck-color-button-default-hover-background: #334155;
+  --ck-color-button-default-active-background: #475569;
+  --ck-color-button-on-background: #475569;
+  --ck-color-button-on-color: #f8fafc;
+  --ck-color-focus-border: #7dd3fc;
+}
+
+.rich-text-editor--dark .ck-content {
+  color: #e2e8f0;
+}
+
+.rich-text-editor--dark .ck-content a {
+  color: #7dd3fc;
+}
+
+.rich-text-editor--dark .ck-content blockquote {
+  border-left-color: #64748b;
+}
+
+@media (max-width: 640px) {
+  .rich-text-editor .ck-toolbar {
+    padding: 0.25rem;
+  }
+
+  .rich-text-editor .ck-editor__editable_inline {
+    min-height: 220px;
+    padding: 0.875rem;
+  }
+}
