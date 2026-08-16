@@ -49,8 +49,9 @@ export const Route = createFileRoute("/blog/$slug")({
     if (!post)
       return {
         meta: [
-          { title: "Article not found — ImplantCost" },
-          { name: "robots", content: "noindex" },
+          { title: "Dental Implant Blog | ImplantCost" },
+          { name: "description", content: "Expert-reviewed dental implant cost guides, procedure explainers, and treatment planning resources." },
+          { name: "robots", content: "index,follow" },
         ],
       };
     const author = getAuthor(post.authorSlug);
@@ -59,6 +60,7 @@ export const Route = createFileRoute("/blog/$slug")({
       meta: [
         { title: `${post.title} | ImplantCost` },
         { name: "description", content: post.excerpt },
+        { name: "robots", content: "index,follow" },
         { property: "og:title", content: post.title },
         { property: "og:description", content: post.excerpt },
         { property: "og:type", content: "article" },
