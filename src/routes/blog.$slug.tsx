@@ -43,10 +43,35 @@ const POST_MARKDOWN: Record<string, string> = {
   "typical-cost-full-set-dental-implants": fullSetCost,
 };
 
+type CmsHeadPost = {
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  meta_title: string | null;
+  meta_description: string | null;
+  featured_image: string | null;
+};
+
+async function getCmsHeadPost(slug: string): Promise<CmsHeadPost | null> {
+  try {
+    const { data } = await supabase
+      .from("blog_posts")
+      .select("slug,title,excerpt,meta_title,meta_description,featured_image")
+      .eq("slug", slug)
+      .eq("status", "published")
+      .or("published_at.is.null,published_at.lte." + new Date().toISOString())
+      .maybeSingle();
+    return data as CmsHeadPost | null;
+  } catch {
+    return null;
+  }
+}
+
 export const Route = createFileRoute("/blog/$slug")({
-  head: ({ params }) => {
+  head: async ({ params }) => {
     const post = getPost(params.slug);
-    if (!post)
+    const cmsPost = post ? null : await getCmsHeadPost(params.slug);
+    if (!post && !cmsPost)
       return {
         meta: [
           { title: "Dental Implant Blog | ImplantCost" },
@@ -54,6 +79,32 @@ export const Route = createFileRoute("/blog/$slug")({
           { name: "robots", content: "index,follow" },
         ],
       };
+    if (cmsPost) {
+      const title = cmsPost.meta_title?.trim() || `${cmsPost.title} | ImplantCost`;
+      const description = cmsPost.meta_description?.trim() || cmsPost.excerpt?.trim() || "Expert-reviewed dental implant cost guides, procedure explainers, and treatment planning resources.";
+      return {
+        meta: [
+          { title },
+          { name: "description", content: description },
+          { name: "robots", content: "index,follow" },
+          { property: "og:title", content: title },
+          { property: "og:description", content: description },
+          { property: "og:type", content: "article" },
+          ...(cmsPost.featured_image ? [{ property: "og:image", content: cmsPost.featured_image }] : []),
+          { name: "twitter:card", content: "summary_large_image" },
+        ],
+        links: [{ rel: "canonical", href: `/blog/${cmsPost.slug}` }],
+      };
+    }
+    if (!post) {
+      return {
+        meta: [
+          { title: "Dental Implant Blog | ImplantCost" },
+          { name: "description", content: "Expert-reviewed dental implant cost guides, procedure explainers, and treatment planning resources." },
+          { name: "robots", content: "index,follow" },
+        ],
+      };
+    }
     const author = getAuthor(post.authorSlug);
     const cover = extractCover(POST_MARKDOWN[post.slug] ?? "");
     return {
