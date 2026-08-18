@@ -11,9 +11,9 @@ import smilingPatient from "@/assets/smiling-patient.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dental Implant Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
+      { title: "Dental Implants Cost Calculator (2026) – Estimate Your Implant Cost Instantly" },
       { name: "description", content: "Use our free dental implant cost calculator to estimate single tooth, All-on-4, and full mouth dental implant costs in the USA. Instant personalized estimates." },
-      { property: "og:title", content: "Dental Implant Cost Calculator (2026) – Instant US Estimate" },
+      { property: "og:title", content: "Dental Implants Cost Calculator (2026) – Instant US Estimate" },
       { property: "og:description", content: "Free dental implant cost calculator for the USA — estimate single tooth implant cost, full mouth dental implant cost, and permanent implant cost with or without insurance." },
       { name: "keywords", content: "dental implant cost calculator, single tooth implant cost, cheapest tooth implant cost, full mouth dental implant cost calculator in USA, permanent dental implant cost calculator in USA with insurance, dental procedure cost estimator" },
     ],
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          name: "Dental Implant Cost Calculator",
+          name: "Dental Implants Cost Calculator",
           applicationCategory: "HealthApplication",
           operatingSystem: "Web",
           description: "Free dental implant cost calculator for the United States. Estimate single tooth, All-on-4 and full mouth implant costs instantly.",
@@ -99,7 +99,7 @@ function Home() {
       <section className="border-b border-[#e6ebef] bg-gradient-to-b from-[#f5f8f8] via-[#fbfaf4] to-[#fffdf4]">
         <div className="container mx-auto px-4 pb-10 pt-12 text-center md:pb-14 md:pt-16">
           <span className="inline-flex rounded-full bg-[#dff5e8] px-3 py-1 text-xs font-semibold text-[#18734b]">Instant estimate · 100% free</span>
-          <h1 className="mx-auto mt-5 max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">Dental Implant Cost Calculator</h1>
+          <h1 className="mx-auto mt-5 max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">Dental Implants Cost Calculator</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">The free Dental Implant Cost Calculator estimates single tooth implant cost, full mouth dental implant cost and permanent implant pricing across the USA — with or without insurance — in under 60 seconds.</p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" className="bg-[#0b5a8f] text-white shadow-sm hover:bg-[#084b78]"><a href="#calculator">Calculate My Cost <ArrowRight className="ml-2 h-4 w-4" /></a></Button>
