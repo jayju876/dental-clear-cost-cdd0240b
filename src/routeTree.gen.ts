@@ -35,14 +35,18 @@ import { Route as LoanCalculatorRouteImport } from './routes/loan-calculator'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as RatioRouteImport } from './routes/ratio'
 import { Route as RatioCalculatorRouteImport } from './routes/ratio-calculator'
+import { Route as RichTextEditorRouteImport } from './routes/rich-text-editor'
 import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminActivityRouteImport } from './routes/admin.activity'
 import { Route as AdminAuthorsRouteImport } from './routes/admin.authors'
+import { Route as AdminBlogRouteImport } from './routes/admin.blog'
 import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
 import { Route as AdminMediaRouteImport } from './routes/admin.media'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
+import { Route as AdminPagesRouteImport } from './routes/admin.pages'
 import { Route as AdminSeoRouteImport } from './routes/admin.seo'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
@@ -187,6 +191,11 @@ const RatioCalculatorRoute = RatioCalculatorRouteImport.update({
   path: '/ratio-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RichTextEditorRoute = RichTextEditorRouteImport.update({
+  id: '/rich-text-editor',
+  path: '/rich-text-editor',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapRoute = SitemapRouteImport.update({
   id: '/sitemap',
   path: '/sitemap',
@@ -217,6 +226,11 @@ const AdminAuthorsRoute = AdminAuthorsRouteImport.update({
   path: '/authors',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminBlogRoute = AdminBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminLeadsRoute = AdminLeadsRouteImport.update({
   id: '/leads',
   path: '/leads',
@@ -225,6 +239,16 @@ const AdminLeadsRoute = AdminLeadsRouteImport.update({
 const AdminMediaRoute = AdminMediaRouteImport.update({
   id: '/media',
   path: '/media',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPagesRoute = AdminPagesRouteImport.update({
+  id: '/pages',
+  path: '/pages',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminSeoRoute = AdminSeoRouteImport.update({
@@ -290,13 +314,17 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
+  '/rich-text-editor': typeof RichTextEditorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
+  '/admin/blog': typeof AdminBlogRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/media': typeof AdminMediaRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/pages': typeof AdminPagesRoute
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
@@ -332,13 +360,17 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
+  '/rich-text-editor': typeof RichTextEditorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
+  '/admin/blog': typeof AdminBlogRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/media': typeof AdminMediaRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/pages': typeof AdminPagesRoute
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
@@ -376,13 +408,17 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ratio': typeof RatioRoute
   '/ratio-calculator': typeof RatioCalculatorRoute
+  '/rich-text-editor': typeof RichTextEditorRoute
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
+  '/admin/blog': typeof AdminBlogRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/media': typeof AdminMediaRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/pages': typeof AdminPagesRoute
   '/admin/seo': typeof AdminSeoRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
@@ -421,13 +457,17 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/ratio'
     | '/ratio-calculator'
+    | '/rich-text-editor'
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
+    | '/admin/blog'
     | '/admin/leads'
     | '/admin/media'
+    | '/admin/notifications'
+    | '/admin/pages'
     | '/admin/seo'
     | '/admin/settings'
     | '/admin/users'
@@ -463,13 +503,17 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/ratio'
     | '/ratio-calculator'
+    | '/rich-text-editor'
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
+    | '/admin/blog'
     | '/admin/leads'
     | '/admin/media'
+    | '/admin/notifications'
+    | '/admin/pages'
     | '/admin/seo'
     | '/admin/settings'
     | '/admin/users'
@@ -506,13 +550,17 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/ratio'
     | '/ratio-calculator'
+    | '/rich-text-editor'
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
     | '/admin/activity'
     | '/admin/authors'
+    | '/admin/blog'
     | '/admin/leads'
     | '/admin/media'
+    | '/admin/notifications'
+    | '/admin/pages'
     | '/admin/seo'
     | '/admin/settings'
     | '/admin/users'
@@ -550,6 +598,7 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RatioRoute: typeof RatioRoute
   RatioCalculatorRoute: typeof RatioCalculatorRoute
+  RichTextEditorRoute: typeof RichTextEditorRoute
   SitemapRoute: typeof SitemapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
@@ -742,6 +791,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RatioCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rich-text-editor': {
+      id: '/rich-text-editor'
+      path: '/rich-text-editor'
+      fullPath: '/rich-text-editor'
+      preLoaderRoute: typeof RichTextEditorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap': {
       id: '/sitemap'
       path: '/sitemap'
@@ -784,6 +840,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthorsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/blog': {
+      id: '/admin/blog'
+      path: '/blog'
+      fullPath: '/admin/blog'
+      preLoaderRoute: typeof AdminBlogRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/leads': {
       id: '/admin/leads'
       path: '/leads'
@@ -796,6 +859,20 @@ declare module '@tanstack/react-router' {
       path: '/media'
       fullPath: '/admin/media'
       preLoaderRoute: typeof AdminMediaRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/pages': {
+      id: '/admin/pages'
+      path: '/pages'
+      fullPath: '/admin/pages'
+      preLoaderRoute: typeof AdminPagesRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/seo': {
@@ -865,8 +942,11 @@ const AdminAuthorsRouteWithChildren = AdminAuthorsRoute._addFileChildren(
 interface AdminRouteChildren {
   AdminActivityRoute: typeof AdminActivityRoute
   AdminAuthorsRoute: typeof AdminAuthorsRouteWithChildren
+  AdminBlogRoute: typeof AdminBlogRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminMediaRoute: typeof AdminMediaRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminPagesRoute: typeof AdminPagesRoute
   AdminSeoRoute: typeof AdminSeoRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminUsersRoute: typeof AdminUsersRoute
@@ -876,8 +956,11 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminActivityRoute: AdminActivityRoute,
   AdminAuthorsRoute: AdminAuthorsRouteWithChildren,
+  AdminBlogRoute: AdminBlogRoute,
   AdminLeadsRoute: AdminLeadsRoute,
   AdminMediaRoute: AdminMediaRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminPagesRoute: AdminPagesRoute,
   AdminSeoRoute: AdminSeoRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminUsersRoute: AdminUsersRoute,
@@ -913,6 +996,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RatioRoute: RatioRoute,
   RatioCalculatorRoute: RatioCalculatorRoute,
+  RichTextEditorRoute: RichTextEditorRoute,
   SitemapRoute: SitemapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
@@ -923,3 +1007,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
