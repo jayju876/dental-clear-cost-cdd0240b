@@ -166,7 +166,7 @@ export function LoanGuideContent() {
         <H2 id="cost">How Much Do Dental Implants Cost in the US?</H2>
         <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            According to the American Academy of Implant Dentistry (AAID), dental implants in the United States typically cost between <strong className="text-foreground">$3,000 and $6,000 per tooth</strong> for a single implant, including the abutment and crown. Full-mouth implants or implant-supported dentures can range from <strong className="text-foreground">$25,000 to $90,000</strong> depending on the number of implants and the complexity of the procedure. See our breakdown of <Link to="/blog/full-set-dental-implants-cost" className="text-secondary font-medium hover:underline">full set dental implant costs</Link> for details.
+            According to the American Academy of Implant Dentistry (AAID), dental implants in the United States typically cost between <strong className="text-foreground">$3,000 and $6,000 per tooth</strong> for a single implant, including the abutment and crown. Full-mouth implants or implant-supported dentures can range from <strong className="text-foreground">$25,000 to $90,000</strong> depending on the number of implants and the complexity of the procedure. See our breakdown of <Link to="/blog/$slug" params={{ slug: "full-set-dental-implants-cost" }} className="text-secondary font-medium hover:underline">full set dental implant costs</Link> for details.
           </p>
         </div>
         <DataTable head={["Procedure", "Average Cost (US)"]} rows={COST_ROWS} />
