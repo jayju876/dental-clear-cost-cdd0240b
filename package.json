@@ -2,9 +2,6 @@
   "name": "tanstack_start_ts",
   "private": true,
   "packageManager": "pnpm@11.24.0",
-  "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "workerd"]
-  },
   "sideEffects": false,
   "type": "module",
   "scripts": {
