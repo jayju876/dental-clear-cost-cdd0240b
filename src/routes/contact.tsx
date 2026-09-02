@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { Clock, Send, MessageCircle, Globe2, ShieldCheck, Sparkles } from "lucide-react";
@@ -29,6 +29,7 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const submitFn = useServerFn(submitContactForm);
 
   async function submit(e: React.FormEvent) {
@@ -40,8 +41,8 @@ function Contact() {
     setLoading(true);
     try {
       await submitFn({ data: form });
-      toast.success("Message sent! We'll be in touch within one business day.");
       setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+      await navigate({ to: "/thank-you" });
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong. Please try again.");

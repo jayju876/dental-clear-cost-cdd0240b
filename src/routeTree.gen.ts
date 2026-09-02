@@ -39,6 +39,7 @@ import { Route as RichTextEditorRouteImport } from './routes/rich-text-editor'
 import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminActivityRouteImport } from './routes/admin.activity'
 import { Route as AdminAuthorsRouteImport } from './routes/admin.authors'
@@ -211,6 +212,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -318,6 +324,7 @@ export interface FileRoutesByFullPath {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
   '/admin/blog': typeof AdminBlogRoute
@@ -364,6 +371,7 @@ export interface FileRoutesByTo {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
   '/admin/blog': typeof AdminBlogRoute
@@ -412,6 +420,7 @@ export interface FileRoutesById {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/admin/activity': typeof AdminActivityRoute
   '/admin/authors': typeof AdminAuthorsRouteWithChildren
   '/admin/blog': typeof AdminBlogRoute
@@ -461,6 +470,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/thank-you'
     | '/admin/activity'
     | '/admin/authors'
     | '/admin/blog'
@@ -507,6 +517,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/thank-you'
     | '/admin/activity'
     | '/admin/authors'
     | '/admin/blog'
@@ -554,6 +565,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/thank-you'
     | '/admin/activity'
     | '/admin/authors'
     | '/admin/blog'
@@ -602,6 +614,7 @@ export interface RootRouteChildren {
   SitemapRoute: typeof SitemapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  ThankYouRoute: typeof ThankYouRoute
   AuthorSlugRoute: typeof AuthorSlugRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -819,6 +832,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -1000,6 +1020,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapRoute: SitemapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  ThankYouRoute: ThankYouRoute,
   AuthorSlugRoute: AuthorSlugRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
