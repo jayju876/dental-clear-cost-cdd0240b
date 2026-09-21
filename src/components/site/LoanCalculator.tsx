@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Wallet, TrendingUp, Calendar, Percent, ArrowRight, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -19,7 +19,7 @@ function calc(principal: number, apr: number, months: number) {
   return { monthly: m, total, interest: total - principal };
 }
 
-export function LoanCalculator({ title, lead }: { title?: string; lead?: string }) {
+export function LoanCalculator({ title, lead }: { title?: ReactNode; lead?: ReactNode }) {
   const [cost, setCost] = useState(15000);
   const [down, setDown] = useState(2000);
   const [apr, setApr] = useState(11);
