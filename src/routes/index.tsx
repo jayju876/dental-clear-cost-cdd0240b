@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Free dental implant cost calculator for the USA — estimate single tooth implant cost, full mouth dental implant cost, and permanent implant cost with or without insurance." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "keywords", content: "dental implant cost calculator, single tooth implant cost, cheapest tooth implant cost, full mouth dental implant cost calculator in USA, permanent dental implant cost calculator in USA with insurance, dental procedure cost estimator" },
+      { name: "keywords", content: "dental implants cost calculator, dental implant cost calculator, calculator implants, recovery time and cost estimates for dental implants, dental implant quotes, dental implant cost 2026, tooth transplant cost, dental titanium implants cost, how much should a dental implant cost, implant cost, average cost dental implant us 2026, average cost of dental implants 2026, average cost dental implants us 2026, abutment and crown cost, dental implant cost us average 2026, estimated dental costs for implants, estimated cost of a dental implant, titanium dental implant cost, dental implant cost guide, average cost dental implant united states 2026, value of dental implants, cost to replace tooth, cost of dental implants 2025, price of tooth replacement, dental implants cost guide, estimated cost for dental implants, dental abutment cost" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
@@ -139,6 +139,39 @@ function Home() {
             <ul className="mt-6 space-y-3 text-sm">{['Treatment options explained clearly', 'Costs and financing in context', 'An estimate, not a substitute for care'].map(text => <li key={text} className="flex items-center gap-3"><Check className="h-4 w-4 text-secondary" />{text}</li>)}</ul>
             <Button asChild size="lg" className="home-pill mt-7"><Link to="/about">Meet our authors <ArrowUpRight /></Link></Button>
           </div>
+        </div>
+      </section>
+
+      <section className="home-section home-width border-t border-border" aria-label="Dental implant cost guide">
+        <div className="home-section-heading">
+          <div><p className="home-eyebrow">Dental implant cost guide</p><h2 className="home-heading mt-3">Your dental implants<br />cost guide for 2026.</h2></div>
+          <p className="max-w-sm text-sm leading-7 text-muted-foreground">How much should a dental implant cost? Our dental implants cost calculator answers that with clear, personalized numbers.</p>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article className="rounded-lg border border-border bg-card p-6">
+            <h3 className="text-base font-semibold">Average cost of dental implants 2026</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Wondering about the average cost dental implant US 2026 figures? The average cost dental implants US 2026 range depends on your city, materials and clinic. Our dental implant cost calculator turns the dental implant cost US average 2026 picture into a number that fits your case — including the average cost dental implant United States 2026 ranges and the broader cost of dental implants 2025 trends for comparison.</p>
+          </article>
+          <article className="rounded-lg border border-border bg-card p-6">
+            <h3 className="text-base font-semibold">Implant cost, abutment and crown cost</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Every estimate separates the implant cost from the abutment and crown cost, so you see the full dental abutment cost before you commit. We also break down titanium dental implant cost and dental titanium implants cost by material, so the value of dental implants is easy to judge.</p>
+          </article>
+          <article className="rounded-lg border border-border bg-card p-6">
+            <h3 className="text-base font-semibold">Estimated cost of a dental implant</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Get the estimated cost of a dental implant in minutes. This calculator implants tool produces estimated dental costs for implants and an estimated cost for dental implants across single tooth, bridge and full-arch treatments — your personal dental implant quotes, free and instant.</p>
+          </article>
+          <article className="rounded-lg border border-border bg-card p-6">
+            <h3 className="text-base font-semibold">Price of tooth replacement</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Compare the cost to replace tooth options side by side. The price of tooth replacement varies by treatment — an implant, a bridge or a denture — and our dental implant cost 2026 data helps you weigh each one.</p>
+          </article>
+          <article className="rounded-lg border border-border bg-card p-6">
+            <h3 className="text-base font-semibold">Recovery time and cost estimates for dental implants</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Plan with recovery time and cost estimates for dental implants in one place: typical healing timelines by procedure, plus the budget to match, so there are no surprises after your consultation.</p>
+          </article>
+          <article className="rounded-lg border border-border bg-card p-6">
+            <h3 className="text-base font-semibold">Tooth transplant cost vs implants</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Searching for tooth transplant cost? Tooth transplantation — moving one of your own teeth — is a different, rarer procedure than an implant. Our guide explains the difference and shows what an implant typically costs instead.</p>
+          </article>
         </div>
       </section>
 
