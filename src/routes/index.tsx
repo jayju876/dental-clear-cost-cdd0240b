@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Free dental implant cost calculator for the USA — estimate single tooth implant cost, full mouth dental implant cost, and permanent implant cost with or without insurance." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "keywords", content: "dental implant cost calculator, single tooth implant cost, cheapest tooth implant cost, full mouth dental implant cost calculator in USA, permanent dental implant cost calculator in USA with insurance, dental procedure cost estimator" },
+      { name: "keywords", content: "dental implants cost calculator, dental implant cost calculator, calculator implants, recovery time and cost estimates for dental implants, dental implant quotes, dental implant cost 2026, tooth transplant cost, dental titanium implants cost, how much should a dental implant cost, implant cost, average cost dental implant us 2026, average cost of dental implants 2026, average cost dental implants us 2026, abutment and crown cost, dental implant cost us average 2026, estimated dental costs for implants, estimated cost of a dental implant, titanium dental implant cost, dental implant cost guide, average cost dental implant united states 2026, value of dental implants, cost to replace tooth, cost of dental implants 2025, price of tooth replacement, dental implants cost guide, estimated cost for dental implants, dental abutment cost" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
