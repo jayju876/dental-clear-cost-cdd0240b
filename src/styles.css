@@ -119,6 +119,53 @@
   .payment-takeaways, .payment-contents { padding: 20px; }
 }
 
+/* Breast surgery page: the same light-blue editorial reference, isolated. */
+.breast-reference {
+  --background: oklch(0.984 0.003 247.858);
+  --foreground: oklch(0.21 0.04 265.75);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --primary: var(--secondary);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.564 0.205 262.4);
+  --secondary-foreground: oklch(1 0 0);
+  --muted-foreground: oklch(0.48 0.035 257);
+  --breast-callout: oklch(0.961 0.014 263);
+  --breast-gradient-end: oklch(0.48 0.21 265);
+  --breast-shadow: 0 10px 28px color-mix(in oklab, var(--foreground) 10%, transparent);
+  --breast-gradient: linear-gradient(135deg, var(--secondary), var(--breast-gradient-end));
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0;
+}
+.breast-reference h1, .breast-reference h2, .breast-reference h3 { letter-spacing: 0; }
+.breast-width { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+.breast-calculator-band { padding-block: 36px 44px; background: linear-gradient(180deg, var(--background), var(--breast-callout)); }
+.breast-header h1 { font-size: 40px; line-height: 1.16; font-weight: 750; max-width: 900px; }
+.breast-header > p:last-child { font-size: 15px; line-height: 1.8; }
+.breast-inputs, .breast-result { border-radius: 8px; box-shadow: var(--breast-shadow); min-width: 0; }
+.breast-inputs [data-slot="select-trigger"] { width: 100%; min-height: 44px; }
+.breast-inputs [data-slot="select-value"] { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.breast-result { background: var(--breast-gradient); border: 0; gap: 0; }
+.breast-range { font-size: 32px; line-height: 1.3; overflow-wrap: anywhere; }
+.breast-midpoint { border-block: 1px solid color-mix(in oklab, var(--secondary-foreground) 24%, transparent); }
+.breast-article { max-width: 936px; margin-inline: auto; }
+.breast-callout, .breast-contents { border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+.breast-callout, .breast-factor { background: var(--breast-callout); }
+.breast-factor { border-radius: 8px; }
+.breast-contents { background: var(--card); }
+.breast-guide h2 { line-height: 1.35; scroll-margin-top: 100px; }
+.breast-guide p, .breast-guide li { font-size: 15px; line-height: 1.85; }
+.breast-guide h2:not(:first-child) { margin-top: 36px; }
+.breast-closing { background: var(--breast-gradient); border-radius: 8px; }
+@media (max-width: 767px) {
+  .breast-width { width: calc(100% - 40px); }
+  .breast-calculator-band { padding-block: 24px 30px; }
+  .breast-header h1 { font-size: 30px; }
+  .breast-range { font-size: 28px; }
+  .breast-callout, .breast-contents, .breast-inputs, .breast-result { padding: 20px; }
+  .breast-guide h2 { font-size: 23px; }
+}
+
 /* Reference-inspired homepage; deliberately isolated from the public CMS theme. */
 .editorial-home {
   --background: oklch(0.15 0.014 260);
