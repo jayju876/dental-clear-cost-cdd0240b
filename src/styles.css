@@ -73,6 +73,52 @@
   --home-overlay: oklch(0.15 0.014 260);
 }
 
+/* Payment-page loan screenshot reference; never changes other calculators. */
+.payment-reference {
+  --background: oklch(0.984 0.003 247.858);
+  --foreground: oklch(0.21 0.04 265.75);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --primary: oklch(0.21 0.04 265.75);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.564 0.205 262.4);
+  --secondary-foreground: oklch(1 0 0);
+  --accent: oklch(0.746 0.13 209.5);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --payment-callout: oklch(0.961 0.014 263);
+  --payment-shadow: 0 10px 28px color-mix(in oklab, var(--foreground) 12%, transparent);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0;
+}
+.payment-reference h1, .payment-reference h2, .payment-reference h3 { letter-spacing: 0; }
+.payment-reference > div:first-child { background: linear-gradient(180deg, var(--background), var(--payment-callout)); }
+.payment-reference > div:first-child > div { padding-block: 44px; }
+.payment-reference h1 { font-size: 40px; line-height: 1.12; font-weight: 750; max-width: 800px; }
+.payment-reference h1 strong { font-weight: inherit; }
+.payment-reference h1 + p { font-size: 14px; line-height: 1.8; }
+.payment-reference img { border-radius: 8px; }
+.payment-reference .lg\:col-span-2 { border-radius: 8px; box-shadow: var(--payment-shadow); }
+.payment-reference .lg\:col-span-3 > div { border-radius: 8px; }
+.payment-reference .lg\:col-span-3 > div:first-child { box-shadow: var(--payment-shadow); }
+.payment-reference .lg\:col-span-3 > div:first-child > .absolute { display: none; }
+.payment-reference .lg\:col-span-3 > div:not(:first-child) { box-shadow: none; }
+.payment-reference .lg\:col-span-3 table { font-size: 13px; }
+.payment-article { max-width: 936px; margin-inline: auto; }
+.payment-takeaways { padding: 24px; background: var(--payment-callout); border: 1px solid var(--border); border-radius: 8px; }
+.payment-contents { padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+.payment-sections article { margin-top: 48px; }
+.payment-sections h2 { scroll-margin-top: 100px; line-height: 1.35; }
+.payment-sections p, .payment-sections li { font-size: 15px; }
+.payment-closing { scroll-margin-top: 100px; }
+@media (max-width: 767px) {
+  .payment-reference h1 { font-size: 30px; }
+  .payment-reference > div:first-child > div { padding-block: 30px; }
+  .payment-reference .lg\:col-span-3 .grid.sm\:grid-cols-3 { grid-template-columns: 1fr; }
+  .payment-reference .lg\:col-span-3 .grid.sm\:grid-cols-3 a { white-space: normal; text-align: center; }
+  .payment-sections h2 { font-size: 23px; }
+  .payment-takeaways, .payment-contents { padding: 20px; }
+}
+
 /* Reference-inspired homepage; deliberately isolated from the public CMS theme. */
 .editorial-home {
   --background: oklch(0.15 0.014 260);
